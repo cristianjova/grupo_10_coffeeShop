@@ -1,0 +1,22 @@
+{
+  "name": "site",
+  "version": "1.0.0",
+  "description": "Ecommerce CoffeeShop",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cristianjova/grupo_10_coffeeShop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cristianjova/grupo_10_coffeeShop/issues"
+  },
+  "homepage": "https://github.com/cristianjova/grupo_10_coffeeShop#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
