@@ -8,7 +8,7 @@ app.use(express.static('public'));
 
 // Rutas - Temporales
 app.get('/', (req,res)=>{
-  res.sendfile(__dirname + '/views/home.html')
+  res.sendfile(__dirname + '/views/index.html')
 });
 app.get('/product-detail', (req, res) => {
   res.sendFile(`${__dirname}/views/productDetail.html`);
