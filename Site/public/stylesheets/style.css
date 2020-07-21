@@ -1,7 +1,22 @@
+:root{
+    --primary:#581F0C;
+    --secondary:#E5D1AE;
+    --intermedia:#DD904A;
+}
 body{
     font-family: 'Lato', sans-serif;
     background-color: #E5D1AE;
     margin: 0px;
     color: #581F0C;
     box-sizing: border-box;
+}
+.nav-bgc,
+.mini-footer {
+    background-color: var(--primary);
+}
+.navbar-light .navbar-nav .nav-link,
+.navbar-light .navbar-brand,
+.navbar-light .navbar-brand,
+.nav-link {
+    color: var(--intermedia);
 }

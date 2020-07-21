@@ -20,6 +20,9 @@ app.get('/product-cart', (req, res) => {
   res.sendFile(__dirname + '/views/productCart.html');
 });
 
+//ruta a headers
+app.get('/header', (req,res)=>{res.sendfile(__dirname + '/views/header.html')});
+
 // Correr servidor
 const PORT = 3000;
 app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
