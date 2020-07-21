@@ -5,3 +5,46 @@ body{
     color: #581F0C;
     box-sizing: border-box;
 }
+
+/*Index*/
+.hometitle{
+    font-weight: 900;
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 30px;
+}
+
+.homeProductContainer{
+    text-align: center;
+}
+
+.homeProductName{
+    font-size: medium;
+    font-weight: 800;
+    margin: 0;
+}
+.homeProductPrice{
+    font-style: italic;
+    font-size:medium;
+    font-weight: 600;
+    margin: 0;
+}
+
+.btn-primary{
+    background-color: #581F0C;
+    border-color: #581F0C;
+}
+.btn-primary{
+        background-color: #581F0C;
+        border-color: #581F0C;     
+}
+
+.btn-primary:hover{
+    background-color: #DD904A;
+    border-color: #DD904A;
+}
+.btn-primary:active{
+    background-color: #DD904A;
+    border-color: #DD904A;
+}
