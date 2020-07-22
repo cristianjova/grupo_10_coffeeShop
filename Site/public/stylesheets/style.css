@@ -1,3 +1,9 @@
+:root{
+    --primary:#581F0C;
+    --secondary:#E5D1AE;
+    --intermedia:#DD904A;
+     
+}
 body{
     font-family: 'Lato', sans-serif;
     background-color: #E5D1AE;
@@ -17,8 +23,11 @@ body{
 
 .homeProductContainer{
     text-align: center;
+    padding: 12px;
 }
-
+.homeProduct{
+    margin-bottom: -50px;
+}
 .homeProductName{
     font-size: medium;
     font-weight: 800;
@@ -29,6 +38,7 @@ body{
     font-size:medium;
     font-weight: 600;
     margin: 0;
+    
 }
 
 .btn-primary{
@@ -37,14 +47,31 @@ body{
 }
 .btn-primary{
         background-color: #581F0C;
-        border-color: #581F0C;     
+        border-color: #581F0C;    
+ 
+}
+button{
+    background-color:#581F0C;
+	border-radius:5px;
+    color: whitesmoke;
+    padding: 1px;
+    font-size: 0.8em;
+    padding: 0.4em;
+    border: 0;
+    margin: 0.5em;
 }
 
-.btn-primary:hover{
+button:hover{
     background-color: #DD904A;
-    border-color: #DD904A;
 }
-.btn-primary:active{
-    background-color: #DD904A;
-    border-color: #DD904A;
+
+.nav-bgc,
+.mini-footer {
+    background-color: var(--primary);
+}
+.navbar-light .navbar-nav .nav-link,
+.navbar-light .navbar-brand,
+.navbar-light .navbar-brand,
+.nav-link {
+    color: var(--intermedia);
 }
