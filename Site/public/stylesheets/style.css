@@ -11,6 +11,17 @@ body{
     color: #581F0C;
     box-sizing: border-box;
 }
+/*Footer y Header*/
+.nav-bgc,
+.mini-footer {
+    background-color: var(--primary);
+}
+.navbar-light .navbar-nav .nav-link,
+.navbar-light .navbar-brand,
+.navbar-light .navbar-brand,
+.nav-link {
+    color: var(--intermedia);
+}
 
 /*Index*/
 .hometitle{
@@ -65,13 +76,22 @@ button:hover{
     background-color: #DD904A;
 }
 
-.nav-bgc,
-.mini-footer {
-    background-color: var(--primary);
+/*Login*/
+
+.formContainer{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 10px auto;
+    width: 50%;
 }
-.navbar-light .navbar-nav .nav-link,
-.navbar-light .navbar-brand,
-.navbar-light .navbar-brand,
-.nav-link {
-    color: var(--intermedia);
+.formContainer button, label, input{
+    width: 100%;
 }
+ .loginImg{
+     font-size: 5em;
+     
+ }

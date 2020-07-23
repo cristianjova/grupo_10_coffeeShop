@@ -10,6 +10,11 @@ app.use(express.static('public'));
 app.get('/', (req,res)=>{
   res.sendfile(__dirname + '/views/index.html')
 });
+
+app.get('/login', (req,res)=>{
+  res.sendfile(__dirname + '/views/login.html')
+});
+
 app.get('/product-detail', (req, res) => {
   res.sendFile(`${__dirname}/views/productDetail.html`);
   // Eso es igual a (__dirname + '/views/productDetail.html') a mi me parece más facil asi
