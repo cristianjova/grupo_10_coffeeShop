@@ -1,7 +1,8 @@
 :root{
     --primary:#581F0C;
-    --secondary:#E5D1AE;
-    --intermedia:#DD904A;
+    --secondary: #E5D1AE;
+    --intermedia: #DD904A;
+    --light: #E0AD58;
     --letters: #581F0C;
      
 }
@@ -10,7 +11,7 @@ body{
     min-height: 100vh;
 
     font-family: 'Lato', sans-serif;
-    background-color: #E5D1AE;
+    background-color: var(--secondary);
     margin: 0px;
     color: var(--letters);
     box-sizing: border-box;
@@ -33,29 +34,49 @@ main{flex-grow: 1;}
     padding: 0.4em;
     border: 0;
     margin: 0.5em;
+    border-style: none;    
 }
 
-.btn-primary{
+.primary{
     background-color: var(--primary);
     border-color: var(--primary);
+    color: whitesmoke;
+    border: 1px;
+    border-style: solid;
+    border-color: var(--primary);
 }
-.btn-primary{
-    background-color: #581F0C;
-    border-color: #581F0C;    
- 
-}
-.btn-secondary{
+
+.btn .secondary{
     background-color: var(--intermedia);
     border-color:var(--intermedia);    
  
 }
 
-.btn-primary :hover{
-    background-color: var(--secondary);
+.primary:hover{
+    background-color: var(--intermedia);
+    border: 1px;
+    border-style: solid;
+    border-color: var(--intermedia);
 }
-.btn-secondary :hover{
+.btn .secondary :hover{
     background-color: var(--primary);
 }
+
+label{
+    font-weight: 700;
+    margin: 0.2rem;
+}
+
+input{
+    border-radius: 2px;
+    border: 0px;
+    margin: 0.2rem;
+}
+
+h1{
+    margin: 0.2rem
+}
+
 /*Hasta aca son estilos para todo el sitio, consultar antes de modificar*/
 /*----------------------------------------------------------------------*/
 
@@ -74,12 +95,13 @@ main{flex-grow: 1;}
 }
 
 /*Index*/
+/*----------------------------------------------------------------------*/
 .hometitle{
     font-weight: 900;
     font-size: 30px;
     text-align: center;
     text-transform: uppercase;
-    padding: 30px;
+    margin-bottom: -50px;
 }
 
 .homeProductContainer{
@@ -99,25 +121,34 @@ main{flex-grow: 1;}
     font-size:medium;
     font-weight: 600;
     margin: 0;
-    
 }
 
-button{
-    background-color:#581F0C;
-	border-radius:5px;
-    color: whitesmoke;
-    padding: 1px;
-    font-size: 0.8em;
-    padding: 0.4em;
-    border: 0;
-    margin: 0.5em;
+section .containerHome{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: space-around;
+    padding: 1rem;
 }
 
-button:hover{
-    background-color: #DD904A;
+section .containerHome img{
+    width: 100%;
 }
 
+@media(min-width:768px){
+    section .containerHome article{
+        width: 50%;
+    }
+}
+
+@media(min-width:1024px){
+    section .containerHome article{
+        width: 33%;
+    }
+}
 /*Login*/
+/*----------------------------------------------------------------------*/
 
 .formContainer{
     align-items: center;
@@ -126,8 +157,8 @@ button:hover{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    margin: 10px auto;
-    width: 50%;
+    margin: 2rem auto;
+    width: 75%;
 }
 .formContainer button, label, input{
     width: 100%;
@@ -135,4 +166,24 @@ button:hover{
  .loginImg{
      font-size: 5em;
 }
-
+.rememberLogin{
+    display: block;
+    margin: 0.5rem;
+}
+.rememberLogin input{
+    width: 1rem;
+}
+@media(min-width:768px){
+    .formContainer{
+        width: 40%;
+    }
+    
+}
+@media(min-width:1024px){
+    .formContainer{
+        width: 33%;
+    }
+    .formContainer .btn{
+        width: 200px;
+    }
+}

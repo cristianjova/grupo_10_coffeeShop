@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.css">
     
     <!--Estilos internos-->
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <!--Cargo fuente lato-->
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <title>Bienvenido a Café del Mundo</title>
 </head>
 <body > 
-    <header>
+  <header>
         <nav class="navbar navbar-expand-md navbar-light nav-bgc">
             <a class="navbar-brand" href="#">CoffeeShop</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,126 +46,91 @@
               </ul>
             </div>
         </nav>
-    </header>
-    <main class="homepage">
-        <!--Slider principal-->
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="/img/slider1.png" class="d-block w-100" alt="slider1">
-              </div>
-              <div class="carousel-item">
-                <img src="/img/slider2.png" class="d-block w-100" alt="slider2">
-              </div>
-              <div class="carousel-item">
-                <img src="/img/slider3.png" class="d-block w-100" alt="slider3">
-              </div>
-              <div class="carousel-item">
-                <img src="/img/slider4.png" class="d-block w-100" alt="slider4">
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
+  </header>
+  <main class="homepage">
+    <!--Slider principal-->
+    <div class="imgHome">
+      <img src="/img/slider1.png"width="100%">
+    </div>
+
+    <!--Productos destacados-->
+    <section class="homepage">
+      <h1 class="hometitle">Productos Destacados</h1>
+
+      <div class="containerHome">
+        <article class="homeContainer">
+          <div class="homeProduct">
+            <img src="/img/africa.png" alt="destacado1">
           </div>
+          <div class="homeProductContainer">
+            <p class="homeProductName">ORIGEN ÁFRICA</p>
+            <p class="homeProductPrice">Precio $</p>
+            <button class="btn primary">Agregar al carrito</button>                            
+          </div>
+        </article>
         
-
-        <!--Productos destacados-->
-        <section class="homepage">
-            <h1 class="hometitle">Productos Destacados</h1>
-
-            <div class="container">
-                <div class="row">
-                  <div class="col-sm">
-                    <article class="homeContainer">
-                        <div class="homeProduct">
-                            <img src="/img/africa.png" alt="destacado1" width="100%">
-                        </div>
-                        <div class="homeProductContainer">
-                            <p class="homeProductName">ORIGEN ÁFRICA</p>
-                            <p class="homeProductPrice">Precio $</p>
-                            <button class="button">Agregar al carrito</button>                            
-                        </div>
-                    </article>
-                  </div>
-                  <div class="col-sm">
-                    <article class="homeContainer">
-                        <div class="homeProduct">
-                            <img src="/img/asia.png" alt="destacado2" width="100%">
-                        </div>
-                        <div class="homeProductContainer">
-                            <p class="homeProductName">ORIGEN ASIA</p>
-                            <p class="homeProductPrice">Precio $</p>
-                            <button class="button">Agregar al carrito</button>
-                        </div>
-                    </article>
-                  </div>
-                  <div class="col-sm">
-                    <article class="homeContainer">
-                        <div class="homeProduct">
-                            <img src="/img/brasil.png" alt="destacado3" width="100%">
-                        </div>
-                        <div class="homeProductContainer">
-                            <p class="homeProductName">ORIGEN BRASIL</p>
-                            <p class="homeProductPrice">Precio $</p>
-                            <button class="button">Agregar al carrito</button>
-                        </div>
-                    </article>
-                  </div>
-                </div>
-              </div>
-
-              <div class="container">
-                <div class="row">
-                  <div class="col-sm">
-                    <article class="homeContainer">
-                        <div class="homeProduct">
-                            <img src="/img/brasilColombiaHonduras.png" alt="destacado4" width="100%">
-                        </div>
-                        <div class="homeProductContainer">
-                            <p class="homeProductName">ORIGEN BRASIL - COLOMBIA - HONDURAS</p>
-                            <p class="homeProductPrice">Precio $</p>
-                            <button class="button">Agregar al carrito</button>
-                        </div>
-                    </article>
-                  </div>
-                  <div class="col-sm">
-                    <article class="homeContainer">
-                        <div class="homeProduct">
-                            <img src="/img/colombia.png" alt="destacado5" width="100%">
-                        </div>
-                        <div class="homeProductContainer">
-                            <p class="homeProductName">ORIGEN COLOMBIA</p>
-                            <p class="homeProductPrice">Precio $</p>
-                            <button class="button">Agregar al carrito</button>
-                        </div>
-                    </article>
-                  </div>
-                  <div class="col-sm">
-                    <article class="homeContainer">
-                        <div class="homeProduct">
-                            <img src="/img/etiopia.png" alt="destacado6" width="100%">
-                        </div>
-                        <div class="homeProductContainer">
-                            <p class="homeProductName">ORIGEN ETIOPÍA</p>
-                            <p class="homeProductPrice">Precio $</p>
-                            <button class="button">Agregar al carrito</button>
-                        </div>
-                    </article>
-                  </div>
-                </div>
-              </div>
-        </section>
-    </main>
-    <footer class="nav-bgc ">
-        <div class="row nav-item">
-            <div class="mx-auto"><p class="nav-link " href="#">Copyright © 2020 CoffeeShoop</p></div>
-        </div>
-    </footer>
+        <article class="homeContainer">
+          <div class="homeProduct">
+            <img src="/img/asia.png" alt="destacado2">
+           </div>
+           <div class="homeProductContainer">
+             <p class="homeProductName">ORIGEN ASIA</p>
+             <p class="homeProductPrice">Precio $</p>
+             <button class=" btn primary">Agregar al carrito</button>
+            </div>
+        </article>
+          
+        <article class="homeContainer">
+            <div class="homeProduct">
+              <img src="/img/brasil.png" alt="destacado3">
+            </div>
+            <div class="homeProductContainer">
+              <p class="homeProductName">ORIGEN BRASIL</p>
+              <p class="homeProductPrice">Precio $</p>
+              <button class=" btn primary">Agregar al carrito</button>
+          </div>
+        </article>
+       
+        <article class="homeContainer">
+          <div class="homeProduct">
+            <img src="/img/brasilColombiaHonduras.png" alt="destacado4">
+          </div>
+          <div class="homeProductContainer">
+            <p class="homeProductName">ORIGEN BRASIL - COLOMBIA - HONDURAS</p>
+            <p class="homeProductPrice">Precio $</p>
+            <button class=" btn primary">Agregar al carrito</button>
+          </div>
+        </article>
+        
+        <article class="homeContainer">
+          <div class="homeProduct">
+            <img src="/img/colombia.png" alt="destacado5">
+          </div>
+          <div class="homeProductContainer">
+            <p class="homeProductName">ORIGEN COLOMBIA</p>
+            <p class="homeProductPrice">Precio $</p>
+            <button class=" btn primary">Agregar al carrito</button>
+          </div>
+        </article>
+        
+        <article class="homeContainer">
+          <div class="homeProduct">
+            <img src="/img/etiopia.png" alt="destacado6">
+          </div>
+          <div class="homeProductContainer">
+            <p class="homeProductName">ORIGEN ETIOPÍA</p>
+            <p class="homeProductPrice">Precio $</p>
+            <button class=" btn primary">Agregar al carrito</button>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="nav-bgc ">
+   <div class="row nav-item">
+      <div class="mx-auto"><p class="nav-link " href="#">Copyright © 2020 CoffeeShoop</p>
+      </div>
+  </div>
+  </footer>
 </body>
 </html>
