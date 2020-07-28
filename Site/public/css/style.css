@@ -7,6 +7,7 @@
      
 }
 body{
+    
 
     min-height: 100vh;
 
@@ -132,6 +133,7 @@ footer span a {
 
 /*Index*/
 /*----------------------------------------------------------------------*/
+
 .hometitle{
     font-weight: 900;
     font-size: 30px;
@@ -209,20 +211,7 @@ section .containerHome img{
 .rememberLogin input{
     width: 1rem;
 }
-@media(min-width:768px){
-    .formContainer{
-        width: 40%;
-    }
-    
-}
-@media(min-width:1024px){
-    .formContainer{
-        width: 33%;
-    }
-    .formContainer .btn{
-        width: 200px;
-    }
-}
+
 
 /*Formulario registro*/
 /*----------------------------------------------------------------------*/
@@ -360,6 +349,13 @@ section .containerHome img{
 }
 
 @media (min-width: 768px) {
+    /*Homepage*/
+   
+    .formContainer{
+        width: 40%;
+    }
+        
+    
     /* ProductDetail Page */
     .product-detail .product {
         flex-direction: row;
@@ -405,6 +401,14 @@ section .containerHome img{
 }
 
 @media (min-width: 1024px) {
+    /*Homepage*/
+    .formContainer{
+        width: 33%;
+    }
+    .formContainer .btn{
+        width: 200px;
+    }
+
     /* ProductDetail Page */
     .product-detail .product .product-buy {
         width: 50%;
