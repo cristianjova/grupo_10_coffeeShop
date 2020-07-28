@@ -97,6 +97,7 @@ footer {
     background-color: var(--primary);
     color: var(--intermedia);
     padding: 20px;
+    display: flex;
     text-align: center;
 }
 header nav{
@@ -225,6 +226,17 @@ section .containerHome img{
 
 /*Formulario registro*/
 /*----------------------------------------------------------------------*/
+.register{
+    border: 1px solid black;
+    flex-wrap: nowrap;
+    padding: 10px;
+    display: flex;
+
+    margin-top: 15vh;
+}
+.register button{
+    width: 50%;
+}
 .register label {
     text-align: left;
 }
