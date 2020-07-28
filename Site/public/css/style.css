@@ -97,18 +97,24 @@ footer {
     background-color: var(--primary);
     color: var(--intermedia);
     padding: 20px;
-    display: flex;
-    text-align: center;
-}
-header nav{
-    flex-wrap: wrap;
+    
 }
 a{
     color: var(--intermedia);
     text-decoration: none;
+    display: block;
+    width: 100%;
+    
+}
+header a{
+    text-align: center;
 }
  a:hover{
     color: var(--secondary);
+}
+header nav span{
+    display: block;
+    width: 100%;
 }
 header nav a:hover, 
 footer nav a:hover {
@@ -122,12 +128,6 @@ footer span a {
 }
 .active{
     color: var(--secondary);
-}
-.right{
-    float: right;
-}
-.left{
-    float: left;
 }
 
 /*Index*/
@@ -387,6 +387,20 @@ section .containerHome img{
 
     .product-cart .cart .cart-item .item-img img {
         width: 45%;
+    }
+    /*Header*/
+    header nav,
+    footer{
+        display: flex;
+        justify-content: space-between;
+    }
+    header a,
+    footer a{
+        display: inline;
+    }
+    .right{
+        text-align: right;
+        width: 40%;
     }
 }
 
