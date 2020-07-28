@@ -29,3 +29,6 @@ _Proyecto integrador para el curso de Desarrollo Web FullStack de Digital House_
 * [Alejandro Galeano](https://github.com/AG350): 28 años, de la ciudad de Posadas, Misiones. Desarrollador Web.
 * [Cristian Jovanovich](https://github.com/cristianjova): 25 años, de la ciudad de Presidencia Roque Sáenz Peña, estudiante de Tecnicatura Superior en Desarrollo de Software.
 * [Nicolás Niz](https://github.com/niconiz): 22 años, de la ciudad de Ushuaia, Tierra del Fuego. Estudiante de Ingeniería.
+
+## Tablero de trabajo
+[Trello](https://trello.com/invite/b/0NaenTdb/538fbfcdc3a1d5dfa6c76ef669c95c4b/coffeeshop )
