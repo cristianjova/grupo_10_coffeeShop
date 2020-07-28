@@ -216,7 +216,6 @@ section .containerHome img{
 /*Formulario registro*/
 /*----------------------------------------------------------------------*/
 .register{
-    border: 1px solid black;
     flex-wrap: nowrap;
     padding: 10px;
     display: flex;
