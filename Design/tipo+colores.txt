@@ -1,6 +1,6 @@
 Fuente: LATO
 https://fonts.google.com/specimen/Lato?query=lato
 
-marrón oscuro: #581F0C
-marrón clarito (fondo): #E5D1AE
-marrón intermedio (logo):#DD904A
+marrón oscuro: var(--primary)
+marrón clarito (fondo): var(--secondary)
+marrón intermedio (logo):var(--intermedia)
