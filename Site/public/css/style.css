@@ -91,6 +91,7 @@ h1{
 
 
 /*Footer y Header*/
+/*----------------------------------------------------------------------*/
 header, 
 footer {
     background-color: var(--primary);
@@ -127,7 +128,6 @@ footer span a {
 .left{
     float: left;
 }
-
 
 /*Index*/
 /*----------------------------------------------------------------------*/
@@ -221,6 +221,12 @@ section .containerHome img{
     .formContainer .btn{
         width: 200px;
     }
+}
+
+/*Formulario registro*/
+/*----------------------------------------------------------------------*/
+.register label {
+    text-align: left;
 }
 
 /* ProductDetail Page */

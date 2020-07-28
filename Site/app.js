@@ -8,14 +8,14 @@ app.use(express.static('public'));
 
 // Rutas - Temporales
 app.get('/', (req,res)=>{
-  res.sendfile(__dirname + '/views/index.html')
+  res.sendFile(__dirname + '/views/index.html')
 });
 
 app.get('/login', (req,res)=>{
-  res.sendfile(__dirname + '/views/login.html')
+  res.sendFile(__dirname + '/views/login.html')
 });
 
-app.get('/login', (req,res)=>{res.sendfile(__dirname + '/views/login.html')});
+app.get('/login', (req,res)=>{res.sendFile(__dirname + '/views/login.html')});
 
 app.get('/product-detail', (req, res) => {
   res.sendFile(`${__dirname}/views/productDetail.html`);
@@ -28,7 +28,9 @@ app.get('/product-cart', (req, res) => {
 });
 
 //ruta a headers
-app.get('/header', (req,res)=>{res.sendfile(__dirname + '/views/header.html')});
+app.get('/header', (req,res)=>{res.sendFile(__dirname + '/views/header.html')});
+//ruta a registro
+app.get('/register', (req,res)=>{res.sendFile(__dirname + '/views/register.html')});
 
 // Correr servidor
 const PORT = 3000;
