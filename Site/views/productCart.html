@@ -2,10 +2,104 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+   <!--cdn de font awesome-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.css">
+  <link rel="stylesheet" href="css/style.css">
+    <!--Cargo fuente lato-->
+    <link
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+    rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Carro de compras</title>
 </head>
 <body>
-  <h1>Carro de compras</h1>
+  <header><h1>header</h1></header>
+  <main class="product-cart">
+    <div class="container">
+      <h1>Productos en tu carrito</h1>
+      <div class="cart">
+        <div class="cart-item">
+          <div class="item-img">
+            <img src="img/asia.png" alt="Imagen Producto">
+            <p>
+              <b>Origen Brasil</b><br>
+              <span>Tostado Suizo</span><br>
+              <span>Tamaño 250gr.</span><br>
+            </p>
+          </div>
+          <div class="item-actions">
+            <table>
+              <tr>
+                <th>Cantidad</th>
+                <th>Unidad</th> 
+                <th>Subtotal</th>
+              </tr>
+              <tr>
+                <td><input type="number"></td>
+                <td>$250</td>
+                <td>$500</td>
+                <td><button class="btn primary"><i class="fas fa-trash"></i></button></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="cart-item">
+          <div class="item-img">
+            <img src="img/asia.png" alt="Imagen Producto">
+            <p>
+              <b>Origen Brasil</b><br>
+              <span>Tostado Suizo</span><br>
+              <span>Tamaño 250gr.</span><br>
+            </p>
+          </div>
+          <div class="item-actions">
+            <table>
+              <tr>
+                <th>Cantidad</th>
+                <th>Unidad</th> 
+                <th>Subtotal</th>
+              </tr>
+              <tr>
+                <td><input type="number"></td>
+                <td>$250</td>
+                <td>$500</td>
+                <td><button class="btn primary"><i class="fas fa-trash"></i></button></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="cart-item">
+          <div class="item-img">
+            <img src="img/asia.png" alt="Imagen Producto">
+            <p>
+              <b>Origen Brasil</b><br>
+              <span>Tostado Suizo</span><br>
+              <span>Tamaño 250gr.</span><br>
+            </p>
+          </div>
+          <div class="item-actions">
+            <table>
+              <tr>
+                <th>Cantidad</th>
+                <th>Unidad</th> 
+                <th>Subtotal</th>
+              </tr>
+              <tr>
+                <td><input type="number"></td>
+                <td>$250</td>
+                <td>$500</td>
+                <td><button class="btn primary"><i class="fas fa-trash"></i></button></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="checkout">
+          <h2>Total: $5000</h2>
+          <button class="btn-outline-primary">Pagar</button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer><h1>footer</h1></footer>
 </body>
 </html>
