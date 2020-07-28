@@ -62,16 +62,43 @@ main{flex-grow: 1;}
 
 
 /*Footer y Header*/
-.nav-bgc,
-.mini-footer {
+header, 
+footer {
     background-color: var(--primary);
-}
-.navbar-light .navbar-nav .nav-link,
-.navbar-light .navbar-brand,
-.navbar-light .navbar-brand,
-.nav-link {
     color: var(--intermedia);
+    padding: 20px;
+    text-align: center;
 }
+header nav{
+    flex-wrap: wrap;
+}
+a{
+    color: var(--intermedia);
+    text-decoration: none;
+}
+ a:hover{
+    color: var(--secondary);
+}
+header nav a:hover, 
+footer nav a:hover {
+    border-bottom-color: var(--primary);
+}
+header nav a, 
+footer span a {
+    padding: 6px 12px;
+    margin-right: 12px;
+    border-radius: 18px;
+}
+.active{
+    color: var(--secondary);
+}
+.right{
+    float: right;
+}
+.left{
+    float: left;
+}
+
 
 /*Index*/
 .hometitle{
