@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--cdn de font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.css">
+    <!--Estilos internos-->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!--Cargo fuente lato-->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <!--Js's de bootstrap-->
+
+    <title>Bienvenido a Café del Mundo</title>
+</head>
+<body>
+    <header>
+      
+      <nav>
+        <span class="left">
+          <a href="">CoffeeShop</a>
+          <a href="#" class="active">Inicio</a>
+          <a href="#">Productos</a>
+          <a href="#">Nosotros</a>
+          <a href="#">Contacto</a>
+        </span>
+        <span class="right">
+          <a  href="#">Iniciar Sesion</a>
+          <a  href="#"><i class="fas fa-shopping-cart"></i></a>
+        </span>
+      </nav>
+    </header>
+    
+    <main>
+        <form action="home.html" method="GET">
+            <div class="formContainer register">
+                <h1>Formulario de registro</h1>
+                
+                <label for="userName">Nombre</label>
+                <input  type="text" id="userName" name="userName" required>
+
+                <label for="userEmail">Correo Electrónico</label>
+                <input  type="email" id="userEmail" name="userEmail" required>
+                
+                <label for="userPhone">Teléfono</label>
+                <input  type="text" id="userPhone" name="userPhone" required>
+
+                <label for="userPassword">Contraseña</label>
+                <input type="password" id="userPassword" name="userPassword" required>
+                
+                <span>
+                    <button type="submit" class="btn primary">Registrarme</button>
+                    <button type="reset" class="btn primary">Borrar</button>                            
+                </span>
+            </div>
+        </form>
+    </main>
+
+    <footer >
+        <span class="left">
+          Copyright © 2020 CoffeeShoop
+        </span>
+        <span class="right ">
+          <a href=""><i class="fab fa-instagram-square"></i> Instagram</a>
+          <a href=""><i class="fab fa-facebook-square"></i> Facebook</a>
+          <a href=""><i class="fab fa-twitter-square"></i> Twitter</a>
+        </span>
+        
+    </footer>
+    
+</body>
+</html>
