@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+  <%-include('../partials/header')%> 
+
+  <main>
+      <form action="home.html" method="GET">
+          <!--Campos del Login-->
+          <div class="formContainer">
+              <!--Contenedor de login-->
+              <div class="loginImg">
+                  <i class="fas fa-user-circle"></i>
+              </div>
+              <h1>Iniciar Sesión</h1>
+              <label  for="email"> Correo Electrónico</label>
+              <input  type="email" id="email" name="email required" required>               
+
+              <label  for="contraseña">Contraseña</label>
+              <input type="password" id="contraseña" name="contraseña" required>
+
+              <button class="btn primary" type="submit">Ingresar</button>
+            
+              <div class="rememberLogin">
+                  <input class="checkbox" type="checkbox" id="rememberMe" checked><label for="rememberMe">Recordarme</label>
+              </div>
+          
+              <!--Falta link para olvidar contraseña-->
+              <a href="">Olvidé mi contraseña</a>
+              
+              <button class="btn primary">Registrarme</button>              
+          </div>
+      </form>
+  </main>
+  
+  <%-include('../partials/footer')%> 
+
+</body>
+</html>
