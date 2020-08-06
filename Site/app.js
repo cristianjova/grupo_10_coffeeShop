@@ -6,12 +6,18 @@ const app = express();
 // Archivos estaticos
 app.use(express.static('public'));
 //configuracion template engine EJS
-app.use('template engine','ejs');
+app.set('view engine','ejs');
 
-// Rutas - Temporales
-app.get('/', (req,res)=>{
-  res.sendFile(__dirname + '/views/index.html')
-});
+//
+const indexRoute = require('./routes/index');
+
+app.use('/', indexRoute);
+
+
+// // Rutas - Temporales
+// app.get('/', (req,res)=>{
+//   res.sendFile(__dirname + '/views/index.html')
+// });
 
 app.get('/login', (req,res)=>{
   res.sendFile(__dirname + '/views/login.html')
