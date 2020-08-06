@@ -5,6 +5,8 @@ const app = express();
 
 // Archivos estaticos
 app.use(express.static('public'));
+//configuracion template engine EJS
+app.use('template engine','ejs');
 
 // Rutas - Temporales
 app.get('/', (req,res)=>{
