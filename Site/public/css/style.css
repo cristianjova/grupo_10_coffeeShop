@@ -93,7 +93,7 @@ h1{
 
 /*Footer y Header*/
 /*----------------------------------------------------------------------*/
-header, 
+
 footer {
     background-color: var(--primary);
     color: var(--intermedia);
@@ -107,21 +107,15 @@ a{
     width: 100%;
     
 }
-header a{
-    text-align: center;
-}
- a:hover{
+
+a:hover{
     color: var(--secondary);
 }
-header nav span{
-    display: block;
-    width: 100%;
-}
-header nav a:hover, 
+ 
 footer nav a:hover {
     border-bottom-color: var(--primary);
 }
-header nav a, 
+ 
 footer span a {
     padding: 6px 12px;
     margin-right: 12px;
