@@ -93,6 +93,78 @@ h1{
 
 /*Footer y Header*/
 /*----------------------------------------------------------------------*/
+.navbar .navbar-mobile {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.navbar .logo {
+	display: inline-block;
+	width: 80px
+}
+
+.navbar ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.navbar a {
+	text-decoration: none;
+	color: var(--light)
+}
+
+header .navbar {
+	padding: 0.5rem;
+	background: var(--primary);
+	color: var(--light);
+}
+
+.navbar .logo img {
+	width: 100%;
+	max-height: 65px;
+	overflow: hidden;
+}
+
+.navbar .menu-btn {
+	background: none;
+	color: var(--light);
+	border: 1px solid var(--intermedia);
+	outline: none;
+	padding: 0.4rem 0.5rem;
+	font-size: 1.5rem;
+	line-height: 1.5rem;
+	text-align: center;
+	cursor: pointer;
+}
+
+.navbar .mobile-icons {
+	font-size: 1.5rem;
+}
+
+.navbar .mobile-icons a {
+	padding: 0 0.5rem;
+}
+
+.navbar .collapse-links {
+	display: none;
+}
+
+.navbar .navbar-nav.right {
+	display: none;
+}
+
+.navbar .navbar-nav li {
+	padding: 0.5rem 0;
+	font-weight: 600;
+}
+
+.navbar .navbar-nav li a {
+	font-size: 1rem;
+	padding: 0.3rem;
+	transition: all 0.5s ease-in-out;
+}
 
 footer {
     background-color: var(--primary);
@@ -377,13 +449,77 @@ section .containerHome img{
     .product-cart .cart .cart-item .item-img img {
         width: 45%;
     }
-    /*Header*/
-    header nav,
+    /*Footer & Header*/
+    .navbar {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+
+	.navbar .menu-btn,
+	.navbar .mobile-icons {
+		display: none;
+	}
+
+	.navbar .logo {
+		margin-right: 1rem;
+	}
+
+	.navbar .collapse-links {
+		display: flex;
+		justify-content: space-between;
+		width: 100%
+	}
+
+	.navbar .navbar-nav.right {
+		display: flex;
+	}
+
+	.collapse-links .left,
+	.collapse-links .right {
+		display: flex;
+	}
+
+	.collapse-links .left li a {
+		position: relative;
+		
+	}
+
+	.collapse-links .left li a::after {
+    content: '';
+    position: absolute;
+    left: 0.3rem;
+    right: 0.3rem;
+    bottom: -8px;
+    height: 3px;
+    background-color: var(--intermedia);
+    transform: translateY(6px);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+	}
+
+	.collapse-links .left li a:hover::after {
+		opacity: 1;
+    transform: translateY(-3px);
+	}
+
+	.collapse-links .right li a{
+		border: 1px solid var(--light);
+		border-radius: 5px;
+		margin-left: 1rem;
+		padding: 0.5rem;
+		transition: all 0.5s ease-in-out;
+	}
+	.collapse-links .right li a:hover {
+		background: var(--light);
+		color: var(--primary);
+	}
+
     footer{
         display: flex;
         justify-content: space-between;
     }
-    header a,
     footer a{
         display: inline;
     }
