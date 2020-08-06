@@ -1,5 +1,7 @@
+const path=require('path');
+
 module.exports = {
     index: (req,res)=>{
-        res.sendFile(__dirname + '/../views/index/index')
+        res.render(path.join(__dirname, '/../views/index/index'));
     }
 };
