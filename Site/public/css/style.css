@@ -172,7 +172,7 @@ footer {
     padding: 20px;
     
 }
-a{
+footer a{
     color: var(--intermedia);
     text-decoration: none;
     display: block;
@@ -180,7 +180,7 @@ a{
     
 }
 
-a:hover{
+footer a:hover{
     color: var(--secondary);
 }
  
@@ -523,7 +523,7 @@ section .containerHome img{
     footer a{
         display: inline;
     }
-    .right{
+    footer .right{
         text-align: right;
         width: 40%;
     }
