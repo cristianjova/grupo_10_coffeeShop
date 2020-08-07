@@ -8,10 +8,15 @@ app.use(express.static('public'));
 //configuracion template engine EJS
 app.set('view engine','ejs');
 
-//
+//para formularios
+app.use(express.urlencoded({ extended: false }));
+
+
 const indexRoute = require('./routes/index');
+const userRoute = require('./routes/register');
 
 app.use('/', indexRoute);
+app.use('/user', userRoute);
 
 
 // // Rutas - Temporales
