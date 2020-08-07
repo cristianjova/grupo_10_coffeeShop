@@ -1,0 +1,34 @@
+<html lang="en">
+  <!-- EJS partial head -->
+<%-include('../partials/head')%>
+<body > 
+  <!-- EJS partial header -->
+  <%-include('../partials/header')%>
+    <main>
+        <form action="register" method="POST">
+            <div class="formContainer register">
+                <h1>Formulario de registro</h1>
+                
+                <label for="userName">Nombre</label>
+                <input  type="text" id="userName" name="userName" required>
+
+                <label for="userEmail">Correo Electrónico</label>
+                <input  type="email" id="userEmail" name="userEmail" required>
+                
+                <label for="userPhone">Teléfono</label>
+                <input  type="text" id="userPhone" name="userPhone" required>
+
+                <label for="userPassword">Contraseña</label>
+                <input type="password" id="userPassword" name="userPassword" required>
+                
+                <span>
+                    <button type="submit" class="btn primary">Registrarme</button>
+                    <button type="reset" class="btn primary">Borrar</button>                            
+                </span>
+            </div>
+        </form>
+    </main>
+    <!-- EJS partial footer -->
+    <%-include('../partials/footer')%>
+</body>
+</html>
