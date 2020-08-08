@@ -14,9 +14,11 @@ app.use(express.urlencoded({ extended: false }));
 
 const indexRoute = require('./routes/index');
 const userRoute = require('./routes/register');
+const productsRoute = require('./routes/products');
 
 app.use('/', indexRoute);
 app.use('/user', userRoute);
+app.use('/products', productsRoute);
 
 
 // // Rutas - Temporales
@@ -30,15 +32,6 @@ app.get('/login', (req,res)=>{
 
 app.get('/login', (req,res)=>{res.sendFile(__dirname + '/views/login.html')});
 
-app.get('/product-detail', (req, res) => {
-  res.sendFile(`${__dirname}/views/productDetail.html`);
-  // Eso es igual a (__dirname + '/views/productDetail.html') a mi me parece más facil asi
-  // Pero si no les gusta o no les parece usamos con el + y listo :)
-});
-
-app.get('/product-cart', (req, res) => {
-  res.sendFile(__dirname + '/views/productCart.html');
-});
 
 //ruta a headers
 app.get('/header', (req,res)=>{res.sendFile(__dirname + '/views/header.html')});
