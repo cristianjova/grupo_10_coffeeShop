@@ -1,7 +1,11 @@
-const path=require('path');
-
 module.exports = {
     index: (req,res)=>{
-        res.render(path.join(__dirname, '/../views/index/index'));
-    }
+        res.render('index/index');
+    },
+    about: (req,res)=>{
+        res.render('static/about');
+    },
+    contact: (req,res)=>{
+        res.render('static/contact');
+    },
 };
