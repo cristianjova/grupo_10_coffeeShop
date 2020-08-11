@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head.ejs') %>
+<body>
+  <%- include('../partials/header.ejs') %>
+  <main class="product-add">
+    <div class="container">
+      <div class="product-add-card">
+        <div class="product-add-image">
+          <img src="/img/coffee-add-img.png" alt="Coffe package image">
+        </div>
+        <div class="product-add-form">
+          <h1>Agregar producto</h1>
+          <form action="">
+            <div class="field-group">
+              <div class="field">
+                <label for="name">Nombre</label>
+                <input type="text" name="name" id="name" placeholder="Ej: Origen Brasil">
+              </div>
+              <div class="field">
+                <label for="price">Precio</label>
+                <input type="number" name="price" id="price" placeholder="Ej: 250">
+              </div>
+            </div>
+            <div class="field">
+              <label>Tamaño del paquete</label>
+              <div class="field-radio-group">
+                <div>
+                  <input type="radio" name="size" id="normalSize">
+                  <label for="normalSize">250gr.</label>
+                </div>
+                  <div>
+                    <input type="radio" name="size" id="bigSize">
+                    <label for="bigSize">500gr.</label>
+                  </div>
+              </div>
+            </div>
+            <div class="field">
+              <label>Torrado</label>
+              <div class="field-radio-group">
+                <div>
+                  <input type="radio" name="size" id="normalSize">
+                  <label for="normalSize">Italiano</label>
+                </div>
+                  <div>
+                    <input type="radio" name="size" id="bigSize">
+                    <label for="bigSize">Suizo</label>
+                  </div>
+              </div>
+            </div>
+    
+            <div class="field">
+              <label>Tostado</label>
+              <div class="field-radio-group">
+                <div>
+                  <input type="radio" name="size" id="normalSize">
+                  <label for="normalSize">Suizo</label>
+                </div>
+                  <div>
+                    <input type="radio" name="size" id="bigSize">
+                    <label for="bigSize">Normal</label>
+                  </div>
+              </div>
+            </div>
+            <div class="field">
+              <label for="image">Imagén</label>
+              <input type="file" name="image" id="image">
+            </div>
+            <div class="field">
+              <label for="description">Descripción</label>
+              <textarea name="description" id="description" cols="30" rows="10" placeholder="Descripción del producto"></textarea>
+            </div>
+            
+            <div class="btn-group">
+              <button type="submit" class="btn-primary">Agregar</button>
+              <button type="reset" class="btn-outline-primary">Cancelar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+  <%- include('../partials/footer')  %>  
+</body>
+</html>
