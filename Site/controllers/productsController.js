@@ -1,7 +1,7 @@
 module.exports = {
   index: {},
   detail: (req, res) => {
-    res.render('products/productDetail');
+    res.render('products/detail');
   },
   store: (req, res) => {
     res.render('products/create');
@@ -10,6 +10,6 @@ module.exports = {
     res.render('products/edit');
   },
   cart: (req, res) => {
-    res.render('products/productCart');
+    res.render('products/cart');
   }
 }
