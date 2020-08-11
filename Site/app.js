@@ -15,25 +15,13 @@ app.use(express.urlencoded({ extended: false }));
 const indexRoute = require('./routes/index');
 const userRoute = require('./routes/users');
 const productsRoute = require('./routes/products');
-const staticRoute = require('./routes/static');
+
 
 
 app.use('/', indexRoute);
 app.use('/user', userRoute);
 app.use('/products', productsRoute);
-app.use('/static', staticRoute);
-
-
-// // Rutas - Temporales
-// app.get('/', (req,res)=>{
-//   res.sendFile(__dirname + '/views/index.html')
-// });
-
-app.get('/login', (req,res)=>{
-  res.sendFile(__dirname + '/views/login.html')
-});
-
-app.get('/login', (req,res)=>{res.sendFile(__dirname + '/views/login.html')});
+//app.use('/static', staticRoute);
 
 
 //ruta a headers
