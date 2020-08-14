@@ -1,4 +1,24 @@
 # grupo_10_coffeeShop - 
+## Retrospectiva Sprint 3
+
+### 1.Comenzar a hacer:
+  - Reuniones semanales, 5 minutos antes de las sincrónicas.
+ 
+  
+### 2. Hacer más:
+
+  
+### 3. Continuar haciendo:
+  - Comunicación por slack.
+  - Planificación en tablero trello antes de arrancar el sprint.
+  - Normalización de los commits.
+
+### 4. Hacer menos:
+
+### 5. Dejar de hacer:
+  - Las dailies ya que no resultan eficientes para el grupo.
+
+ 
 ## Retrospectiva Sprint 2
 
 ### 1.Comenzar a hacer:
