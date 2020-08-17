@@ -3,8 +3,8 @@ const path = require('path');
 
 let model = function (tableName) {
     return {
-        
-        filePath: path.join(__dirname, '../data/' + tableName + '.json'),
+
+        filePath: path.join(__dirname, '../data/' + tableName +'.json'),
 
         readFile() {
             let fileContents = fs.readFileSync(this.filePath, 'utf-8');
@@ -14,6 +14,10 @@ let model = function (tableName) {
             }
         
             return [];
+        },  
+
+        all() {
+            return this.readFile();
         },
 
         find(id) {
@@ -24,4 +28,4 @@ let model = function (tableName) {
 
 }
 
-module.exports(model);
+module.exports = model;
