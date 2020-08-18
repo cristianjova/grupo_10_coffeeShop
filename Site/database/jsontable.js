@@ -39,16 +39,25 @@ let model = function (tableName) {
             return rows.find(row => row.id == id);
         },
         create(row) {
-            // Microdesafío
-            // 1. Leer el archivo
-            // 2. Generar un nuevo id
-            // 3. Agregar el registro
-            // 4. guardar los cambios
             let rows = this.readFile();
             row.id = this.nextId();
             rows.push(row);
 
             this.writeFile(rows);
+
+            return row.id;
+        },
+        update(row) {
+            let rows = this.readFile();
+            let updatedRows = rows.map(oneRow => {
+                if (oneRow.id == row.id) {
+                    return row;
+                }
+
+                return oneRow;
+            }); 
+
+            this.writeFile(updatedRows);
 
             return row.id;
         }

@@ -1,4 +1,5 @@
 const express = require('express');
+const methodOverride = require('method-override');
 
 // Iniciar app
 const app = express();
@@ -10,6 +11,7 @@ app.set('view engine','ejs');
 
 //para formularios
 app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride('_method')); // Verifica si existe _method en el queryString
 
 
 const indexRoute = require('./routes/index');
