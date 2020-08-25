@@ -4,6 +4,7 @@
     --intermedia: #DD904A;
     --light: #E0AD58;
     --letters: #581F0C;
+
      
 }
 
@@ -300,17 +301,35 @@ section .containerHome img{
 /*Formulario registro*/
 /*----------------------------------------------------------------------*/
 .register{
-    flex-wrap: nowrap;
-    padding: 10px;
+    justify-content: left;
+    text-align: center;
     display: flex;
-
-    margin-top: 15vh;
+    flex-direction: column;
+    margin: 2rem auto;
+    width: 100%;
+    flex-wrap: wrap;
+    padding:  0px 10px;
+    display: flex;
+    margin-top: 1vh;
+    -webkit-box-sizing: border-box; /* For legacy WebKit based browsers */
+    -moz-box-sizing: border-box; /* For legacy (Firefox <29) Gecko based browsers */
+         box-sizing: border-box;
 }
 .register button{
-    width: 50%;
+    width: 47%;
 }
-.register label {
-    text-align: left;
+.del:hover{
+    background-color:var(--secondary);
+    color: var(--primary);
+}
+
+
+.register input{
+    padding: 0.4rem 0.2rem;
+}
+.register label,
+h2{
+    font-weight: 900;
 }
 
 /* ProductDetail Page */
@@ -693,6 +712,11 @@ section .containerHome img{
     }
     footer .right{
         text-align: right;
+        width: 40%;
+    }
+    /*Register*/
+    /*----------------------------------------------------------------------*/
+    .register{
         width: 40%;
     }
     /*About Us*/
