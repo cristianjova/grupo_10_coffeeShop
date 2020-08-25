@@ -26,8 +26,15 @@ module.exports = {
     }
     
   },
+  create: (req, res) => {
+    let sizes = sizesModel.all();
+    let toasted = toastedModel.all();
+    let type = typeModel.all();
+
+    res.render('products/create', { sizes, toasted, type });
+  },
   store: (req, res) => {
-    res.render('products/create');
+    res.send(req.body);
   },
   edit: (req, res) => {
     let product = productsModel.find(req.params.id)
