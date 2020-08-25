@@ -18,18 +18,17 @@ module.exports = {
     let product = productsModel.find(id);
     if (product){
       res.render('products/detail', {product});
-    } else {
-      res.render("No disponible");
-    }
+    } 
     
   },
   store: (req, res) => {
     res.render('products/create');
   },
+  cart: (req, res) => {
+    res.render('products/cart');
+  },
   edit: (req, res) => {
     res.render('products/edit');
   },
-  cart: (req, res) => {
-    res.render('products/cart');
-  }
+  
 }
