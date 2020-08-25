@@ -14,16 +14,14 @@ module.exports = {
      
 
 
-    res.render('index/', {products});
+    res.render('products/list', {products});
   },
   detail: (req, res) => {
     let id = req.params.id;
     let product = productsModel.find(req.params.id)
     if (product){
       res.render('products/detail', {product});
-    } else {
-      res.render("No disponible");
-    }
+    } 
     
   },
   create: (req, res) => {
@@ -46,6 +44,9 @@ module.exports = {
 
     res.redirect('/products/' + productId);
   },
+  cart: (req, res) => {
+    res.render('products/cart');
+  },
   edit: (req, res) => {
     let product = productsModel.find(req.params.id)
     
@@ -67,7 +68,5 @@ module.exports = {
       productsId = productsModel.update(product);
       res.redirect('/products/' + productsId)
   },
-  cart: (req, res) => {
-    res.render('products/cart');
-  }
+  
 }

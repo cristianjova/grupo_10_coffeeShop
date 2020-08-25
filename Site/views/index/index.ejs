@@ -16,72 +16,19 @@
       <h1 class="hometitle">Productos Destacados</h1>
 
       <div class="containerHome">
-        <article class="homeContainer">
-          <div class="homeProduct">
-            <img src="/img/africa.png" alt="destacado1">
-          </div>
-          <div class="homeProductContainer">
-            <p class="homeProductName">ORIGEN ÁFRICA</p>
-            <p class="homeProductPrice">Precio $</p>
-            <button class="btn primary">Agregar al carrito</button>                            
-          </div>
-        </article>
-        
-        <article class="homeContainer">
-          <div class="homeProduct">
-            <img src="/img/asia.png" alt="destacado2">
-           </div>
-           <div class="homeProductContainer">
-             <p class="homeProductName">ORIGEN ASIA</p>
-             <p class="homeProductPrice">Precio $</p>
-             <button class=" btn primary">Agregar al carrito</button>
-            </div>
-        </article>
-          
+        <% for (let i=0;i<6;i++){ %>
         <article class="homeContainer">
             <div class="homeProduct">
-              <img src="/img/brasil.png" alt="destacado3">
+            <a href="/products/<%= products[i].id %>"><img src="/img/<%= products[i].image %>" alt="destacado <%= products[i].id %>"></a>
             </div>
             <div class="homeProductContainer">
-              <p class="homeProductName">ORIGEN BRASIL</p>
-              <p class="homeProductPrice">Precio $</p>
-              <button class=" btn primary">Agregar al carrito</button>
-          </div>
-        </article>
-       
-        <article class="homeContainer">
-          <div class="homeProduct">
-            <img src="/img/brasilColombiaHonduras.png" alt="destacado4">
-          </div>
-          <div class="homeProductContainer">
-            <p class="homeProductName">ORIGEN BRASIL - COLOMBIA - HONDURAS</p>
-            <p class="homeProductPrice">Precio $</p>
-            <button class=" btn primary">Agregar al carrito</button>
-          </div>
-        </article>
-        
-        <article class="homeContainer">
-          <div class="homeProduct">
-            <img src="/img/colombia.png" alt="destacado5">
-          </div>
-          <div class="homeProductContainer">
-            <p class="homeProductName">ORIGEN COLOMBIA</p>
-            <p class="homeProductPrice">Precio $</p>
-            <button class=" btn primary">Agregar al carrito</button>
-          </div>
-        </article>
-        
-        <article class="homeContainer">
-          <div class="homeProduct">
-            <img src="/img/etiopia.png" alt="destacado6">
-          </div>
-          <div class="homeProductContainer">
-            <p class="homeProductName">ORIGEN ETIOPÍA</p>
-            <p class="homeProductPrice">Precio $</p>
-            <button class=" btn primary">Agregar al carrito</button>
-          </div>
-        </article>
-      </div>
+            <p class="homeProductName"><%= products[i].name %></p>
+            <p class="homeProductPrice"><%= products[i].price %></p>
+            <button class="btn primary">Agregar al carrito</button>                            
+            </div>
+        </article>  
+        <% } %>
+    </div>
     </section>
   </main>
 
