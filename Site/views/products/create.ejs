@@ -11,7 +11,7 @@
         </div>
         <div class="product-add-form">
           <h1>Agregar producto</h1>
-          <form action="">
+          <form action="/products" method="POST" enctype="multipart/form-data">
             <div class="field-group">
               <div class="field">
                 <label for="name">Nombre</label>
@@ -25,41 +25,34 @@
             <div class="field">
               <label>Tamaño del paquete</label>
               <div class="field-radio-group">
-                <div>
-                  <input type="radio" name="size" id="normalSize">
-                  <label for="normalSize">250gr.</label>
+                <div class="control">
+                  <select name="size" id="size">
+                      <% sizes.forEach(size => { %>
+                        <option value="<%= size.id %>"><%= size.size %></option> 
+                      <% });  %> 
+                  </select>
                 </div>
-                  <div>
-                    <input type="radio" name="size" id="bigSize">
-                    <label for="bigSize">500gr.</label>
-                  </div>
               </div>
             </div>
             <div class="field">
               <label>Torrado</label>
               <div class="field-radio-group">
-                <div>
-                  <input type="radio" name="size" id="normalSize">
-                  <label for="normalSize">Italiano</label>
-                </div>
-                  <div>
-                    <input type="radio" name="size" id="bigSize">
-                    <label for="bigSize">Suizo</label>
-                  </div>
+                <select name="type" id="type">
+                    <% type.forEach(aType => { %>
+                      <option value="<%= aType.id %>"><%= aType.type %></option> 
+                    <% });  %> 
+                </select>
               </div>
             </div>
     
             <div class="field">
               <label>Tostado</label>
               <div class="field-radio-group">
-                <div>
-                  <input type="radio" name="size" id="normalSize">
-                  <label for="normalSize">Suizo</label>
-                </div>
-                  <div>
-                    <input type="radio" name="size" id="bigSize">
-                    <label for="bigSize">Normal</label>
-                  </div>
+                <select name="toasted" id="toasted">
+                    <% toasted.forEach(toast => { %>
+                      <option value="<%= toast.id %>"><%= toast.toasted %> </option> 
+                    <% });  %> 
+                </select>
               </div>
             </div>
             <div class="field">
