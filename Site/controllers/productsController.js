@@ -34,7 +34,17 @@ module.exports = {
     res.render('products/create', { sizes, toasted, type });
   },
   store: (req, res) => {
-    res.send(req.body);
+    let product = req.body;
+    product.image = 'coffee-add-img.png';
+    
+    if(req.file) {
+      product.image = req.body.filename;
+    }
+
+    let productId = productsModel.create(product);
+
+
+    res.redirect('/products/' + productId);
   },
   edit: (req, res) => {
     let product = productsModel.find(req.params.id)
