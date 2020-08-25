@@ -14,7 +14,7 @@ module.exports = {
      
 
 
-    res.render('products/list', {products});
+    res.render('index/', {products});
   },
   detail: (req, res) => {
     let id = req.params.id;

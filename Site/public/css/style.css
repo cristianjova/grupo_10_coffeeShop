@@ -203,6 +203,17 @@ footer span a {
 .active{
     color: var(--secondary);
 }
+/*About Us*/
+/*----------------------------------------------------------------------*/
+.container-us{
+    display: block;
+    align-content: center;
+    margin: 10%;
+    padding: 5px;
+}
+.container-us h2 {
+    font-weight: 900;
+}
 
 /*Index*/
 /*----------------------------------------------------------------------*/
@@ -683,6 +694,14 @@ section .containerHome img{
     footer .right{
         text-align: right;
         width: 40%;
+    }
+    /*About Us*/
+    /*----------------------------------------------------------------------*/
+    .container-us{
+        display: block;
+        align-content: center;
+        margin: 0 20%;
+        padding: 5px;
     }
 }
 
