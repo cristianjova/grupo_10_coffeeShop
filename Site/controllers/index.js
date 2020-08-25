@@ -1,6 +1,14 @@
+const fs = require('fs');
+const path = require ('path');
+const tableName = require ('../database/jsontable');
+
+const productsModel = tableName('products');
+
 module.exports = {
     index: (req,res)=>{
-        res.render('index/index');
+        let products = productsModel.all();
+        
+        res.render('index/index', {products});
     },
     about: (req,res)=>{
         res.render('static/about');
