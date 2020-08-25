@@ -1,3 +1,4 @@
 # "Cosas" de Node
 /node_modules
 
+/data/products.json
