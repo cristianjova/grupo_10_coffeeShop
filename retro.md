@@ -1,4 +1,22 @@
 # grupo_10_coffeeShop - 
+## Retrospectiva Sprint 4
+### 1.Comenzar a hacer:
+  - Pair programming.
+ 
+### 2. Hacer más:
+  - Ser más detallistas.
+  - Utilizar más responsablemente el tablero de Trello.
+  
+### 3. Continuar haciendo:
+  - Comunicación por slack.
+  - Planificación en tablero trello antes de arrancar el sprint.
+  - Normalización de los commits.
+### 4. Hacer menos:
+### 5. Dejar de hacer:
+  - Dejar de hacer seguimiento al tablero de Trello.
+
+
+
 ## Retrospectiva Sprint 3
 
 ### 1.Comenzar a hacer:
