@@ -1,8 +1,10 @@
 const bcrypt = require('bcrypt');
 const { validationResult } = require('express-validator');
+const crypto = require('crypto');
 const tableName = require ('../database/jsontable');
-
 const usersModel = tableName('users');
+const usersTokensModel = tableName('usersTokens');
+
 
 module.exports = {
     register: (req,res)=>{
@@ -20,6 +22,9 @@ module.exports = {
 
             //res.render('');
             res.redirect('login');
+    },
+    login: (req,res)=>{
+        res.render('users/login');
     },
     login: (req,res)=>{
         res.render('users/login');
@@ -49,11 +54,29 @@ module.exports = {
         delete user.password
         req.session.user = user; 
 
+        //Remember me
+        if (req.body.rememberMe) {
+            const token = crypto.randomBytes(64).toString('base64');
+
+            usersTokensModel.create({ userId: user.id, token });
+
+            res.cookie('userToken', token, {maxAge: 1000 * 60 * 60 * 24 * 30 * 1})
+        }
         return res.redirect('/');
     },
-    logout: (req, res) => {
+    logout: (req,res)=>{
+
+        let userTokens = usersTokensModel.findAllByField('userId', req.session.user.id);
+        userTokens.forEach(userToken => {
+            usersTokensModel.delete(userToken.id);
+        })
+
+        res.clearCookie('userToken');
+
+        
+        
         req.session.destroy();
 
-        return res.redirect('/');
-    }
+        res.redirect('/');
+    },
 };
