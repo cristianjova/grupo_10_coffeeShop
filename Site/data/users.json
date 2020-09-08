@@ -262,5 +262,16 @@
   "phoneNumber": "1213134",
   "image": "user-1597788383469.jpg",
   "id": 24
+ },
+ {
+  "first_name": "Nicolás",
+  "last_name": "Niz",
+  "email": "nico@niz.com",
+  "password": "$2b$10$032xQkDGpJ6H..ribqPvje/B6tOB8soEJqHaijC4v1fAj6h3k6s/C",
+  "category": "user",
+  "adress": "mitre 1123",
+  "phoneNumber": "2901407326",
+  "image": "default.png",
+  "id": 25
  }
 ]

@@ -20,6 +20,10 @@ router.get('/register', controller.register);
 router.post('/register', upload.single('image'), controller.store);
 
 router.get('/login', controller.login);
+router.post('/login', controller.authenticate);
+
+router.get('/logout', controller.logout);
+
 // Procesamiento del formulario de creación
 router.post('/login', controller.store);
 

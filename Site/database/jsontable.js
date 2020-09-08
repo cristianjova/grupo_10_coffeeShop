@@ -38,6 +38,17 @@ let model = function (tableName) {
             let rows = this.readFile();
             return rows.find(row => row.id == id);
         },
+
+        findByField(field, value){
+            let rows = this.readFile();
+            return rows.find(row => row[field] == value);
+
+        },
+        findAllByField(field, value){
+            let rows = this.readFile();
+            return rows.filter(row => row[field] == value);
+
+        },
         create(row) {
             let rows = this.readFile();
             row.id = this.nextId();
@@ -60,6 +71,13 @@ let model = function (tableName) {
             this.writeFile(updatedRows);
 
             return row.id;
+        },
+
+        delete(id){
+            let rows = this.readFile();
+            let updatedRows = rows.filter(oneRow => oneRow.id != id); 
+
+            this.writeFile(updatedRows);
         }
     }
 

@@ -4,10 +4,16 @@
       <a class="logo" href="/"><img src="/img/logo2.png"></a>
       <button class="menu-btn"><i class="fas fa-bars"></i></button>
       <div class="mobile-icons">
-        <a href="/user/login"><i class="fas fa-user"></i></a>
+        <% if (locals.user){ %> 
+          <a href="/user/logout"><i class="fas fa-sign-out-alt"></i></a>        
+        <% } else { %>
+          <a href="/user/login"><i class="fas fa-user"></i></a>
+        <% } %>
         <a href="/products/cart"><i class="fas fa-shopping-cart"></i></a>
       </div>
     </div>
+    
+    
     <div class="collapse-links">
       <ul class="navbar-nav left"> 
         <li><a href="/">Inicio</a></li>
@@ -16,7 +22,13 @@
         <li><a href="/contact">Contacto</a></li>
       </ul>
       <ul class="navbar-nav right"> 
-        <li><a href="/user/login"><i class="fas fa-user"></i> Iniciar Sesión</a></li>
+        <% if (locals.user){ %>
+          <li>Bienvenido, <%= locals.user.first_name %></li> 
+          <li><a href="/user/logout"><i class="fas fa-sign-out-alt"></i></a></li>
+        <% } else { %>
+          <li><a href="/user/login"><i class="fas fa-user"></i> Iniciar Sesión</a></li>
+        <% } %>
+        
         <li><a href="/products/cart"><i class="fas fa-shopping-cart"></i> Carrito</a></li>
       </ul>
     </div>
