@@ -38,6 +38,10 @@ let model = function (tableName) {
             let rows = this.readFile();
             return rows.find(row => row.id == id);
         },
+        findByField(field, value) {
+            let rows = this.readFile();
+            return rows.find(row => row[field] == value);
+        },
         create(row) {
             let rows = this.readFile();
             row.id = this.nextId();

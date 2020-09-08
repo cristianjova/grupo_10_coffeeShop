@@ -1,5 +1,7 @@
 const express = require('express');
 const methodOverride = require('method-override');
+const session = require('express-session');
+const auth = require('./middlewares/auth');
 
 // Iniciar app
 const app = express();
@@ -12,6 +14,16 @@ app.set('view engine','ejs');
 //para formularios
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method')); // Verifica si existe _method en el queryString
+
+// Sesiones
+app.use(session({
+  secret: 'coffeeshop',
+  resave: false,
+  saveUninitialized: true
+}));
+
+// AuthMidleware
+app.use(auth);
 
 
 const indexRoute = require('./routes/index');

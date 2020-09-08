@@ -255,12 +255,23 @@
  {
   "first_name": "Cristian",
   "last_name": "Jova",
-  "email": "cris@criss",
+  "email": "cristian@gmail.com",
   "password": "$2b$10$Z3M0oS4RKONKrKqxup8qOu49ZF6FzmhWPW9IWny5yr4/UcaO91/e2",
   "category": "user",
   "adress": "32131assd",
   "phoneNumber": "1213134",
   "image": "user-1597788383469.jpg",
   "id": 24
+ },
+ {
+  "first_name": "Joe",
+  "last_name": "Doe",
+  "email": "jdoe@gmail.com",
+  "password": "$2b$10$vSb6XZSItk2oZOnUnSlwnupkxJpZNqYwbOQO1pFwFnmABQr1XQ292",
+  "category": "user",
+  "adress": "calle 123",
+  "phoneNumber": "3644112233",
+  "image": "default.png",
+  "id": 25
  }
 ]
