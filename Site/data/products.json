@@ -178,15 +178,5 @@
   "size": 1,
   "type": 1,
   "toasted": 1
- },
- {
-  "name": "Argentina",
-  "price": "250",
-  "size": "2",
-  "type": "2",
-  "toasted": "2",
-  "description": "Torrado nacional",
-  "id": "21",
-  "image": "argentina-1598393228086.png"
  }
 ]
