@@ -26,9 +26,6 @@ module.exports = {
     login: (req,res)=>{
         res.render('users/login');
     },
-    login: (req,res)=>{
-        res.render('users/login');
-    },
     authenticate: (req, res) => {
         let errors = validationResult(req);
 
@@ -72,11 +69,9 @@ module.exports = {
         })
 
         res.clearCookie('userToken');
-
-        
         
         req.session.destroy();
 
-        res.redirect('/');
+        return res.redirect('/');
     },
 };

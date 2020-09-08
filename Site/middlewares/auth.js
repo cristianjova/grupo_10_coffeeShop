@@ -4,8 +4,7 @@ const usersTokensModel = tableName('usersTokens');
 
 module.exports = (req,res,next) =>{
     if (req.session.user){
-
-        res.locals.user = req.session.user;
+        res.locals.userLoggedIn = req.session.user;
 
     } else if (req.cookies.userToken){
         let userToken = usersTokensModel.findByField('token', req.cookies.userToken);
@@ -15,7 +14,7 @@ module.exports = (req,res,next) =>{
             if (user){
                 delete user.password;
                 req.session.user = user;
-                res.locals.user = user;
+                res.locals.userLoggedIn = user;
             }
 
         }else {

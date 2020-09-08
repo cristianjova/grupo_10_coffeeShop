@@ -5,7 +5,7 @@
       <button class="menu-btn"><i class="fas fa-bars"></i></button>
       <div class="mobile-icons">
         <a href="/products/cart"><i class="fas fa-shopping-cart"></i></a>
-        <% if (locals.user) { %>
+        <% if (locals.userLoggedIn) { %>
           <a href="/user/profile"><i class="fas fa-user"></i></a>
           <a href="/user/logout"><i class="fas fa-sign-out-alt"></i></a>
         <% } else { %>
@@ -24,8 +24,8 @@
       </ul>
       <ul class="navbar-nav right">
         <li><a href="/products/cart"><i class="fas fa-shopping-cart"></i> Carrito</a></li>
-        <% if (locals.user) { %>
-          <li><a href="/user/profile"><i class="fas fa-user"></i> <%= user.first_name %> </a></li>
+        <% if (locals.userLoggedIn) { %>
+          <li><a href="/user/profile"><i class="fas fa-user"></i> <%= userLoggedIn.first_name %> </a></li>
           <li><a href="/user/logout"><i class="fas fa-sign-out-alt"></i> Salir </a></li>
         <% } else {%>
           <li><a href="/user/login"><i class="fas fa-user"></i> Iniciar Sesión</a></li>
