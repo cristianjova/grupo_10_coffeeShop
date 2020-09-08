@@ -68,5 +68,14 @@ module.exports = {
       productsId = productsModel.update(product);
       res.redirect('/products/' + productsId)
   },
+  destroy: (req, res) => {
+      let product = productsModel.find(req.params.id);
+      let imagePath = path.join(__dirname, '../public/img/' + product.image);
+      productsModel.destroy(req.params.id);
+      if (fs.existsSync(imagePath)) {
+        fs.unlinkSync(imagePath)
+      }
+      res.redirect('/products');
+  }
   
 }

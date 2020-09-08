@@ -23,5 +23,6 @@ router.post('/', upload.single('image'),controller.store);
 router.get('/:id', controller.detail);
 router.get('/:id/edit', controller.edit);
 router.put('/:id', upload.single('image'), controller.update);
+router.delete('/:id', controller.destroy);
 
 module.exports = router;

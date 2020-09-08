@@ -70,16 +70,6 @@
   "toasted": 1
  },
  {
-  "name": "Italiano",
-  "price": "350",
-  "image": "product_8.png",
-  "size": "1",
-  "type": "1",
-  "toasted": "2",
-  "description": "Un cafe italiano copado",
-  "id": "8"
- },
- {
   "id": 9,
   "name": "Physignathus cocincinus",
   "description": "felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in",
@@ -190,13 +180,13 @@
   "toasted": 1
  },
  {
-  "id": 20,
-  "name": "Larus fuliginosus",
-  "description": "sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis",
-  "price": 510,
-  "image": "product_20.png",
-  "size": 1,
-  "type": 1,
-  "toasted": 1
+  "name": "Argentina",
+  "price": "250",
+  "size": "2",
+  "type": "2",
+  "toasted": "2",
+  "description": "Torrado nacional",
+  "id": "21",
+  "image": "argentina-1598393228086.png"
  }
 ]

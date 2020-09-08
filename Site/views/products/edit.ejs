@@ -11,6 +11,9 @@
         </div>
         <div class="product-add-form">
           <h1>Editar producto</h1>
+          <form class="has-buttons" action="/products/<%= product.id %>?_method=DELETE" method="POST">
+              <button class="button is-danger" type="submit">Eliminar producto</button>
+          </form>
           <form action="/products/<%= product && product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="oldImage" value="<%= product && product.image %>">
             <div class="field-group">
@@ -69,6 +72,7 @@
               <button type="submit" class="btn-primary">Guardar</button>
             </div>
           </form>
+          
         </div>
       </div>
     </div>

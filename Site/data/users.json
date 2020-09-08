@@ -262,5 +262,16 @@
   "phoneNumber": "1213134",
   "image": "user-1597788383469.jpg",
   "id": 24
+ },
+ {
+  "first_name": "Alejandro",
+  "last_name": "Galeano",
+  "email": "ale.gb32@gmail.com",
+  "password": "$2b$10$6.l/uGoXonL2b.2ELgZGjOXNMquhORYOEqgkog0koQIMRr2evkqMW",
+  "category": "user",
+  "adress": "La casa de ale",
+  "phoneNumber": "152643",
+  "image": "user-1599590800641.jpg",
+  "id": 25
  }
 ]

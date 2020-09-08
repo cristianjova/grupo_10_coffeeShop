@@ -60,6 +60,13 @@ let model = function (tableName) {
             this.writeFile(updatedRows);
 
             return row.id;
+        },
+        destroy(id) {
+            let items = this.readFile();
+            
+            let filteredItems = items.filter(currentItem => currentItem.id != id );
+            
+            this.writeFile(filteredItems);
         }
     }
 
