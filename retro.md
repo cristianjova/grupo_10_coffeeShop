@@ -1,4 +1,19 @@
 # grupo_10_coffeeShop - 
+## Retrospectiva Sprint 5
+### 1.Comenzar a hacer:
+  - Pair programming.
+  - Hacer consultas en los grupos de Slack.
+### 2. Hacer más:
+
+  
+  - Comunicarnos con mayor frecuencia.
+### 3. Continuar haciendo:
+  - Planificar en Trello.
+### 4. Hacer menos:
+  - Extender el tiempo entre el lanzamiento del Sprint y la ejecución de las tareas.
+### 5. Dejar de hacer:
+
+
 ## Retrospectiva Sprint 4
 ### 1.Comenzar a hacer:
   - Pair programming.
