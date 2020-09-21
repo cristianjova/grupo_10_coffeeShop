@@ -26,9 +26,9 @@
               <label>Tamaño del paquete</label>
               <div class="field-radio-group">
                 <div class="control">
-                  <select name="size" id="size">
+                  <select name="sizeId" id="size">
                       <% sizes.forEach(size => { %>
-                        <option value="<%= size.id %>"><%= size.size %></option> 
+                        <option value="<%= size.id %>"><%= size.name %></option> 
                       <% });  %> 
                   </select>
                 </div>
@@ -37,9 +37,9 @@
             <div class="field">
               <label>Torrado</label>
               <div class="field-radio-group">
-                <select name="type" id="type">
-                    <% type.forEach(aType => { %>
-                      <option value="<%= aType.id %>"><%= aType.type %></option> 
+                <select name="roastId" id="roast">
+                    <% roasts.forEach(roast => { %>
+                      <option value="<%= roast.id %>"><%= roast.name %></option> 
                     <% });  %> 
                 </select>
               </div>
@@ -48,9 +48,9 @@
             <div class="field">
               <label>Tostado</label>
               <div class="field-radio-group">
-                <select name="toasted" id="toasted">
-                    <% toasted.forEach(toast => { %>
-                      <option value="<%= toast.id %>"><%= toast.toasted %> </option> 
+                <select name="toastId" id="toast">
+                    <% toasts.forEach(toast => { %>
+                      <option value="<%= toast.id %>"><%= toast.name %> </option> 
                     <% });  %> 
                 </select>
               </div>
