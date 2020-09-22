@@ -30,9 +30,9 @@
               <label>Tamaño del paquete</label>
               <div class="field-radio-group">
                 <div class="control">
-                  <select name="size" id="size">
+                  <select name="sizeId" id="size">
                       <% sizes.forEach(size => { %>
-                        <option value="<%= size.id %>" <%= product.size == size.id ? 'selected': null %>><%= size.size %></option> 
+                        <option value="<%= size.id %>" <%= product.sizeId == size.id ? 'selected': null %>><%= size.name %></option> 
                       <% });  %> 
                   </select>
                 </div>
@@ -41,9 +41,9 @@
             <div class="field">
               <label>Torrado</label>
               <div class="field-radio-group">
-                <select name="type" id="type">
-                    <% type.forEach(aType => { %>
-                      <option value="<%= aType.id %>" <%= product.type == aType.id ? 'selected': null %>><%= aType.type %></option> 
+                <select name="roastId" id="roast">
+                    <% roasts.forEach(roast => { %>
+                      <option value="<%= roast.id %>" <%= product.roastId == roast.id ? 'selected': null %>><%= roast.name %></option> 
                     <% });  %> 
                 </select>
               </div>
@@ -52,9 +52,9 @@
             <div class="field">
               <label>Tostado</label>
               <div class="field-radio-group">
-                <select name="toasted" id="toasted">
-                    <% toasted.forEach(toast => { %>
-                      <option value="<%= toast.id %>" <%= product.toasted == toast.id ? 'selected': null %>><%= toast.toasted %></option> 
+                <select name="toastId" id="toast">
+                    <% toasts.forEach(toast => { %>
+                      <option value="<%= toast.id %>" <%= product.toastId == toast.id ? 'selected': null %>><%= toast.name %></option> 
                     <% });  %> 
                 </select>
               </div>
