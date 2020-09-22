@@ -26,7 +26,7 @@ module.exports = {
       roast_id: {
         type: Sequelize.INTEGER
       },
-      toasted_id: {
+      toast_id: {
         type: Sequelize.INTEGER
       },
       createdAt: {
