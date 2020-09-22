@@ -2,6 +2,8 @@ const bcrypt = require('bcrypt');
 const { validationResult } = require('express-validator');
 const crypto = require('crypto');
 const tableName = require ('../database/jsontable');
+
+const { user, category } = require('../database/models');
 const usersModel = tableName('users');
 const usersTokensModel = tableName('usersTokens');
 
@@ -74,4 +76,14 @@ module.exports = {
 
         return res.redirect('/');
     },
+    list: (req,res)=>{
+        user.findAll({ include: category })
+            .then(users => {
+                return res.render('users/list', { users });
+            })
+            .catch(error => {
+                console.log(error);
+                return res.redirect('/')
+            })
+    }
 };
