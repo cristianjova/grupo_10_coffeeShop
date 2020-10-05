@@ -5,43 +5,26 @@
 <body > 
   <%-include('../partials/header')%>
     <main>
-        <section class="homepage">
-            <div class="containerHome">
-                <table>
-                    <thead>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Correo</th>
-                        <th>Contraseña</th>
-                        <th>Categoria</th>
-                        <th>Direccion</th>
-                        <th>Telefono</th>
-                        <th>Imagen</th>
-                        <th>Edicion</th>
-                        <th>Borrar</th>
-                    </thead>
+        <h1>Listado Usuarios</h1>
+        <section class="users" id="user_list">
+            <table>
+                <thead>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Correo</th>
+                    <th>Imagen</th>
+                    <th>Detalle</th>
+                    <th>Edicion</th>
+                    <th>Borrar</th>
+                </thead>
+                <tbody>
                     <% users.forEach(user => { %>
-                        <tr>
-                            <td><%= user.first_name %></td>
-                            <td><%= user.last_name %></td>
-                            <td><%= user.email %></td>
-                            <td><%= user.password %></td>
-                            <td><%= user.category.name %></td>
-                            <td><%= user.adress %></td>
-                            <td><%= user.phone_number %></td>
-                            <td>.....................</td>
-                            <td><a class="button" href="/groups/<%= user.id %>/edit">Editar</a></td>
-                            <td><form class="form is-inline" action="/groups/<%= user.id %>?_method=DELETE" method="POST">
-                                <button class="button is-danger" type="submit">Borrar</button>
-                            </form>
-                            </td>
-                          </tr>
+                        <%- include('./partials/user', { user }) %>
                     <% }); %>
-                </table>
-            </div>
+                </tbody>
+            </table>
         </section>
     </main>
-    <!-- EJS partial footer -->
-    <%-include('../partials/footer')%>
+    <%- include('../partials/footer')  %>  
 </body>
 </html>

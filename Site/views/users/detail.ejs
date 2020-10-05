@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- EJS partial head -->
+<%- include ('../partials/head') %> 
+<body>
+  <!-- EJS partial header-->
+  <%- include ('../partials/header') %>
+  <main class="product-detail">
+    <section class="user-detail">
+      <div class=" register">
+          <h2>Detalle del usuario</h2>
+          
+          <label for="first_name">Nombre</label>
+          <input  type="text" id="first_name" name="first_name" value="<%= getUser.first_name %>"readonly>
+
+          <label for="last_name">Apellido</label>
+          <input  type="text" id="last_name" name="last_name" value="<%= getUser.last_name %>"readonly>
+
+          <label for="email">Correo Electrónico</label>
+          <input  type="email" id="email" name="email" value="<%= getUser.email %>"readonly>
+          
+          <label for="category">Categoria</label>
+          <input type="text" id="category" name="category" value="<%= getUser.category.name %>" readonly>
+          
+          <label for="adress">Direccion</label>
+          <input  type="text" id="adress" name="adress" value="<%= getUser.adress %>"readonly>
+
+          <label for="phoneNumber">Telefono</label>
+          <input  type="text" id="phoneNumber" name="phoneNumber" value="<%= getUser.phone_number %>"readonly>
+          
+          <label for="name">Imagen</label>
+          <img src="/img/users/<%= getUser.image %>" alt="Avatar" class="avatar">
+          <section class="buttons">
+            <div>
+              <a class="button" href="/user/list">&larr; Volver al listado</a>
+              <a class="button"><form class="has-buttons" action="/user/<%= getUser.id %>?_method=DELETE" method="POST">
+                  <button class="button is-danger" type="submit">Eliminar usuario</button>
+              </form></a>
+              <a class="button " href="/user/<%= getUser.id %>/edit">Editar usuario</a>
+            </div>
+          </section>
+      </div>
+  </main>
+  <!-- EJS partial footer -->
+  <%- include ('../partials/footer')%> 
+</body>
+
+</html>

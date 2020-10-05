@@ -1,4 +1,6 @@
 const bcrypt = require('bcrypt');
+const fs = require('fs');
+const path = require ('path');
 const { validationResult } = require('express-validator');
 const crypto = require('crypto');
 const tableName = require ('../database/jsontable');
@@ -14,13 +16,20 @@ module.exports = {
     },
     store: (req,res)=>{
             req.body.password = bcrypt.hashSync(req.body.password, 10);
-            let user = req.body;
+            let newUser = req.body;
             if (req.file) {
-                user.image = req.file.filename;
+                newUser.image = req.file.filename;
             }else{
-                user.image = 'default.png';
+                newUser.image = 'avatar.png';
             }
-            userId = usersModel.create(user);
+            user.create(newUser,{ include: category })
+                .then(newUser=>{
+                    return res.redirect('users/detail', { newUser });
+                })
+                .catch(error => {
+                    console.log(error);
+                    return res.render('/');
+                  })
 
             //res.render('');
             res.redirect('login');
@@ -80,10 +89,66 @@ module.exports = {
         user.findAll({ include: category })
             .then(users => {
                 return res.render('users/list', { users });
+                //return res.send(users);
             })
             .catch(error => {
                 console.log(error);
                 return res.redirect('/')
             })
-    }
+    },
+    show: (req, res) => {
+        user.findByPk(req.params.id,{ include: 'category' })
+            .then(getUser=>{
+                res.render('users/detail', { getUser });
+            })
+            .catch(err=>{
+                res.render('users/404');
+            });
+    },
+    edit: async (req, res) => {
+        const categories = await category.findAll();
+        user.findByPk(req.params.id, { include: 'category' })
+        .then(getUser => {
+            return res.render('users/edit',  { getUser, categories });
+        })
+        .catch(error => {
+            console.log(error);
+            return res.redirect('/');
+        })
+    },
+    update: (req, res) => {
+        let updatedUser = req.body;
+        
+        if (req.file) {
+            updatedUser.image = req.file.filename;
+        } else if (req.body.oldImage) {
+            updatedUser.image = req.body.oldImage;
+        }
+        console.log(updatedUser.oldImage)
+
+        delete updatedUser.oldImage;
+
+        user.update(updatedUser, { where: { id: req.params.id } })
+            .then(updatedUser => {
+                return res.redirect('/user/' + req.params.id);
+            })
+
+    },
+    destroy: async (req, res) => {
+        let existingUser = await user.findByPk(req.params.id);
+        let imagePath = path.join(__dirname, '../public/img/user/' + existingUser.image);
+
+        user.destroy({ where: { id: req.params.id } })
+        .then(deletedUser => {
+            if (fs.existsSync(imagePath)) {
+                fs.unlinkSync(imagePath)
+            }
+
+            return res.redirect('/user/list');
+        })
+        .catch(error => {
+            console.log(error);
+            return res.render('/');
+        })
+    },
 };
