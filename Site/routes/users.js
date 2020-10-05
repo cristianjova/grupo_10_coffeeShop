@@ -25,7 +25,7 @@ router.post('/login', validate.loginForm, controller.authenticate);
 router.get('/logout', controller.logout);
 
 router.get('/list', controller.list);
-router.get('/search', controller.search)
+//router.get('/search', controller.search)
 router.get('/:id', controller.show);
 router.get('/:id/edit', controller.edit);
 router.put('/:id', upload.single('image'), controller.update);
