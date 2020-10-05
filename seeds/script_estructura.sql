@@ -41,6 +41,17 @@ CREATE TABLE `roasts` (
   `updatedAt` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+CREATE TABLE `users_tokens` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `user_hash` varchar(250) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+ALTER TABLE `users_tokens`
+  ADD PRIMARY KEY (`id`);
+ALTER TABLE `users_tokens`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+
 ALTER TABLE `roasts`
   ADD PRIMARY KEY (`id`);
 ALTER TABLE `roasts`
