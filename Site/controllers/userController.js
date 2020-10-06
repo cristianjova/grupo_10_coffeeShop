@@ -22,9 +22,10 @@ module.exports = {
             }else{
                 newUser.image = 'avatar.png';
             }
+            delete newUser.category;
             user.create(newUser,{ include: category })
-                .then(newUser=>{
-                    return res.redirect('users/detail', { newUser });
+                .then(getUser=>{
+                    return res.render('users/detail', { getUser });
                 })
                 .catch(error => {
                     console.log(error);
