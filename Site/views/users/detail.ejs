@@ -10,26 +10,26 @@
       <div class=" register">
           <h2>Detalle del usuario</h2>
           
-          <label for="first_name">Nombre</label>
-          <input  type="text" id="first_name" name="first_name" value="<%= getUser.first_name %>"readonly>
+          <label for="first_name_det">Nombre</label>
+          <input  type="text" id="first_name_det" name="first_name_det" value="<%= getUser.first_name %>"readonly>
 
-          <label for="last_name">Apellido</label>
-          <input  type="text" id="last_name" name="last_name" value="<%= getUser.last_name %>"readonly>
+          <label for="last_name_det">Apellido</label>
+          <input  type="text" id="last_name_det" name="last_name_det" value="<%= getUser.last_name %>"readonly>
 
-          <label for="email">Correo Electrónico</label>
-          <input  type="email" id="email" name="email" value="<%= getUser.email %>"readonly>
+          <label for="email_det">Correo Electrónico</label>
+          <input  type="email" id="email_det" name="email_det" value="<%= getUser.email %>"readonly>
           
-          <label for="category">Categoria</label>
-          <input type="text" id="category" name="category" value="<%= getUser.category.name %>" readonly>
+          <label for="category_det">Categoria</label>
+          <input type="text" id="category_det" name="category_det" value="<%= getUser.category.name %>" readonly>
           
-          <label for="adress">Direccion</label>
-          <input  type="text" id="adress" name="adress" value="<%= getUser.adress %>"readonly>
+          <label for="address_det">Direccion</label>
+          <input  type="text" id="address_det" name="address_det" value="<%= getUser.adress %>"readonly>
 
-          <label for="phoneNumber">Telefono</label>
-          <input  type="text" id="phoneNumber" name="phoneNumber" value="<%= getUser.phone_number %>"readonly>
+          <label for="phone_number_det">Telefono</label>
+          <input  type="text" id="phone_number_det" name="phone_number_det" value="<%= getUser.phone_number %>"readonly>
           
-          <label for="name">Imagen</label>
-          <img src="/img/users/<%= getUser.image %>" alt="Avatar" class="avatar">
+          <label for="image_det">Imagen</label>
+          <img src="/img/users/<%= getUser.image %>"  alt="Avatar" class="avatar">
           <section class="buttons">
             <div>
               <a class="button" href="/user/list">&larr; Volver al listado</a>
