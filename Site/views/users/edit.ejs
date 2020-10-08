@@ -5,21 +5,28 @@
 <body > 
   <%-include('../partials/header')%>
     <main>
-        <form action="/user/<%= getUser && getUser.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <form action="/user/<%= getUser && getUser.id %>?_method=PUT" method="POST" enctype="multipart/form-data" id="registerForm">
             <div class=" register">
             <h2>Edicion de usuario</h2>
-
             <input type="hidden" name="oldImage" value="<%= getUser && getUser.image %>">
+            <% if (locals.errors && errors.credentials) { %>
+                <p><%= errors.credentials.msg %> </p>
+            <% } %>
             
             <label for="first_name">Nombre</label>
-            <input  type="text" id="first_name" name="first_name" value="<%= getUser.first_name %>"required>
+            <input  type="text" id="first_name" name="first_name" value="<%= getUser.first_name %>" required>
+            <p class="feedback"></p>
+            <% if (locals.errors && errors.firstName) { %>
+                <small style="color: red"><%= errors.firstName.msg %> </small> <br>
+            <% } %>
 
             <label for="last_name">Apellido</label>
-            <input  type="text" id="last_name" name="last_name" value="<%= getUser.last_name %>"required>
-
-            <label for="email">Correo Electrónico</label>
-            <input  type="email" id="email" name="email" value="<%= getUser.email %>"required>
-
+            <input  type="text" id="last_name" name="last_name" value="<%= getUser.last_name %>" required>
+            <p class="feedback"></p>
+            <% if (locals.errors && errors.lastName) { %>
+                <small style="color: red"><%= errors.lastName.msg %> </small> <br>
+            <% } %>
+            
             <label for="categoryId">Category</label>
             <select name="categoryId" id="categoryId">
                 <% categories.forEach(category => { %>
@@ -27,18 +34,30 @@
                 <% });  %> 
             </select>
             
-            <label for="adress">Direccion</label>
-            <input  type="text" id="adress" name="adress" value="<%= getUser.adress %>"required>
+            
+            <label for="address">Direccion</label>
+            <input  type="text" id="address" name="address" value="<%= getUser.adress %>"required>
+            <p class="feedback"></p>
+            <% if (locals.errors && errors.address) { %>
+                <small style="color: red"><%= errors.address.msg %> </small>
+            <% } %>
 
             <label for="phone_number">Telefono</label>
-            <input  type="text" id="phone_number" name="phone_number" value="<%= getUser.phone_number %>"required>
+            <input  type="text" id="phone_number" name="phone_number" value="<%= getUser.phone_number %>" required>
+            <p class="feedback"></p>
+            <% if (locals.errors && errors.phoneNumber) { %>
+                <small style="color: red"><%= errors.phoneNumber.msg %> </small>
+            <% } %>
             
-            <label for="name">Imagen</label>
-            <input type="file" name="image" value="/img/users/<%= getUser.image %>">
+            
+            <img src="/img/users/<%= getUser.image %>" alt="Avatar" class="avatar">
+            <label for="image">Imagen</label>
+            <input type="file" name="image" id="image">
+            <p class="feedback"></p>
                 
             <div>
                 <button type="submit" class="btn primary">Editar</button>
-                <button class="button" href="/user/list" class="btn primary del">Cancelar</button>                            
+                <button type="reset" href="/user/list" class="btn primary">Cancelar</button>                            
             </div>
             </div>
         </form>

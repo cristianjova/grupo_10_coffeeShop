@@ -5,33 +5,64 @@
 <body > 
   <%-include('../partials/header')%>
     <main>
-        <form action="register" method="POST" enctype="multipart/form-data">
+        <form action="register" method="POST" enctype="multipart/form-data" id="registerForm">
             <div class=" register">
                 <h2>Formulario de registro</h2>
+                <% if (locals.errors && errors.credentials) { %>
+                    <p><%= errors.credentials.msg %> </p>
+                <% } %>
                 
                 <label for="first_name">Nombre</label>
                 <input  type="text" id="first_name" name="first_name" required>
+                <p class="feedback"></p>
+                <% if (locals.errors && errors.firstName) { %>
+                    <small style="color: red"><%= errors.firstName.msg %> </small> <br>
+                <% } %>
 
                 <label for="last_name">Apellido</label>
                 <input  type="text" id="last_name" name="last_name" required>
+                <p class="feedback"></p>
+                <% if (locals.errors && errors.lastName) { %>
+                    <small style="color: red"><%= errors.lastName.msg %> </small> <br>
+                <% } %>
 
-                <label for="email">Correo Electrónico</label>
-                <input  type="email" id="email" name="email" required>
+                <label for="email_register">Correo Electrónico</label>
+                <input  type="email" id="email_register" name="email_register" required>
+                <p class="feedback"></p>
+                <% if (locals.errors && errors.email) { %>
+                    <small style="color: red"><%= errors.email.msg %> </small> <br>
+                <% } %>
                 
-                <label for="password">Contraseña</label>
-                <input type="password" id="password" name="password" required>
+                <label for="password_register">Contraseña</label>
+                <input type="password" id="password_register" name="password_register" required>
+                <p class="feedback"></p>
+                <% if (locals.errors && errors.password) { %>
+                    <small style="color: red"><%= errors.password.msg %> </small>
+                <% } %>
                 
                 <label for="category">Categoria</label>
-                <input type="text" id="category" name="category" value="user" readonly>
+                <input type="text" id="category" name="category" value="Usuario Registrado" readonly>
+                <p class="feedback"></p>
+                <input type="hidden" id="category_id" name="category_id" value="2" readonly>
                 
-                <label for="adress">Direccion</label>
-                <input  type="text" id="adress" name="adress" required>
+                
+                <label for="address">Direccion</label>
+                <input  type="text" id="address" name="address" required>
+                <p class="feedback"></p>
+                <% if (locals.errors && errors.address) { %>
+                    <small style="color: red"><%= errors.address.msg %> </small>
+                <% } %>
 
-                <label for="phoneNumber">Telefono</label>
-                <input  type="text" id="phoneNumber" name="phoneNumber" required>
+                <label for="phone_number">Telefono</label>
+                <input  type="text" id="phone_number" name="phone_number" required>
+                <p class="feedback"></p>
+                <% if (locals.errors && errors.phoneNumber) { %>
+                    <small style="color: red"><%= errors.phoneNumber.msg %> </small>
+                <% } %>
                 
-                <label for="name">Imagen</label>
-                <input type="file" name="image">
+                <label for="image">Imagen</label>
+                <input type="file" name="image" id="image">
+                <p class="feedback"></p>
                 
                 <div>
                     <button type="submit" class="btn primary">Registrarme</button>

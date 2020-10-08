@@ -15,16 +15,21 @@ module.exports = {
         res.render('users/register');
     },
     store: (req,res)=>{
-            req.body.password = bcrypt.hashSync(req.body.password, 10);
+            req.body.password = bcrypt.hashSync(req.body.password_register, 10);
+            req.body.email = req.body.email_register;
+            
             let newUser = req.body;
             if (req.file) {
                 newUser.image = req.file.filename;
             }else{
                 newUser.image = 'avatar.png';
             }
+            delete newUser.category;
+            delete newUser.password_register;
+            delete newUser.email_register;
             user.create(newUser,{ include: category })
-                .then(newUser=>{
-                    return res.redirect('users/detail', { newUser });
+                .then(getUser=>{
+                    return res.render('users/detail', { getUser });
                 })
                 .catch(error => {
                     console.log(error);
