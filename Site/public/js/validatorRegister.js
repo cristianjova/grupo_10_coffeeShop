@@ -3,7 +3,7 @@ window.addEventListener('load', function() {
     
     let errors = {};
 
-    let form = document.getElementById('formForm');
+    let form = document.getElementById('registerForm');
     let firstName = document.getElementById('first_name');
     let lastName = document.getElementById('last_name');
     let password = document.getElementById('password_register');

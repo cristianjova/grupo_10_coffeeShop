@@ -8,6 +8,7 @@
         <form action="/user/<%= getUser && getUser.id %>?_method=PUT" method="POST" enctype="multipart/form-data" id="registerForm">
             <div class=" register">
             <h2>Edicion de usuario</h2>
+            <input type="hidden" name="oldImage" value="<%= getUser && getUser.image %>">
             <% if (locals.errors && errors.credentials) { %>
                 <p><%= errors.credentials.msg %> </p>
             <% } %>
@@ -56,7 +57,7 @@
                 
             <div>
                 <button type="submit" class="btn primary">Editar</button>
-                <button class="reset" href="/user/list" class="btn primary">Cancelar</button>                            
+                <button type="reset" href="/user/list" class="btn primary">Cancelar</button>                            
             </div>
             </div>
         </form>
