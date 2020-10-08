@@ -47,30 +47,63 @@ module.exports = {
                 user: req.body
             })
         }
+        user.findOne({
+            where: {
+                email: req.body.email
+            }
+        })
+        .then(user => {
 
-        let user = usersModel.findByField('email', req.body.email);
+            // bcrypt.compareSync(req.body.password, user.password)
+            // Comparo contraseña - no me funciona registro por eso comparo en texto plano
+            if(user && req.body.password === user.password) {
+                delete user.password;
+                req.session.user = user;
 
-        // Si no existe el usuario o la contraseña no es valida
-        if(!user || !bcrypt.compareSync(req.body.password, user.password)) {
+                // Remember me
+                // if (req.body.rememberMe) {
+                //     const token = crypto.randomBytes(64).toString('base64');
+                //     usersTokensModel.create({ userId: user.id, token });
+                //     res.cookie('userToken', token, {maxAge: 1000 * 60 * 60 * 24 * 30 * 1})
+                // }
+
+                return res.redirect('/');
+            } else {
+                return res.render('users/login', {
+                    errors: { credentials: { msg: 'Crendenciales inválidas' }},
+                    user: req.body
+                })
+            }
+        })
+        .catch(error => {
             return res.render('users/login', {
                 errors: { credentials: { msg: 'Crendenciales inválidas' }},
                 user: req.body
             })
-        }
+        })
+        // let user = usersModel.findByField('email', req.body.email);
 
-        // Pase los controles, logueo usuario
-        delete user.password
-        req.session.user = user; 
+        // // Si no existe el usuario o la contraseña no es valida
+        // if(!user || !bcrypt.compareSync(req.body.password, user.password)) {
+        //     return res.render('users/login', {
+        //         errors: { credentials: { msg: 'Crendenciales inválidas' }},
+        //         user: req.body
+        //     })
+        // }
 
-        //Remember me
-        if (req.body.rememberMe) {
-            const token = crypto.randomBytes(64).toString('base64');
+        // // Pase los controles, logueo usuario
+        // delete user.password
+        // req.session.user = user; 
 
-            usersTokensModel.create({ userId: user.id, token });
+        // //Remember me
+        // if (req.body.rememberMe) {
+        //     const token = crypto.randomBytes(64).toString('base64');
 
-            res.cookie('userToken', token, {maxAge: 1000 * 60 * 60 * 24 * 30 * 1})
-        }
-        return res.redirect('/');
+        //     usersTokensModel.create({ userId: user.id, token });
+
+        //     res.cookie('userToken', token, {maxAge: 1000 * 60 * 60 * 24 * 30 * 1})
+        // }
+        // return res.redirect('/');
     },
     logout: (req,res)=>{
 
