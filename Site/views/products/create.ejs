@@ -11,15 +11,21 @@
         </div>
         <div class="product-add-form">
           <h1>Agregar producto</h1>
-          <form action="/products" method="POST" enctype="multipart/form-data">
+          <form action="/products" method="POST" enctype="multipart/form-data" id="product-form">
             <div class="field-group">
               <div class="field">
                 <label for="name">Nombre</label>
-                <input type="text" name="name" id="name" placeholder="Ej: Origen Brasil">
+                <input type="text" name="name" id="product-name" value="<%= locals.old ? old.name : '' %>" placeholder="Ej: Origen Brasil">
+                <small class="text-danger">
+                  <%= locals.errors && errors.name ? errors.name.msg : '' %>
+                </small>
               </div>
               <div class="field">
                 <label for="price">Precio</label>
-                <input type="number" name="price" id="price" placeholder="Ej: 250">
+                <input type="number" step="0.1" name="price" id="product-price" value="<%= locals.old ? old.price : '' %>" placeholder="Ej: 250">
+                <small class="text-danger">
+                  <%= locals.errors && errors.price ? errors.price.msg : '' %>
+                </small>
               </div>
             </div>
             <div class="field">
@@ -57,11 +63,17 @@
             </div>
             <div class="field">
               <label for="image">Imagén</label>
-              <input type="file" name="image" id="image">
+              <input type="file" name="image" id="product-image" accept="image/*">
+              <small class="text-danger">
+                <%= locals.errors && errors.image ? errors.image.msg : '' %>
+              </small>
             </div>
             <div class="field">
               <label for="description">Descripción</label>
-              <textarea name="description" id="description" cols="30" rows="10" placeholder="Descripción del producto"></textarea>
+              <textarea name="description" id="product-description" cols="30" rows="10" placeholder="Descripción del producto"><%= locals.old ? old.description : '' %></textarea>
+              <small class="text-danger">
+                <%= locals.errors && errors.description ? errors.description.msg : '' %>
+              </small>
             </div>
             
             <div class="btn-group">
@@ -74,5 +86,6 @@
     </div>
   </main>
   <%- include('../partials/footer')  %>  
+  <%- include('../partials/loadScript', { scriptName: 'productsValidator.js'})  %>  
 </body>
 </html>

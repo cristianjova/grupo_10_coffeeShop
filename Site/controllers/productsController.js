@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require ('path');
+const { validationResult } = require('express-validator');
 const tableName = require ('../database/jsontable');
 
 const { product, size, toast, roast } = require('../database/models');
@@ -38,14 +39,39 @@ module.exports = {
 
     res.render('products/create', { sizes, toasts, roasts });
   },
-  store: (req, res) => {
+  store: async (req, res) => {
+    let errors = validationResult(req);
+    console.log(errors.mapped())
+    if(!errors.isEmpty()) {
+      // Elimino imagen subida
+      if(req.file) {
+        let imagePath = path.join(__dirname, '../public/img/' + req.file.filename);
+  
+        if (fs.existsSync(imagePath)) {
+            fs.unlinkSync(imagePath)
+        }
+      }
+
+      let sizes = await size.findAll();
+      let toasts = await toast.findAll();
+      let roasts = await roast.findAll();
+
+      return res.render('products/create', {
+        sizes,
+        toasts,
+        roasts,
+        errors: errors.mapped(),
+        old: req.body
+      });
+    }
+
     let newProduct = req.body;
     newProduct.image = 'coffee-add-img.png';
     
     if(req.file) {
-      newProduct.image = req.body.filename;
+      newProduct.image = req.file.filename;
     } 
-
+    console.log(newProduct);
     product.create(newProduct)
       .then(newProduct => {
         return res.redirect('/products/' + newProduct.id);
