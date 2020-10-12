@@ -166,8 +166,18 @@ header .navbar {
 	padding: 0 0.5rem;
 }
 
+/* Falta mejorar */
 .navbar .collapse-links {
-	display: none;
+    overflow: hidden;
+    transition: all 0.3s ease-out;
+    max-height: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+}
+
+.navbar .collapse-links.show {
+    transform: scaleY(1);
+    max-height: 300px;
 }
 
 .navbar .navbar-nav.right {
@@ -655,7 +665,7 @@ h2{
     .navbar {
 		display: flex;
 		justify-content: space-between;
-		align-items: center;
+        align-items: center;
 	}
 
 
@@ -671,7 +681,10 @@ h2{
 	.navbar .collapse-links {
 		display: flex;
 		justify-content: space-between;
-		width: 100%
+        width: 100%;
+        max-height: 100%;
+        transform: none;
+        overflow: visible;
 	}
 
 	.navbar .navbar-nav.right {
