@@ -5,7 +5,7 @@ const { validationResult } = require('express-validator');
 const crypto = require('crypto');
 const tableName = require ('../database/jsontable');
 
-const { user, category } = require('../database/models');
+const { user, category, token } = require('../database/models');
 const usersModel = tableName('users');
 const usersTokensModel = tableName('usersTokens');
 
@@ -57,20 +57,21 @@ module.exports = {
                 email: req.body.email
             }
         })
-        .then(user => {
+        .then(async user => {
 
-            // bcrypt.compareSync(req.body.password, user.password)
-            // Comparo contraseña - no me funciona registro por eso comparo en texto plano
-            if(user && req.body.password === user.password) {
+            if(user && bcrypt.compareSync(req.body.password, user.password)) {
                 delete user.password;
                 req.session.user = user;
 
                 // Remember me
-                // if (req.body.rememberMe) {
-                //     const token = crypto.randomBytes(64).toString('base64');
-                //     usersTokensModel.create({ userId: user.id, token });
-                //     res.cookie('userToken', token, {maxAge: 1000 * 60 * 60 * 24 * 30 * 1})
-                // }
+                if (req.body.rememberMe) {
+                    const tokenCrypto = crypto.randomBytes(64).toString('base64');
+                    await token.create({
+                        'hash': tokenCrypto,
+                        'user_id': user.id
+                    });
+                    res.cookie('userToken', tokenCrypto, {maxAge: 1000 * 60 * 60 * 24 * 30 * 1});
+                }
 
                 return res.redirect('/');
             } else {
@@ -86,41 +87,13 @@ module.exports = {
                 user: req.body
             })
         })
-        // let user = usersModel.findByField('email', req.body.email);
-
-        // // Si no existe el usuario o la contraseña no es valida
-        // if(!user || !bcrypt.compareSync(req.body.password, user.password)) {
-        //     return res.render('users/login', {
-        //         errors: { credentials: { msg: 'Crendenciales inválidas' }},
-        //         user: req.body
-        //     })
-        // }
-
-        // // Pase los controles, logueo usuario
-        // delete user.password
-        // req.session.user = user; 
-
-        // //Remember me
-        // if (req.body.rememberMe) {
-        //     const token = crypto.randomBytes(64).toString('base64');
-
-        //     usersTokensModel.create({ userId: user.id, token });
-
-        //     res.cookie('userToken', token, {maxAge: 1000 * 60 * 60 * 24 * 30 * 1})
-        // }
-        // return res.redirect('/');
     },
     logout: (req,res)=>{
-
-        let userTokens = usersTokensModel.findAllByField('userId', req.session.user.id);
-        userTokens.forEach(userToken => {
-            usersTokensModel.delete(userToken.id);
-        })
-
-        res.clearCookie('userToken');
-        
+        if(req.cookies.userToken) {
+            token.destroy({ where: { hash: req.cookies.userToken}});
+            res.clearCookie('userToken');
+        }
         req.session.destroy();
-
         return res.redirect('/');
     },
     list: (req,res)=>{
