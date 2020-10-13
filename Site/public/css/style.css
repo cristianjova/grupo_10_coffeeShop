@@ -478,10 +478,12 @@ h2{
     margin: 0 0 0.5rem;
 }
 
-.field input {
+.field input, .field select {
+    width: 100%;
     margin: 0;
     padding: 0.7rem 0.5rem;
     outline: none;
+    background: #ffffff;
     border: 1px solid var(--intermedia);
     border-radius: 5px;
     transition: all 0.15s ease-in-out;

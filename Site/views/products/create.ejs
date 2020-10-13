@@ -11,7 +11,7 @@
         </div>
         <div class="product-add-form">
           <h1>Agregar producto</h1>
-          <form action="/products" method="POST" enctype="multipart/form-data" id="product-form">
+          <form action="/products" method="POST" enctype="multipart/form-data" id="product-form" novalidate>
             <div class="field-group">
               <div class="field">
                 <label for="name">Nombre</label>
@@ -28,39 +28,34 @@
                 </small>
               </div>
             </div>
+
             <div class="field">
               <label>Tamaño del paquete</label>
-              <div class="field-radio-group">
-                <div class="control">
-                  <select name="sizeId" id="size">
-                      <% sizes.forEach(size => { %>
-                        <option value="<%= size.id %>"><%= size.name %></option> 
-                      <% });  %> 
-                  </select>
-                </div>
-              </div>
+              <select name="sizeId" id="size">
+                  <% sizes.forEach(size => { %>
+                    <option value="<%= size.id %>"><%= size.name %></option> 
+                  <% });  %> 
+              </select>
             </div>
+
             <div class="field">
               <label>Torrado</label>
-              <div class="field-radio-group">
                 <select name="roastId" id="roast">
                     <% roasts.forEach(roast => { %>
                       <option value="<%= roast.id %>"><%= roast.name %></option> 
                     <% });  %> 
                 </select>
-              </div>
             </div>
     
             <div class="field">
               <label>Tostado</label>
-              <div class="field-radio-group">
-                <select name="toastId" id="toast">
-                    <% toasts.forEach(toast => { %>
-                      <option value="<%= toast.id %>"><%= toast.name %> </option> 
-                    <% });  %> 
-                </select>
-              </div>
+              <select name="toastId" id="toast">
+                  <% toasts.forEach(toast => { %>
+                    <option value="<%= toast.id %>"><%= toast.name %> </option> 
+                  <% });  %> 
+              </select>
             </div>
+
             <div class="field">
               <label for="image">Imagén</label>
               <input type="file" name="image" id="product-image" accept="image/*">
