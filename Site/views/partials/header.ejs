@@ -2,7 +2,7 @@
   <nav class="navbar">
     <div class="navbar-mobile">
       <a class="logo" href="/"><img src="/img/logo2.png"></a>
-      <button class="menu-btn"><i class="fas fa-bars"></i></button>
+      <button class="menu-btn" id="toggle-menu"><i class="fas fa-bars"></i></button>
       <div class="mobile-icons">
         <a href="/products/cart"><i class="fas fa-shopping-cart"></i></a>
         <% if (locals.userLoggedIn) { %>
@@ -15,7 +15,7 @@
     </div>
     
     
-    <div class="collapse-links">
+    <div class="collapse-links" id="menu-mobile">
       <ul class="navbar-nav left"> 
         <li><a href="/">Inicio</a></li>
         <li><a href="/products">Productos</a></li>

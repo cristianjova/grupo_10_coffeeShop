@@ -14,58 +14,66 @@
           <form class="has-buttons" action="/products/<%= product.id %>?_method=DELETE" method="POST">
               <button class="button is-danger" type="submit">Eliminar producto</button>
           </form>
-          <form action="/products/<%= product && product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+          <form action="/products/<%= product && product.id %>?_method=PUT" method="POST" enctype="multipart/form-data" id="product-form" novalidate>
             <input type="hidden" name="oldImage" value="<%= product && product.image %>">
             <div class="field-group">
               <div class="field">
                 <label for="name">Nombre</label>
-                <input type="text" name="name" id="name"  value="<%= product && product.name %>">
+                <input type="text" name="name" id="product-name" value="<%= product && product.name %>">
+                <small class="text-danger">
+                  <%= locals.errors && errors.name ? errors.name.msg : '' %>
+                </small>
               </div>
               <div class="field">
                 <label for="price">Precio</label>
-                <input type="number" name="price" id="price" value="<%= product && product.price %>" >
+                <input type="number" step="0.1" name="price" id="product-price" value="<%= product && product.price %>">
+                <small class="text-danger">
+                  <%= locals.errors && errors.price ? errors.price.msg : '' %>
+                </small>
               </div>
             </div>
+
             <div class="field">
               <label>Tamaño del paquete</label>
-              <div class="field-radio-group">
-                <div class="control">
-                  <select name="sizeId" id="size">
-                      <% sizes.forEach(size => { %>
-                        <option value="<%= size.id %>" <%= product.sizeId == size.id ? 'selected': null %>><%= size.name %></option> 
-                      <% });  %> 
-                  </select>
-                </div>
-              </div>
+              <select name="sizeId" id="size">
+                  <% sizes.forEach(size => { %>
+                    <option value="<%= size.id %>" <%= product.sizeId == size.id ? 'selected': null %>><%= size.name %></option> 
+                  <% });  %> 
+              </select>
             </div>
+
             <div class="field">
               <label>Torrado</label>
-              <div class="field-radio-group">
-                <select name="roastId" id="roast">
-                    <% roasts.forEach(roast => { %>
-                      <option value="<%= roast.id %>" <%= product.roastId == roast.id ? 'selected': null %>><%= roast.name %></option> 
-                    <% });  %> 
-                </select>
-              </div>
+              <select name="roastId" id="roast">
+                  <% roasts.forEach(roast => { %>
+                    <option value="<%= roast.id %>" <%= product.roastId == roast.id ? 'selected': null %>><%= roast.name %></option> 
+                  <% });  %> 
+              </select>
             </div>
     
             <div class="field">
               <label>Tostado</label>
-              <div class="field-radio-group">
-                <select name="toastId" id="toast">
-                    <% toasts.forEach(toast => { %>
-                      <option value="<%= toast.id %>" <%= product.toastId == toast.id ? 'selected': null %>><%= toast.name %></option> 
-                    <% });  %> 
-                </select>
-              </div>
+              <select name="toastId" id="toast">
+                  <% toasts.forEach(toast => { %>
+                    <option value="<%= toast.id %>" <%= product.toastId == toast.id ? 'selected': null %>><%= toast.name %></option> 
+                  <% });  %> 
+              </select>
             </div>
+
             <div class="field">
               <label for="image">Imagén</label>
-              <input type="file" name="image" id="image">
+              <input type="file" name="image" id="product-image" value="<%= product.image %>" accept="image/*">
+              <small class="text-danger">
+                <%= locals.errors && errors.image ? errors.image.msg : '' %>
+              </small>
             </div>
+
             <div class="field">
               <label for="description">Descripción</label>
-              <textarea name="description"><%= product && product.description %></textarea>
+              <textarea name="description" id="product-description" cols="30" rows="10" placeholder="Descripción del producto"><%= product && product.description %></textarea>
+              <small class="text-danger">
+                <%= locals.errors && errors.description ? errors.description.msg : '' %>
+              </small>
             </div>
             
             <div class="btn-group">
@@ -77,6 +85,7 @@
       </div>
     </div>
   </main>
-  <%- include('../partials/footer')  %>  
+  <%- include('../partials/footer')  %>
+  <%- include('../partials/loadScript', { scriptName: 'productsValidator.js'})  %> 
 </body>
 </html>
