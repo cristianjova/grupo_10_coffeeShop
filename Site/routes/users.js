@@ -28,7 +28,7 @@ router.get('/list', controller.list);
 //router.get('/search', controller.search)
 router.get('/:id', controller.show);
 router.get('/:id/edit', controller.edit);
-router.put('/:id', upload.single('image'), controller.update);
+router.put('/:id', upload.single('image'), validate.edit, controller.update);
 router.delete('/:id', controller.destroy);
 
 module.exports = router;

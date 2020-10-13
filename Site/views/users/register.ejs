@@ -46,8 +46,8 @@
                 <input type="hidden" id="category_id" name="category_id" value="2" readonly>
                 
                 
-                <label for="address">Direccion</label>
-                <input  type="text" id="address" name="address" required>
+                <label for="adress">Direccion</label>
+                <input  type="text" id="adress" name="adress" required>
                 <p class="feedback"></p>
                 <% if (locals.errors && errors.address) { %>
                     <small style="color: red"><%= errors.address.msg %> </small>
@@ -74,5 +74,6 @@
     </main>
     <!-- EJS partial footer -->
     <%-include('../partials/footer')%>
+    <%#-include('../partials/loadScript', { scriptName: 'validatorRegister.js'})  %>  
 </body>
 </html>

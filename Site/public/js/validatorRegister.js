@@ -8,7 +8,7 @@ window.addEventListener('load', function() {
     let lastName = document.getElementById('last_name');
     let password = document.getElementById('password_register');
     let email = document.getElementById('email_register');
-    let address = document.getElementById('address');
+    let address = document.getElementById('adress');
     let phoneNumber = document.getElementById('phone_number');
     let image = document.getElementById('image');
 
@@ -16,7 +16,7 @@ window.addEventListener('load', function() {
         let feedback = '';
         
         if (validator.isEmpty(firstName.value, { ignore_whitespace:true })) {
-            feedback = 'El Nombre no puede estar vacío';
+            feedback = 'El nombre no puede estar vacío';
         }else if (!validator.isLength(firstName.value, { min: 2 })) {
             feedback = 'El nombre debe tener al menos 2 caracteres';
         }
@@ -44,7 +44,7 @@ window.addEventListener('load', function() {
         let regexpEmail = new RegExp(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
 
         if(email.value == "") {
-            feedback = "Campo obligatório";
+            feedback = "El correo no puede estar vacío";
         }else if(!regexpEmail.test(email.value)) {
             feedback = "Debe ingresar un mail válido";
         }
@@ -59,7 +59,7 @@ window.addEventListener('load', function() {
         let lower = new RegExp("[a-z]");
         let number = new RegExp("[0-9]");
 
-        if(password.value == "") feedback = "Campo obligatório";
+        if(password.value == "") feedback = "La contraseña no puede estar vacía";
         else if(password.value.length < 8 || password.value.length > 20) feedback = "Debe contener entre 8 y 20 caracteres";
         // Checkea que se cumplan todas las condiciones del formato
         else if(
@@ -74,7 +74,7 @@ window.addEventListener('load', function() {
         let feedback = '';
         
         if (validator.isEmpty(address.value, { ignore_whitespace:true })) {
-            feedback = 'La direccion no puede estar vacia';
+            feedback = 'La direccion no puede estar vacía';
         }
 
         handleFeedback(address, feedback);
@@ -83,7 +83,7 @@ window.addEventListener('load', function() {
         let feedback = '';
         
         if (validator.isEmpty(phoneNumber.value, { ignore_whitespace:true })) {
-            feedback = 'El numero de telefono es obligatorio, no puede estar vacío';
+            feedback = 'El telefono no puede estar vacío';
         }
 
         handleFeedback(phoneNumber, feedback);
