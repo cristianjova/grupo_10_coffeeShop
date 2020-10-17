@@ -6,6 +6,7 @@ const crypto = require('crypto');
 const tableName = require ('../database/jsontable');
 
 const { user, category, token } = require('../database/models');
+const { Console } = require('console');
 const usersModel = tableName('users');
 const usersTokensModel = tableName('usersTokens');
 
@@ -15,6 +16,10 @@ module.exports = {
         res.render('users/register');
     },
     store: (req,res)=>{
+        let errors = validationResult(req);
+
+
+        if (errors.isEmpty()) {
             req.body.password = bcrypt.hashSync(req.body.password_register, 10);
             req.body.email = req.body.email_register;
             
@@ -38,6 +43,23 @@ module.exports = {
 
             //res.render('');
             res.redirect('login');
+        } else {
+            if(req.file) {
+                let imagePath = path.join(__dirname, '../public/img/users' + req.file.filename);
+          
+                if (fs.existsSync(imagePath)) {
+                    fs.unlinkSync(imagePath)
+                }
+              }
+            console.log(req.body)
+            console.log(errors.mapped())
+            return res.render('users/register', {
+                errorsReg: errors.mapped(),
+                user: req.body
+                
+            })
+        }
+        //console.log(req.body, errors)
     },
     login: (req,res)=>{
         res.render('users/login');

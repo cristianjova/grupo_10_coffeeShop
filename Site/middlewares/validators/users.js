@@ -10,16 +10,15 @@ module.exports = {
             .notEmpty().withMessage('Debés completar el campo de contraseña').bail()
     ],
     register: [
-
-        check('first_name').trim()
+        check('first_name')
             .notEmpty().withMessage('Debés completar el campo nombre').bail()
             .isLength({ min : 2}).withMessage('el nombre debe tener por lo menos 2 caracters'),
         
-        check('last_name').trim()
+        check('last_name')
             .notEmpty().withMessage('Debés completar el campo apellido').bail()
             .isLength({ min : 2}).withMessage('el apellido debe tener por lo menos 2 caracters'),
 
-        check('email_register').trim()
+        check('email_register')
             .notEmpty().withMessage('Debés completar el campo correo').bail()
             .isEmail().withMessage('Debe ingregar un mail válido.').bail()
             .custom(async value => { // Comprueba si ese mail ya está en uso en BD
@@ -45,14 +44,15 @@ module.exports = {
                 return upper.test(value) && lower.test(value) && number.test(value);
 
             }).withMessage('Debe contener al menos una minúscula, una mayúscula y un número'),
-
-        check('adress').trim()
-            .notEmpty().withMessage('Debés completar el campo direccion').bail()
-            .isLength({ min : 2}).withMessage('la direccion debe tener por lo menos 2 caracters'),
-        
-        check('phone_number').trim()
-            .notEmpty().withMessage('Debés completar el campo telefono').bail()
-            .isLength({ min : 2}).withMessage('la direccion debe tener por lo menos 2 caracters'),    
+        check('image')
+            .custom((value, { req })=> {
+               if(req.file) {
+                const ext = req.file.mimetype.split('/')[1];
+                console.log(['jpg', 'jpeg', 'png', 'gif'].includes(ext));
+                return ['jpg', 'jpeg', 'png', 'gif'].includes(ext);
+               }
+               return true;
+            }).withMessage('La imagén debe tener uno de los siguientes formatos (JPG, JPEG, PNG, GIF).')    
     ],
     edit: [
 
@@ -63,13 +63,15 @@ module.exports = {
         check('last_name').trim()
             .notEmpty().withMessage('Debés completar el campo apellido').bail()
             .isLength({ min : 2}).withMessage('el apellido debe tener por lo menos 2 caracters'),
-
-        check('adress').trim()
-            .notEmpty().withMessage('Debés completar el campo direccion').bail()
-            .isLength({ min : 2}).withMessage('la direccion debe tener por lo menos 2 caracters'),
-        
-        check('phone_number').trim()
-            .notEmpty().withMessage('Debés completar el campo telefono').bail()
-            .isLength({ min : 2}).withMessage('la direccion debe tener por lo menos 2 caracters'),    
+            
+        check('image')
+            .custom((value, { req })=> {
+               if(req.file) {
+                const ext = req.file.mimetype.split('/')[1];
+                console.log(['jpg', 'jpeg', 'png', 'gif'].includes(ext));
+                return ['jpg', 'jpeg', 'png', 'gif'].includes(ext);
+               }
+               return true;
+            }).withMessage('La imagén debe tener uno de los siguientes formatos (JPG, JPEG, PNG, GIF).')   
     ],
 };

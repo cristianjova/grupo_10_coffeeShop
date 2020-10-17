@@ -5,39 +5,36 @@
 <body > 
   <%-include('../partials/header')%>
     <main>
-        <form action="register" method="POST" enctype="multipart/form-data" id="registerForm">
+        <form action="register" method="POST" enctype="multipart/form-data" id="registerForm" novalidate>
             <div class=" register">
                 <h2>Formulario de registro</h2>
-                <% if (locals.errors && errors.credentials) { %>
-                    <p><%= errors.credentials.msg %> </p>
-                <% } %>
-                
+
                 <label for="first_name">Nombre</label>
                 <input  type="text" id="first_name" name="first_name" required>
                 <p class="feedback"></p>
-                <% if (locals.errors && errors.firstName) { %>
-                    <small style="color: red"><%= errors.firstName.msg %> </small> <br>
+                <% if (locals.errorsReg && errorsReg.first_name) { %>
+                    <small style="color: red"><%= errorsReg.first_name.msg %> </small> <br>
                 <% } %>
 
                 <label for="last_name">Apellido</label>
                 <input  type="text" id="last_name" name="last_name" required>
                 <p class="feedback"></p>
-                <% if (locals.errors && errors.lastName) { %>
-                    <small style="color: red"><%= errors.lastName.msg %> </small> <br>
+                <% if (locals.errorsReg && errorsReg.last_name) { %>
+                    <small style="color: red"><%= errorsReg.last_name.msg %> </small> <br>
                 <% } %>
 
                 <label for="email_register">Correo Electrónico</label>
                 <input  type="email" id="email_register" name="email_register" required>
                 <p class="feedback"></p>
-                <% if (locals.errors && errors.email) { %>
-                    <small style="color: red"><%= errors.email.msg %> </small> <br>
+                <% if (locals.errorsReg && errorsReg.email_register) { %>
+                    <small style="color: red"><%= errorsReg.email_register.msg %> </small> <br>
                 <% } %>
                 
                 <label for="password_register">Contraseña</label>
                 <input type="password" id="password_register" name="password_register" required>
                 <p class="feedback"></p>
-                <% if (locals.errors && errors.password) { %>
-                    <small style="color: red"><%= errors.password.msg %> </small>
+                <% if (locals.errorsReg && errorsReg.password_register) { %>
+                    <small style="color: red"><%= errorsReg.password_register.msg %> </small>
                 <% } %>
                 
                 <label for="category">Categoria</label>
@@ -49,20 +46,17 @@
                 <label for="adress">Direccion</label>
                 <input  type="text" id="adress" name="adress" required>
                 <p class="feedback"></p>
-                <% if (locals.errors && errors.address) { %>
-                    <small style="color: red"><%= errors.address.msg %> </small>
-                <% } %>
 
                 <label for="phone_number">Telefono</label>
                 <input  type="text" id="phone_number" name="phone_number" required>
                 <p class="feedback"></p>
-                <% if (locals.errors && errors.phoneNumber) { %>
-                    <small style="color: red"><%= errors.phoneNumber.msg %> </small>
-                <% } %>
                 
                 <label for="image">Imagen</label>
                 <input type="file" name="image" id="image">
                 <p class="feedback"></p>
+                <% if (locals.errorsReg && errorsReg.image) { %>
+                    <small style="color: red"><%= errorsReg.image.msg %> </small>
+                <% } %>
                 
                 <div>
                     <button type="submit" class="btn primary">Registrarme</button>
