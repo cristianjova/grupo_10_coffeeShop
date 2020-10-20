@@ -39,6 +39,11 @@ app.use('/user', userRoute);
 app.use('/products', productsRoute);
 //app.use('/static', staticRoute);
 
+// Rutas API
+const apiProductsRoute = require('./routes/api/product');
+
+app.use('/api/products', apiProductsRoute);
+
 // Correr servidor
 const PORT = 3000;
 app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));

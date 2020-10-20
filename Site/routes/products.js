@@ -8,7 +8,7 @@ const path = require('path');
 const multer = require('multer');
 
 const storage = multer.diskStorage({
-    destination: path.join(__dirname, '../public/img'),
+    destination: path.join(__dirname, '../public/img/products'),
     filename: (req, file, callback) => {
         let nameProduct = req.body.name.split(' ').join('-').toLowerCase()
         callback(null, nameProduct + '-' + Date.now() + path.extname(file.originalname)) 
