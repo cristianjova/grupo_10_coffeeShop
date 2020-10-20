@@ -15,7 +15,7 @@
                     <% products.forEach(product => { %>
                     <article class="homeContainer">
                         <div class="homeProduct">
-                        <a href="/products/<%= product.id %>"><img src="/img/<%= product.image %>" alt="destacado <%= product.id %>"></a>
+                        <a href="/products/<%= product.id %>"><img src="/img/products/<%= product.image %>" alt="destacado <%= product.id %>"></a>
                         </div>
                         <div class="homeProductContainer">
                         <p class="homeProductName"><%= product.name %></p>
