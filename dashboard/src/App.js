@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Sidebar from './components/sidebar/Sidebar';
 import KeyMetric from './components/KeyMetric';
 import Table from './components/Table';
+import axios from 'axios';
 
 const metrics = [
   {
@@ -29,42 +30,36 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "Sin título",
-      data: ""
+      users: [],
+      products: [],
+      totalProducts: 0,
+      totalUsers: 0
     };
   }
 
   apiCall(url, callback) {
-    fetch(url,
-    {method: 'GET',
-        headers:{
-          'Accept' : 'application/json',
-          'Content-Type' : 'application/json'
-        }
-    })
-    .then((result)=>{
-      result.json()
-      .then((result)=>{
-          this.setState({data: result})
-        })
-    })
+    axios
+      .get(url)
+      .then(response => callback(response))
+      .catch(error => console.log(error))
   }
 
   componentDidMount() {
-    this.apiCall('http://localhost:3000/api/products')
+    this.apiCall('http://localhost:3000/api/products', (response) => {
+      this.setState({
+        products: response.data.products,
+        totalProducts: response.data.meta.count
+      })
+    });
+    this.apiCall('http://localhost:3000/api/users', (response) => {
+      this.setState({
+        users: response.data.users,
+        totalUsers: response.data.meta.count
+      })
+    });
   }
 
-  componentDidUpdate() {
-    console.log('Me actualizé');
-  }
-
-  actualizarTitulo(text) {
-    this.setState({
-      title: text
-    })
-  }
-  render() {
-    let myData = this.state.data
+  render() {    
     return (
       <div id="wrapper">
 
@@ -114,12 +109,6 @@ class App extends Component {
               <div className="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 className="h3 mb-0 text-gray-800">App Dashboard</h1>
               </div>
-              <div>
-                <p>
-                  {myData}
-                </p>
-              </div>
-
               <div className="row">
 
                 { metrics.map(metric =>
