@@ -41,8 +41,10 @@ app.use('/products', productsRoute);
 
 // Rutas API
 const apiProductsRoute = require('./routes/api/product');
+const apiUsersRoute = require('./routes/api/user');
 
 app.use('/api/products', apiProductsRoute);
+app.use('/api/users', apiUsersRoute);
 
 // Correr servidor
 const PORT = 3000;
