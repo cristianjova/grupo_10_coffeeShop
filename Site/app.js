@@ -2,6 +2,7 @@ const express = require('express');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 const auth = require('./middlewares/auth');
 
 
@@ -17,7 +18,7 @@ app.set('view engine','ejs');
 //para formularios
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method')); // Verifica si existe _method en el queryString
-
+app.use(cors());
 
 // Session
 app.use(session({
