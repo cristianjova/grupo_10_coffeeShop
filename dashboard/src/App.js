@@ -59,14 +59,18 @@ class App extends Component {
         users: response.data.users,
         totalUsers: response.data.meta.count,
         lastItem: response.data.users[response.data.users.length - 1].detail
-      })
+      });
+
+      this.apiCall(this.state.lastItem, (response) => {
+        this.setState({
+          detailUser: response
+        })
+      });
+
     });
 
-    this.apiCall(this.state.lastItem, (response) => {
-      this.setState({
-        detailUser: response
-      })
-    });
+
+    
   }
   render() {
     const metrics = [
