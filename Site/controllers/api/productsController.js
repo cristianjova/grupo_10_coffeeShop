@@ -27,6 +27,7 @@ module.exports = {
               toast: product.toast.name,
               roast: product.roast.name,
               size: product.size.name,
+              price: product.price,
               detail: `${detailUrl}/${product.id}`
             }
           });
