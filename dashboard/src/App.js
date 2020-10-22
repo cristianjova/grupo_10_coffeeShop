@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Sidebar from './components/sidebar/Sidebar';
 import KeyMetric from './components/KeyMetric';
+import Detail from './components/Detail'
 import Table from './components/Table';
 import axios from 'axios';
 
@@ -33,7 +34,9 @@ class App extends Component {
       users: [],
       products: [],
       totalProducts: 0,
-      totalUsers: 0
+      totalUsers: 0,
+      detailUser: "",
+      lastItem: ""
     };
   }
 
@@ -54,12 +57,47 @@ class App extends Component {
     this.apiCall('http://localhost:3000/api/users', (response) => {
       this.setState({
         users: response.data.users,
-        totalUsers: response.data.meta.count
-      })
-    });
-  }
+        totalUsers: response.data.meta.count,
+        lastItem: response.data.users[response.data.users.length - 1].detail
+      });
 
-  render() {    
+      this.apiCall(this.state.lastItem, (response) => {
+        this.setState({
+          detailUser: response
+        })
+      });
+
+    });
+
+
+    
+  }
+  render() {
+    const metrics = [
+      {
+        color: "primary",
+        title: "Cantidad de Usuarios",
+        value: this.state.totalUsers,
+        iconClass: "fa-clipboard-list",
+      },
+      {
+        color: "success",
+        title: "Total de productos",
+        value: this.state.totalProducts,
+        iconClass: "fa-dollar-sign",
+      },
+      {
+        color: "warning",
+        title: "Monto total de productos en $",
+        value: this.state.products.reduce((total, product) => total += product.price, 0), 
+        iconClass: "fa-user-check",
+      },
+    ];
+
+    console.log(this.state.detailUser)
+
+
+    
     return (
       <div id="wrapper">
 
@@ -110,7 +148,6 @@ class App extends Component {
                 <h1 className="h3 mb-0 text-gray-800">App Dashboard</h1>
               </div>
               <div className="row">
-
                 { metrics.map(metric =>
                   <KeyMetric 
                     color= { metric.color }
@@ -119,24 +156,12 @@ class App extends Component {
                     iconClass= { metric.iconClass }
                   />
                 )}
-
               </div>
 
               <div className="row">
-                <div className="col-lg-6 mb-4">
-                  <div className="card shadow mb-4">
-                    <div className="card-header py-3">
-                      <h6 className="m-0 font-weight-bold text-primary">Last product in Data Dase</h6>
-                    </div>
-                    <div className="card-body">
-                      <div className="text-center">
-                        <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={ {width: '25rem'} } src="assets/images/product_dummy.svg" alt="Imagen del product" />
-                      </div>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, consequatur explicabo officia inventore libero veritatis iure voluptate reiciendis a magnam, vitae, aperiam voluptatum non corporis quae dolorem culpa exercitationem ratione?</p>
-                      <a target="_blank" rel="nofollow" href="/">View product detail</a>
-                    </div>
-                  </div>
-                </div>
+                <Detail
+                  item = {this.state.detailUser}
+                />
 
                 <div className="col-lg-6 mb-4">						
                   <div className="card shadow mb-4">
