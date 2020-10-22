@@ -35,19 +35,20 @@ module.exports = {
 
           let response = {
             meta: {
-              count: data.count
+              count: data.count,
+              categories: {}
             },
             products
           }
-          response.meta.countByToast = await toast.count({
+          response.meta.categories.countByToast = await toast.count({
             include: product,
             group: ['name']
           });
-          response.meta.countByRoast = await roast.count({
+          response.meta.categories.countByRoast = await roast.count({
             include: product,
             group: ['name']
           });
-          response.meta.countBySize = await size.count({
+          response.meta.categories.countBySize = await size.count({
             include: product,
             group: ['name']
           });
