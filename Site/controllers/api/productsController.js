@@ -3,7 +3,7 @@ const url = require('url');
 const { product, toast, roast, size} = require('../../database/models');
 
 module.exports = {
-  index: (req, res) => {
+  index:  (req, res) => {
     let detailUrl = url.format({
       protocol: req.protocol,
       host: req.get('host'),
@@ -15,10 +15,10 @@ module.exports = {
         include: [toast, roast, size]
       }
     )
-      .then(data => {
+      .then( async data => {
         // Verifico que haya productos
         if(data.rows.length) {
-
+          
           products = data.rows.map(product => {
             return {
               id: product.id,
@@ -30,13 +30,27 @@ module.exports = {
               detail: `${detailUrl}/${product.id}`
             }
           });
-        
+          
+
           let response = {
             meta: {
               count: data.count
             },
             products
           }
+          response.meta.countByToast = await toast.count({
+            include: product,
+            group: ['name']
+          });
+          response.meta.countByRoast = await roast.count({
+            include: product,
+            group: ['name']
+          });
+          response.meta.countBySize = await size.count({
+            include: product,
+            group: ['name']
+          });
+        return res.send(response);
           return res.json(response);
         } else {
           return res.status(404).json( {error: 'Sin resultados'} );
