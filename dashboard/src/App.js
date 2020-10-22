@@ -3,6 +3,7 @@ import Sidebar from './components/sidebar/Sidebar';
 import KeyMetric from './components/KeyMetric';
 import Detail from './components/Detail'
 import Table from './components/Table';
+import Categories from './components/Categories';
 import axios from 'axios';
 
 const metrics = [
@@ -63,7 +64,7 @@ class App extends Component {
 
       this.apiCall(this.state.lastItem, (response) => {
         this.setState({
-          detailUser: response
+          detailUser: response.data
         })
       });
 
@@ -94,7 +95,7 @@ class App extends Component {
       },
     ];
 
-    console.log(this.state.detailUser)
+    console.log(this.state.products)
 
 
     
@@ -163,59 +164,11 @@ class App extends Component {
                   item = {this.state.detailUser}
                 />
 
-                <div className="col-lg-6 mb-4">						
-                  <div className="card shadow mb-4">
-                    <div className="card-header py-3">
-                      <h6 className="m-0 font-weight-bold text-primary">Categories in Data Base</h6>
-                    </div>
-                    <div className="card-body">
-                      <div className="row">
-                        <div className="col-lg-6 mb-4">
-                          <div className="card bg-info text-white shadow">
-                            <div className="card-body">
-                              Category 01
-                            </div>
-                          </div>
-                        </div>
-                        <div className="col-lg-6 mb-4">
-                          <div className="card bg-info text-white shadow">
-                            <div className="card-body">
-                              Category 02
-                            </div>
-                          </div>
-                        </div>
-                        <div className="col-lg-6 mb-4">
-                          <div className="card bg-info text-white shadow">
-                            <div className="card-body">
-                              Category 03
-                            </div>
-                          </div>
-                        </div>
-                        <div className="col-lg-6 mb-4">
-                          <div className="card bg-info text-white shadow">
-                            <div className="card-body">
-                              Category 04
-                            </div>
-                          </div>
-                        </div>
-                        <div className="col-lg-6 mb-4">
-                          <div className="card bg-info text-white shadow">
-                            <div className="card-body">
-                              Category 05
-                            </div>
-                          </div>
-                        </div>
-                        <div className="col-lg-6 mb-4">
-                          <div className="card bg-info text-white shadow">
-                            <div className="card-body">
-                              Category 06
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                {/*Box de categorias*/}
+                <Categories
+                  categories = {this.state.products.meta}
+                />
+
               </div>
 
 
@@ -227,7 +180,9 @@ class App extends Component {
                 <div className="col-lg-12 mb-4">
                   <div className="card shadow mb-4">
                     <div className="card-body">
-                      <Table />
+                      <Table 
+                        products = {this.state.products}
+                      />
                     </div>
                   </div>				
                 </div>
