@@ -37,7 +37,8 @@ class App extends Component {
       totalProducts: 0,
       totalUsers: 0,
       detailUser: "",
-      lastItem: ""
+      lastItem: "",
+      categories : ""
     };
   }
 
@@ -52,6 +53,7 @@ class App extends Component {
     this.apiCall('http://localhost:3000/api/products', (response) => {
       this.setState({
         products: response.data.products,
+        categories: response.data.meta.categories,
         totalProducts: response.data.meta.count
       })
     });
@@ -95,7 +97,7 @@ class App extends Component {
       },
     ];
 
-    console.log(this.state.products)
+    console.log(this.state.categories)
 
 
     

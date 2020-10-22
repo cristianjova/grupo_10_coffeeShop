@@ -3,7 +3,6 @@ import Category from './Category'
 
 function Categories({ categories }) {
     
-    const products = props.products;
     return (
         <div className="col-lg-6 mb-4">						
             <div className="card shadow mb-4">
