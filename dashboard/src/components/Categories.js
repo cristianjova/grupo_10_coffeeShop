@@ -2,7 +2,7 @@ import React from 'react';
 import Category from './Category'
 
 function Categories({ categories }) {
-    
+    const { countByToast, countByRoast, countBySize } = categories
     return (
         <div className="col-lg-6 mb-4">						
             <div className="card shadow mb-4">
@@ -11,8 +11,11 @@ function Categories({ categories }) {
             </div>
             <div className="card-body">
                 <div className="row">
-                
-                <Category/>
+                { countByRoast.map(roast=>{
+                    <Category 
+                        category={roast}
+                    />
+                })}
                 </div>
             </div>
             </div>

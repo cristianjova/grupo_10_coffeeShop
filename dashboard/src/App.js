@@ -168,7 +168,7 @@ class App extends Component {
 
                 {/*Box de categorias*/}
                 <Categories
-                  categories = {this.state.products.meta}
+                  categories = {this.state.categories}
                 />
 
               </div>
