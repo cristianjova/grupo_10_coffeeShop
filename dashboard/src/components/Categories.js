@@ -11,11 +11,27 @@ function Categories({ categories }) {
             </div>
             <div className="card-body">
                 <div className="row">
-                { countByRoast.map(roast=>{
-                    <Category 
-                        category={roast}
-                    />
-                })}
+                        <div className="col-lg-12"> Torrado</div>
+                        { countByRoast ? countByRoast.map(roast=> {
+                            return(<Category 
+                            category = { roast } 
+                            title = "Torrado" 
+                            />)
+                        }) : null}
+                        <div className="col-lg-12"> Tostado</div>
+                        { countByToast ? countByToast.map(toast=> {
+                            return(<Category 
+                            category = { toast } 
+                            title = "tostado" 
+                            />)
+                        }) : null}
+                        <div className="col-lg-12"> Tamaño</div>
+                        { countBySize ? countBySize.map(size=> {
+                            return(<Category 
+                            category = { size } 
+                            title = "tostado" 
+                            />)
+                        }) : null}
                 </div>
             </div>
             </div>
