@@ -1,6 +1,3 @@
-const tableName = require('../database/jsontable');
-const usersModel = tableName('users');
-const usersTokensModel = tableName('usersTokens');
 const { user, token } = require('../database/models');
 
 module.exports = async (req,res,next) =>{
@@ -12,11 +9,11 @@ module.exports = async (req,res,next) =>{
             let userToken = await token.findAll({ where : { hash: req.cookies.userToken}});
             
             if (userToken) {
-                let user = await user.findByPk(userToken.user_id);
-                if (user){
-                    delete user.password;
-                    req.session.user = user;
-                    res.locals.userLoggedIn = user;
+                let userBD = await user.findByPk(userToken.user_id);
+                if (userBD){
+                    delete userBD.password;
+                    req.session.user = userBD;
+                    res.locals.userLoggedIn = userBD;
                 }
     
             }else {

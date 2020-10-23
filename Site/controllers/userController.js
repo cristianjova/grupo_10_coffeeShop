@@ -45,14 +45,13 @@ module.exports = {
             res.redirect('login');
         } else {
             if(req.file) {
-                let imagePath = path.join(__dirname, '../public/img/users' + req.file.filename);
+                let imagePath = path.join(__dirname, '../public/img/users/' + req.file.filename);
           
                 if (fs.existsSync(imagePath)) {
                     fs.unlinkSync(imagePath)
                 }
+                console.log(imagePath);
               }
-            console.log(req.body)
-            console.log(errors.mapped())
             return res.render('users/register', {
                 errorsReg: errors.mapped(),
                 user: req.body
@@ -149,7 +148,29 @@ module.exports = {
             return res.redirect('/');
         })
     },
-    update: (req, res) => {
+    update: async (req, res) => {
+        let errors = validationResult(req);
+        console.log(errors.mapped());
+
+        if(!errors.isEmpty()) {
+            // Elimino imagen subida
+            if(req.file) {
+                let imagePath = path.join(__dirname, '../public/img/users/' + req.file.filename);
+        
+                if (fs.existsSync(imagePath)) {
+                    fs.unlinkSync(imagePath)
+                }
+            }
+
+            const categories = await category.findAll();
+
+            return res.render('users/edit', {
+                categories,
+                errors: errors.mapped(),
+                getUser: req.body 
+            });
+        }
+
         let updatedUser = req.body;
         
         if (req.file) {
@@ -157,19 +178,24 @@ module.exports = {
         } else if (req.body.oldImage) {
             updatedUser.image = req.body.oldImage;
         }
-        console.log(updatedUser.oldImage)
-
         delete updatedUser.oldImage;
 
-        user.update(updatedUser, { where: { id: req.params.id } })
-            .then(updatedUser => {
-                return res.redirect('/user/' + req.params.id);
-            })
-
+        user.update(updatedUser, {
+            where: {
+            id: req.params.id
+            }
+        })
+        .then(() => {
+          return res.redirect('/users/' + req.params.id);
+        })
+        .catch(error => {
+          console.log(error);
+          return res.render('/');
+        })
     },
     destroy: async (req, res) => {
         let existingUser = await user.findByPk(req.params.id);
-        let imagePath = path.join(__dirname, '../public/img/user/' + existingUser.image);
+        let imagePath = path.join(__dirname, '../public/img/users/' + existingUser.image);
 
         user.destroy({ where: { id: req.params.id } })
         .then(deletedUser => {

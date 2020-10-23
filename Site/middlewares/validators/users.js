@@ -52,15 +52,15 @@ module.exports = {
                 return ['jpg', 'jpeg', 'png', 'gif'].includes(ext);
                }
                return true;
-            }).withMessage('La imagén debe tener uno de los siguientes formatos (JPG, JPEG, PNG, GIF).')    
+            }).withMessage('La imagén debe tener uno de los siguientes formatos (JPG, JPEG, PNG, GIF).')  
     ],
     edit: [
 
-        check('first_name').trim()
+        check('first_name')
             .notEmpty().withMessage('Debés completar el campo nombre').bail()
             .isLength({ min : 2}).withMessage('el nombre debe tener por lo menos 2 caracters'),
         
-        check('last_name').trim()
+        check('last_name')
             .notEmpty().withMessage('Debés completar el campo apellido').bail()
             .isLength({ min : 2}).withMessage('el apellido debe tener por lo menos 2 caracters'),
             
@@ -72,6 +72,6 @@ module.exports = {
                 return ['jpg', 'jpeg', 'png', 'gif'].includes(ext);
                }
                return true;
-            }).withMessage('La imagén debe tener uno de los siguientes formatos (JPG, JPEG, PNG, GIF).')   
+            }).withMessage('La imagén debe tener uno de los siguientes formatos (JPG, JPEG, PNG, GIF).')     
     ],
 };

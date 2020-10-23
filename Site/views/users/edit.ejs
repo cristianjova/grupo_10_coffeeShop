@@ -5,10 +5,12 @@
 <body > 
   <%-include('../partials/header')%>
     <main>
-        <form action="/user/<%= getUser && getUser.id %>?_method=PUT" method="POST" enctype="multipart/form-data" id="registerForm">
+        <form action="/user/<%= getUser && getUser.id %>?_method=PUT" method="POST" enctype="multipart/form-data" id="registerForm" novalidate>
             <div class=" register">
             <h2>Edicion de usuario</h2>
             <input type="hidden" name="oldImage" value="<%= getUser && getUser.image %>">
+            <input type="hidden" name="id" value="<%= getUser && getUser.id %>">
+
             <% if (locals.errors && errors.credentials) { %>
                 <p><%= errors.credentials.msg %> </p>
             <% } %>
@@ -16,15 +18,15 @@
             <label for="first_name">Nombre</label>
             <input  type="text" id="first_name" name="first_name" value="<%= getUser.first_name %>" required>
             <p class="feedback"></p>
-            <% if (locals.errors && errors.firstName) { %>
-                <small style="color: red"><%= errors.firstName.msg %> </small> <br>
+            <% if (locals.errors && errors.first_name) { %>
+                <small style="color: red"><%= errors.first_name.msg %> </small> <br>
             <% } %>
 
             <label for="last_name">Apellido</label>
             <input  type="text" id="last_name" name="last_name" value="<%= getUser.last_name %>" required>
             <p class="feedback"></p>
-            <% if (locals.errors && errors.lastName) { %>
-                <small style="color: red"><%= errors.lastName.msg %> </small> <br>
+            <% if (locals.errors && errors.last_name) { %>
+                <small style="color: red"><%= errors.last_name.msg %> </small> <br>
             <% } %>
             
             <label for="categoryId">Category</label>
@@ -38,15 +40,15 @@
             <label for="address">Direccion</label>
             <input  type="text" id="address" name="address" value="<%= getUser.adress %>"required>
             <p class="feedback"></p>
-            <% if (locals.errors && errors.address) { %>
-                <small style="color: red"><%= errors.address.msg %> </small>
+            <% if (locals.errors && errors.adress) { %>
+                <small style="color: red"><%= errors.adress.msg %> </small>
             <% } %>
 
             <label for="phone_number">Telefono</label>
             <input  type="text" id="phone_number" name="phone_number" value="<%= getUser.phone_number %>" required>
             <p class="feedback"></p>
-            <% if (locals.errors && errors.phoneNumber) { %>
-                <small style="color: red"><%= errors.phoneNumber.msg %> </small>
+            <% if (locals.errors && errors.phone_number) { %>
+                <small style="color: red"><%= errors.phone_number.msg %> </small>
             <% } %>
             
             
@@ -54,6 +56,9 @@
             <label for="image">Imagen</label>
             <input type="file" name="image" id="image">
             <p class="feedback"></p>
+            <% if (locals.errors && errors.image) { %>
+                <small style="color: red"><%= errors.image.msg %> </small>
+            <% } %>
                 
             <div>
                 <button type="submit" class="btn primary">Editar</button>

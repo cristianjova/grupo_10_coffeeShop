@@ -5,6 +5,7 @@ const multer = require('multer');
 const path = require('path');
 const validate = require('../middlewares/validators/users');
 const guestRoute = require('../middlewares/guestRoute');
+const userRoute = require('../middlewares/userRoute')
 const controller = require('../controllers/userController');
 
 const storage = multer.diskStorage({
@@ -19,16 +20,15 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 router.get('/register', guestRoute, controller.register);
-router.post('/register' , upload.single('image'), controller.store);
+router.post('/register', upload.single('image') , validate.register , controller.store);
 
 router.get('/login', guestRoute, controller.login);
 router.post('/login', validate.loginForm, controller.authenticate);
 router.get('/logout', controller.logout);
 
-router.get('/list', controller.list);
-//router.get('/search', controller.search)
+router.get('/list', userRoute ,controller.list);
 router.get('/:id', controller.show);
-router.get('/:id/edit', controller.edit);
+router.get('/:id/edit', userRoute, controller.edit);
 router.put('/:id', upload.single('image'), validate.edit, controller.update);
 router.delete('/:id', controller.destroy);
 
