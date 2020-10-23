@@ -5,25 +5,46 @@
 <body > 
   <%-include('../partials/header')%>
     <main>
-        <h1>Listado Usuarios</h1>
-        <section class="users" id="user_list">
-            <table>
-                <thead>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Correo</th>
-                    <th>Imagen</th>
-                    <th>Detalle</th>
-                    <th>Edicion</th>
-                    <th>Borrar</th>
-                </thead>
-                <tbody>
-                    <% users.forEach(user => { %>
-                        <%- include('./partials/user', { user }) %>
-                    <% }); %>
-                </tbody>
-            </table>
-        </section>
+        <div class="listContainer">
+            <h1>Listado Usuarios</h1>
+            <section>
+                <div class="column is-12">
+                    <form action="/user/search">
+                        <div class="field">
+                            <div class="control">
+                                <input 
+                                    type="text" 
+                                    name="search" 
+                                    value="<%= locals.search ? locals.search : "" %>"
+                                    placeholder="Ingresa tu búsqueda&hellip;">
+                                <button type="submit">Buscar</button>
+                            </div>
+                            <p class="feedback"></p>
+                        </div>
+                    </form>
+                </div>
+            </section>
+            <section class="users" id="user_list">
+                <table>
+                    <thead>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Correo</th>
+                        <th>Imagen</th>
+                        <th>Detalle</th>
+                        <th>Edicion</th>
+                        <th>Borrar</th>
+                    </thead>
+                    <tbody>
+                        <% users.forEach(user => { %>
+                            <%- include('./partials/user', { user }) %>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+        
+        
     </main>
     <%- include('../partials/footer')  %>  
 </body>

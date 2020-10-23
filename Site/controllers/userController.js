@@ -3,12 +3,8 @@ const fs = require('fs');
 const path = require ('path');
 const { validationResult } = require('express-validator');
 const crypto = require('crypto');
-const tableName = require ('../database/jsontable');
-
+const { Op } = require("sequelize");
 const { user, category, token } = require('../database/models');
-const { Console } = require('console');
-const usersModel = tableName('users');
-const usersTokensModel = tableName('usersTokens');
 
 
 module.exports = {
@@ -210,4 +206,28 @@ module.exports = {
             return res.render('/');
         })
     },
+    search: async (req,res) => {
+        try{
+            let search = req.query.search;
+            let users = await user.findAll({
+                attributes:["first_name","last_name","email","image"],
+                where:{
+                    [Op.or]: [
+                        { last_name: {[Op.like]:"%"+search+"%"} }, 
+                        {first_name: {[Op.like]:"%"+search+"%"} },
+                        {email: {[Op.like]:"%"+search+"%"} }
+                    ],
+                    
+                }
+            },{ include: category });
+            console.log(users)
+            return res.render('users/list', { search, users });
+            //return console.log(users);
+        }catch(error){
+            res.status(500).json({
+                status:"error",
+                data:error
+            })
+        }
+    }
 };

@@ -13,16 +13,16 @@
                 <h1 class="hometitle">Nuestros productos</h1>
                 <div class="containerHome">
                     <% products.forEach(product => { %>
-                    <article class="homeContainer">
-                        <div class="homeProduct">
-                        <a href="/products/<%= product.id %>"><img src="/img/products/<%= product.image %>" alt="destacado <%= product.id %>"></a>
-                        </div>
-                        <div class="homeProductContainer">
-                        <p class="homeProductName"><%= product.name %></p>
-                        <p class="homeProductPrice"><%= product.price %></p>
-                        <button class="btn primary">Agregar al carrito</button>                            
-                        </div>
-                    </article>  
+                        <article class="homeContainer">
+                            <div class="homeProduct">
+                            <a href="/products/<%= product.id %>"><img src="/img/products/<%= product.image %>" alt="destacado <%= product.id %>"></a>
+                            </div>
+                            <div class="homeProductContainer">
+                            <p class="homeProductName"><%= product.name %></p>
+                            <p class="homeProductPrice"><%= product.price %></p>
+                            <button class="btn primary">Agregar al carrito</button>                            
+                            </div>
+                        </article>  
                     <% }); %>
                 </div>
 
