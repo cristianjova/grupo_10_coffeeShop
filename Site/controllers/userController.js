@@ -220,8 +220,19 @@ module.exports = {
                     
                 }
             },{ include: category });
-            console.log(users)
-            return res.render('users/list', { search, users });
+            if (users.length) 
+                {return res.render('users/list', { search, users });
+            }else{
+                user.findAll({ include: category })
+                .then(users => {
+                    return res.render('users/list', {search, users });
+                    //return res.send(users);
+                })
+                .catch(error => {
+                    console.log(error);
+                    return res.redirect('/')
+                })
+            }
             //return console.log(users);
         }catch(error){
             res.status(500).json({
