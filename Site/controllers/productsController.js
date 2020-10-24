@@ -1,15 +1,10 @@
 const fs = require('fs');
 const path = require ('path');
 const { validationResult } = require('express-validator');
-const tableName = require ('../database/jsontable');
+const { Sequelize, Op } = require("sequelize");
 
 const { product, size, toast, roast } = require('../database/models');
 
-
-const productsModel = tableName('products');
-const toastedModel = tableName('toasted');
-const typeModel = tableName('type');
-const sizesModel = tableName('sizes');
 
 module.exports = {
   index: (req,res) => {
@@ -21,6 +16,22 @@ module.exports = {
         console.log(error);
         return res.redirect('/')
       })
+  },
+  search: async (req,res) => {
+    try{
+        let search = req.query.search;
+        let products = await product.findAll({
+            where:{
+              name: Sequelize.where(Sequelize.fn('LOWER', Sequelize.col('name')), 'LIKE', '%' + search + '%') , 
+            }
+        });
+        return res.render('products/list', { search, products });
+    }catch(error){
+        res.status(500).json({
+            status:"error",
+            data:error
+        })
+    }
   },
   detail: (req, res) => {
     product.findByPk(req.params.id, {include: ['toast', 'size', 'roast']})
