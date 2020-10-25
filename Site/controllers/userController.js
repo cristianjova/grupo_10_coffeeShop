@@ -120,10 +120,10 @@ module.exports = {
                     [Op.or]: [
                         {name: Sequelize.where(Sequelize.fn('LOWER', Sequelize.col('first_name')), 'LIKE', '%' + search + '%')} ,
                         {name: Sequelize.where(Sequelize.fn('LOWER', Sequelize.col('last_name')), 'LIKE', '%' + search + '%')} ,
-                        {name: Sequelize.where(Sequelize.fn('LOWER', Sequelize.col('email')), 'LIKE', '%' + search + '%')}
-                        //{ last_name: {[Op.like]:"%"+search+"%"} }, 
-                        //{first_name: {[Op.like]:"%"+search+"%"} },
-                       // {email: {[Op.like]:"%"+search+"%"} }
+                        {name: Sequelize.where(Sequelize.fn('LOWER', Sequelize.col('email')), 'LIKE', '%' + search + '%')},
+                        { last_name: {[Op.like]:"%"+search+"%"} }, 
+                        {first_name: {[Op.like]:"%"+search+"%"} },
+                        {email: {[Op.like]:"%"+search+"%"} }
                     ],
                     
                 }
