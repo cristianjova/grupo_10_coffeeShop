@@ -29,7 +29,6 @@ module.exports = {
                         },
                         users
                     }
-                    console.log(response);
                     return res.json(response);
                 }else{
                     return res.status(500).json({error: ' no se encuentra'})

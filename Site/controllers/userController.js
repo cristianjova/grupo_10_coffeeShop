@@ -46,7 +46,6 @@ module.exports = {
                 if (fs.existsSync(imagePath)) {
                     fs.unlinkSync(imagePath)
                 }
-                console.log(imagePath);
               }
             return res.render('users/register', {
                 errorsReg: errors.mapped(),
@@ -54,7 +53,6 @@ module.exports = {
                 
             })
         }
-        //console.log(req.body, errors)
     },
     login: (req,res)=>{
         res.render('users/login');
