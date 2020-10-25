@@ -5,6 +5,42 @@
 <body > 
   <%-include('../partials/header')%>
   <main>
+    <div class="listContainer">
+      <div class="buscadorForm">
+          <h1>Contacto</h1>
+          <section>
+            <div class="row input-container">
+                <div class="col-xs-12">
+                  <div class="styled-input wide">
+                    <label for="">Nombre</label> 
+                    <input type="text" required />
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <div class="styled-input">
+                    <label for="">Email</label> 
+                    <input type="text" required />
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <div class="styled-input" style="float:right;">
+                    <label for="">Telefono</label> 
+                    <input type="text" required />
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <div class="styled-input wide">
+                    <label for="">Message</label>
+                    <textarea required></textarea>
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <div class="btn primary">Enviar</div>
+                </div>
+          </div>
+          </section>
+      </div>
+  </div>
   </main>
   <%-include('../partials/footer')%>
 </body>

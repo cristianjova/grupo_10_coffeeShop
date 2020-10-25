@@ -4,11 +4,11 @@
         <td><%= user.last_name %></td>
         <td><%= user.email %></td>
         <td><img src="/img/users/<%= user.image %>" alt="Avatar" class="avatar"></td>
-        <td><a class="button" href="/user/<%= user.id %>">Detalles</a></td>
-        <td><a class="button" href="/user/<%= user.id %>/edit">Editar</a></td>
+        <td><a type="button" href="/user/<%= user.id %>"><button class="btn primary"  type="button">Detalles</button></a></td>
+        <td><a type="button" href="/user/<%= user.id %>/edit"><button class="btn primary" type="button">Editar</button></a></td>
         <td>
             <form class="form is-inline" action="/user/<%= user.id %>?_method=DELETE" method="POST">
-                <button class="button is-danger" type="submit">Borrar</button>
+                <button class="btn primary" type="submit">Borrar</button>
             </form>
         </td>
     </tr>

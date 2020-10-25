@@ -6,26 +6,28 @@
   <%-include('../partials/header')%>
     <main>
         <div class="listContainer">
-            <h1>Listado Usuarios</h1>
-            <section>
-                <div class="column is-12">
-                    <form action="/user/search">
-                        <div class="field">
-                            <div class="control">
-                                <input 
-                                    type="text" 
-                                    name="search" 
-                                    value="<%= locals.search ? locals.search : "" %>"
-                                    placeholder="Ingresa tu búsqueda&hellip;">
-                                <button type="submit">Buscar</button>
+            <div class="buscadorForm">
+                <h1>Listado Usuarios</h1>
+                <section>
+                    <div class="column is-12">
+                        <form action="/user/list">
+                            <div class="field">
+                                <div class="control">
+                                    <input 
+                                        type="text" 
+                                        name="search" 
+                                        value="<%= locals.search ? locals.search : "" %>"
+                                        placeholder="Ingresa tu búsqueda&hellip;">
+                                    <button type="submit">Buscar</button>
+                                </div>
+                                <p class="feedback"></p>
                             </div>
-                            <p class="feedback"></p>
-                        </div>
-                    </form>
-                </div>
-            </section>
+                        </form>
+                    </div>
+                </section>
+            </div>
             <section class="users" id="user_list">
-                <table>
+                <table class="usersTable">
                     <thead>
                         <th>Nombre</th>
                         <th>Apellido</th>

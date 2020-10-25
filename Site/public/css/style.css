@@ -317,7 +317,7 @@ section .containerHome img{
 .rememberLogin input{
     width: 1rem;
 }
-/*Login*/
+/*Listado*/
 /*----------------------------------------------------------------------*/
 
 .listContainer{
@@ -333,6 +333,7 @@ section .containerHome img{
 .listContainer button, label, input{
     width: 100%;
 }
+
 
 /*Formulario de contacto*/
 /*----------------------------------------------------------------------------------------*/
@@ -634,11 +635,11 @@ h2{
     }
 
     .product-detail .product .product-img {
-        width: 60%;
+        width: 20%;
     }
 
     .product-detail .product .product-img img {
-        margin-left: -4rem;
+        margin-left: 34rem;
     }
 
     .product-detail .product .product-actions {
@@ -777,6 +778,25 @@ h2{
         margin: 0 20%;
         padding: 5px;
     }
+
+    table { 
+        width: 100%; 
+        border-collapse: collapse; 
+      }
+      /* Zebra striping */
+      tr:nth-of-type(odd) { 
+        background: var(--light); 
+      }
+      th { 
+        background: var(--primary); 
+        color: var(--secondary); 
+        font-weight: bold; 
+      }
+      td, th { 
+        padding: 6px; 
+        border: 1px solid #ccc; 
+        text-align: left; 
+      }
 }
 
 @media (min-width: 1024px) {
@@ -807,4 +827,71 @@ h2{
     .product-add-card {
         max-width: 80%;
     }
+}
+/*---------------------------Tabla de ususarios------------*/
+@media 
+only screen and (max-width: 769px)  {
+    .listContainer{
+        margin-left: -10%;
+    }
+
+    .listContainer table{
+        width: 150%;
+    }
+    .listContainer button, label, input {
+        width: 82%;
+    }
+
+    .listContainer .buscadorForm{
+        padding-left: 15%;
+    }
+
+	/* Force table to not be like tables anymore */
+	.listContainer table, thead, tbody, th, td, tr { 
+        display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	.listContainer thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	.listContainer tr { border: 1px solid var(--secondary) }
+	
+	.listContainer td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+        padding-left: 40%; 
+        
+    }
+	
+	.listContainer td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 0px;
+        left: 2px;;
+		width: 1%; 
+		padding-right: 0px; 
+		white-space: nowrap;
+    }
+    
+    .listContainer tr:nth-of-type(odd) { 
+        background: var(--light); 
+      }
+	
+	/*
+	Label the data
+	*/
+	.listContainer td:nth-of-type(1):before { content: "Nombre"; }
+	.listContainer td:nth-of-type(2):before { content: "Apellido"; }
+	.listContainer td:nth-of-type(3):before { content: "Email"; }
+	.listContainer td:nth-of-type(4):before { content: "Foto"; }
+	.listContainer td:nth-of-type(5):before { content: "Detalle"; }
+	.listContainer td:nth-of-type(6):before { content: "Edicion"; }
+	.listContainer td:nth-of-type(7):before { content: "Borrar"; }
 }

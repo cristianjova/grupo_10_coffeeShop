@@ -29,14 +29,14 @@
           <input  type="text" id="phone_number_det" name="phone_number_det" value="<%= getUser.phone_number %>"readonly>
           
           <label for="image_det">Imagen</label>
-          <img src="/img/users/<%= getUser.image %>"  alt="Avatar" class="avatar">
+          <center><img src="/img/users/<%= getUser.image %>"  alt="Avatar" class="avatar"></center>
           <section class="buttons">
             <div>
-              <a class="button" href="/user/list">&larr; Volver al listado</a>
+              <a class="button" href="/user/list"><button class="btn primary">&larr; Volver al listado</button></a>
+              <a class="button " href="/user/<%= getUser.id %>/edit"><button class="btn primary">Editar Usuario</button></a>
               <a class="button"><form class="has-buttons" action="/user/<%= getUser.id %>?_method=DELETE" method="POST">
-                  <button class="button is-danger" type="submit">Eliminar usuario</button>
+                  <button class="btn primary" type="submit">Eliminar usuario</button>
               </form></a>
-              <a class="button " href="/user/<%= getUser.id %>/edit">Editar usuario</a>
             </div>
           </section>
       </div>

@@ -32,7 +32,7 @@
             <label for="categoryId">Category</label>
             <select name="categoryId" id="categoryId">
                 <% categories.forEach(category => { %>
-                    <option value="<%= category.id %>" <%= getUser.category == category.id ? 'selected': null %>><%= category.name %></option> 
+                    <option value="<%= category.id %>" <%= getUser.category.id == category.id ? 'selected': null %>><%= category.name %></option> 
                 <% });  %> 
             </select>
             
@@ -62,7 +62,7 @@
                 
             <div>
                 <button type="submit" class="btn primary">Editar</button>
-                <button type="reset" href="/user/list" class="btn primary">Cancelar</button>                            
+                <a class="button" href="/user/list"><button class="btn primary">&larr; Volver al listado</button></a>                            
             </div>
             </div>
         </form>

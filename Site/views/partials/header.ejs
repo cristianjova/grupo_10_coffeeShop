@@ -18,15 +18,19 @@
     <div class="collapse-links" id="menu-mobile">
       <ul class="navbar-nav left"> 
         <li><a href="/">Inicio</a></li>
-        <li><a href="/products">Productos</a></li>
+        <% if (locals.userLoggedIn) { %>
+          <li><a href="/products">Productos</a></li>
+        <% } %>
         <li><a href="/aboutus">Nosotros</a></li>
         <li><a href="/contact">Contacto</a></li>
-        <li><a href="/user/list">Usuarios</a></li>
+        <% if (locals.userLoggedIn) { %>
+          <li><a href="/user/list">Usuarios</a></li>
+        <% } %>
       </ul>
       <ul class="navbar-nav right">
         <li><a href="/products/cart"><i class="fas fa-shopping-cart"></i> Carrito</a></li>
         <% if (locals.userLoggedIn) { %>
-          <li><a href="/user/profile"><i class="fas fa-user"></i> <%= userLoggedIn.first_name %> </a></li>
+          <li><a href="/user/<%= userLoggedIn.id %>"><i class="fas fa-user"></i> <%= userLoggedIn.first_name %> </a></li>
           <li><a href="/user/logout"><i class="fas fa-sign-out-alt"></i> Salir </a></li>
         <% } else {%>
           <li><a href="/user/login"><i class="fas fa-user"></i> Iniciar Sesión</a></li>

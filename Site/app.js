@@ -1,5 +1,6 @@
 const express = require('express');
 const methodOverride = require('method-override');
+const path = require ('path');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
@@ -46,6 +47,11 @@ const apiUsersRoute = require('./routes/api/user');
 
 app.use('/api/products', apiProductsRoute);
 app.use('/api/users', apiUsersRoute);
+
+//Dashboard route
+app.get('/dashboard', function(req, res) {
+  res.sendFile(path.join(__dirname, 'client', 'index.html'));
+});
 
 // Correr servidor
 const PORT = process.env.PORT ? process.env.PORT : 3000

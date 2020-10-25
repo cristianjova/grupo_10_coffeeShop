@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require ('path');
 const { validationResult } = require('express-validator');
 const crypto = require('crypto');
-const { Op } = require("sequelize");
+const { Sequelize, Op } = require("sequelize");
 const { user, category, token } = require('../database/models');
 
 
@@ -113,8 +113,26 @@ module.exports = {
         req.session.destroy();
         return res.redirect('/');
     },
-    list: (req,res)=>{
-        user.findAll({ include: category })
+    list: async (req,res)=>{
+        let search = req.query.search;
+        if(search){
+            let users = await user.findAll({
+                attributes:["id","first_name","last_name","email","image"],
+                where:{
+                    [Op.or]: [
+                        {name: Sequelize.where(Sequelize.fn('LOWER', Sequelize.col('first_name')), 'LIKE', '%' + search + '%')} ,
+                        {name: Sequelize.where(Sequelize.fn('LOWER', Sequelize.col('last_name')), 'LIKE', '%' + search + '%')} ,
+                        {name: Sequelize.where(Sequelize.fn('LOWER', Sequelize.col('email')), 'LIKE', '%' + search + '%')}
+                        //{ last_name: {[Op.like]:"%"+search+"%"} }, 
+                        //{first_name: {[Op.like]:"%"+search+"%"} },
+                       // {email: {[Op.like]:"%"+search+"%"} }
+                    ],
+                    
+                }
+            },{ include: category });
+            return res.render('users/list', { search, users });
+        }else{
+            user.findAll({ include: category })
             .then(users => {
                 return res.render('users/list', { users });
                 //return res.send(users);
@@ -123,6 +141,11 @@ module.exports = {
                 console.log(error);
                 return res.redirect('/')
             })
+        }
+        
+
+        //-------------------------------------------------
+        
     },
     show: (req, res) => {
         user.findByPk(req.params.id,{ include: 'category' })
@@ -182,7 +205,7 @@ module.exports = {
             }
         })
         .then(() => {
-          return res.redirect('/users/' + req.params.id);
+          return res.redirect('/user/' + req.params.id);
         })
         .catch(error => {
           console.log(error);
@@ -207,12 +230,13 @@ module.exports = {
         })
     },
     search: async (req,res) => {
-        try{
+        /* try{
             let search = req.query.search;
             let users = await user.findAll({
                 attributes:["first_name","last_name","email","image"],
                 where:{
                     [Op.or]: [
+                        //equelize.fn('LOWER', sequelize.col('first_name')), 'LIKE', '%'+search+'%'
                         { last_name: {[Op.like]:"%"+search+"%"} }, 
                         {first_name: {[Op.like]:"%"+search+"%"} },
                         {email: {[Op.like]:"%"+search+"%"} }
@@ -239,6 +263,6 @@ module.exports = {
                 status:"error",
                 data:error
             })
-        }
+        } */
     }
 };
