@@ -78,7 +78,7 @@ label{
     margin: 0.2rem;
 }
 
-input{
+input, select, option{
     border-radius: 2px;
     border: 0px;
     margin: 0.2rem;

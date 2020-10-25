@@ -72,22 +72,22 @@ module.exports = {
                 email: req.body.email
             }
         })
-        .then(async user => {
+        .then(async userOut => {
 
-            if(user && bcrypt.compareSync(req.body.password, user.password)) {
-                delete user.password;
-                req.session.user = user;
+            if(userOut && bcrypt.compareSync(req.body.password, userOut.password)) {
+                delete userOut.password;
+                req.session.user = userOut;
 
                 // Remember me
                 if (req.body.rememberMe) {
                     const tokenCrypto = crypto.randomBytes(64).toString('base64');
                     await token.create({
                         'hash': tokenCrypto,
-                        'user_id': user.id
+                        'user_id': userOut.id
                     });
                     res.cookie('userToken', tokenCrypto, {maxAge: 1000 * 60 * 60 * 24 * 30 * 1});
                 }
-
+                
                 return res.redirect('/');
             } else {
                 return res.render('users/login', {
@@ -118,12 +118,12 @@ module.exports = {
                 attributes:["id","first_name","last_name","email","image"],
                 where:{
                     [Op.or]: [
-                        {name: Sequelize.where(Sequelize.fn('LOWER', Sequelize.col('first_name')), 'LIKE', '%' + search + '%')} ,
-                        {name: Sequelize.where(Sequelize.fn('LOWER', Sequelize.col('last_name')), 'LIKE', '%' + search + '%')} ,
-                        {name: Sequelize.where(Sequelize.fn('LOWER', Sequelize.col('email')), 'LIKE', '%' + search + '%')},
+                        { first_name: Sequelize.where(Sequelize.fn('LOWER', Sequelize.col('first_name')), 'LIKE', '%' + search + '%')} ,
+                        { last_name: Sequelize.where(Sequelize.fn('LOWER', Sequelize.col('last_name')), 'LIKE', '%' + search + '%')} ,
+                        { email: Sequelize.where(Sequelize.fn('LOWER', Sequelize.col('email')), 'LIKE', '%' + search + '%')},
                         { last_name: {[Op.like]:"%"+search+"%"} }, 
-                        {first_name: {[Op.like]:"%"+search+"%"} },
-                        {email: {[Op.like]:"%"+search+"%"} }
+                        { first_name: {[Op.like]:"%"+search+"%"} },
+                        { email: {[Op.like]:"%"+search+"%"} }
                     ],
                     
                 }
@@ -203,7 +203,9 @@ module.exports = {
             }
         })
         .then(() => {
-          return res.redirect('/user/' + req.params.id);
+            delete updatedUser.password;
+            req.session.user = updatedUser;
+            return res.redirect('/user/' + req.params.id);
         })
         .catch(error => {
           console.log(error);
