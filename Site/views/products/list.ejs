@@ -11,6 +11,23 @@
             <section class="homepage">
                 
                 <h1 class="hometitle">Nuestros productos</h1>
+                <section>
+                    <div class="column is-12">
+                        <form action="/products/search">
+                            <div class="field">
+                                <div class="control">
+                                    <input 
+                                        type="text" 
+                                        name="search" 
+                                        value="<%= locals.search ? locals.search : "" %>"
+                                        placeholder="Ingresa tu búsqueda&hellip;">
+                                    <button type="submit">Buscar</button>
+                                </div>
+                                <p class="feedback"></p>
+                            </div>
+                        </form>
+                    </div>
+                </section>
                 <div class="containerHome">
                     <% products.forEach(product => { %>
                         <article class="homeContainer">
