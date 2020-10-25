@@ -1,4 +1,39 @@
 # grupo_10_coffeeShop - 
+
+## Retrospectiva Sprint 7
+### 1.Comenzar a hacer:
+  - Meterle más magia al proyecto
+
+### 2. Hacer más:
+  - Hacer las cosas opcionales del Sprint.  
+  - Comunicarnos con mayor frecuencia.
+  - Hacer reuniones más seguidas.
+### 3. Continuar haciendo:
+  - Planificar en Trello.
+  - Codear en equipo.
+  - Sacarnos dudas por Slack
+  - Cumplir con los tiempos establecidos en la planificación.
+### 4. Hacer menos:
+  - Verificar las funcionalidades del Sprint cerca de la fecha de entrega.
+
+### 5. Dejar de hacer:
+
+## Retrospectiva Sprint 6
+### 1.Comenzar a hacer:
+  - Meterle más magia al proyecto
+### 2. Hacer más:
+  - Pair programming.
+  - Consultar dudas o inquietudes en el grupo de Slack.
+  - Comunicarnos con mayor frecuencia.
+### 3. Continuar haciendo:
+  - Planificar en Trello.
+  - Reuniones de prueba de las funcionalidades.
+### 4. Hacer menos:
+  - Reuniones de planificación lejanas a la fecha de entrega del sprint.
+### 5. Dejar de hacer:
+
+
+
 ## Retrospectiva Sprint 5
 ### 1.Comenzar a hacer:
   - Pair programming.
