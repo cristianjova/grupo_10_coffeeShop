@@ -121,6 +121,8 @@ h1{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid;
+    margin-bottom: 0.5rem;
 }
 
 .top-nav .search-bar-form {
@@ -152,10 +154,20 @@ h1{
     align-items: center;
 } 
 
-.navbar .logo {
+.navbar .logo-mobile {
 	display: inline-block;
-    width: 80px;
+    width: 120px;
     margin-right: 1rem;
+}
+
+.navbar .logo {
+	display: none;
+    width: 185px;
+    margin-right: 1rem;
+}
+
+.navbar .logo img {
+    width: 100%;
 }
 
 .navbar ul {
@@ -170,15 +182,20 @@ h1{
 }
 
 header .navbar {
-	padding: 0.5rem;
+	padding: 0.5rem 0.5rem 0.7rem;
 	background: var(--primary);
 	color: var(--light);
 }
 
-.navbar .logo img {
+.navbar .logo-mobile img {
 	width: 100%;
 	max-height: 65px;
 	overflow: hidden;
+}
+
+.navbar .logo-mobile img {
+    width: 100%;
+    overflow: hidden;
 }
 
 .navbar .menu-btn {
@@ -849,19 +866,31 @@ h2{
 
     /*Footer & Header*/
     .navbar {
-		display: flex;
+		/* display: flex; */
 		justify-content: space-between;
         align-items: center;
 	}
 
+    .navbar .navbar-mobile .top-nav{
+        border-bottom: none;
+        margin-bottom: 0rem;
+    }
 
+    .top-nav .search-bar-form {
+        width: 30%;
+    }
+
+    .navbar .logo {
+        display: inline-block;
+    }
+
+    .navbar .logo-mobile {
+        display: none;
+    }
+    
 	.navbar .menu-btn,
 	.navbar .mobile-icons {
 		display: none;
-	}
-
-	.navbar .logo {
-		margin-right: 1rem;
 	}
 
 	.navbar .collapse-links {
@@ -905,14 +934,14 @@ h2{
     transform: translateY(-3px);
 	}
 
-	.collapse-links .right li a{
+	.top-nav .right li a{
 		border: 1px solid var(--light);
 		border-radius: 5px;
 		margin-left: 1rem;
 		padding: 0.5rem;
 		transition: all 0.5s ease-in-out;
 	}
-	.collapse-links .right li a:hover {
+	.top-nav .right li a:hover {
 		background: var(--light);
 		color: var(--primary);
 	}
@@ -963,6 +992,12 @@ h2{
 }
 
 @media (min-width: 1024px) {
+    /* Header */
+    .top-nav .search-bar-form {
+        width: 50%;
+    }
+
+
     /*Homepage*/
     .product-card {
         width: 24%;
