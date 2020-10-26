@@ -77,7 +77,7 @@ module.exports = {
     }
 
     let newProduct = req.body;
-    newProduct.image = 'coffee-add-img.png';
+    newProduct.image = 'coffee-add-img.webp';
     
     if(req.file) {
       newProduct.image = req.file.filename;

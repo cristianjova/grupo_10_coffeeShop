@@ -6,7 +6,7 @@
   <%-include('../partials/header')%>
   <!--Slider principal-->
   <div class="imgHome">
-    <img src="/img/home2.png"width="100%">
+    <img src="/img/home2.webp"width="100%">
   </div>
   <main class="homepage container">
     <!--Productos destacados-->
@@ -14,9 +14,9 @@
       <h1 class="hometitle">Últimos Productos</h1>
 
       <div class="container-products">
-        <% for (let i=0;i<6;i++){ %>
-          <%- include('../products/partials/product', { product:products[i]}) %> 
-        <% } %>
+        <% products.forEach(product => { %>
+            <%- include('../products/partials/product', { product }) %> 
+        <% }); %>
     </div>
     </section>
   </main>

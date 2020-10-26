@@ -1,14 +1,21 @@
 const fs = require('fs');
 const path = require ('path');
-const tableName = require ('../database/jsontable');
+const { product } = require('../database/models');
 
-const productsModel = tableName('products');
 
 module.exports = {
     index: (req,res)=>{
-        let products = productsModel.all();
-        
-        res.render('index/index', {products});
+        product.findAll({
+            limit: 10,
+            order: [ [ 'id', 'DESC' ]]
+        })
+        .then(products => {
+            return res.render('index/index', { products });
+        })
+        .catch(error => {
+            console.log(error);
+            return res.redirect('/')
+        })
     },
     about: (req,res)=>{
         res.render('static/about');
