@@ -958,8 +958,8 @@ h2{
 
     /* items del menu desplegable al pasar el ratón */
 
-    .liDesp:hover > .ulDesp {
-        display:block;
+    #segundoUl li:hover > ul {
+        display: block;
     }
     
     /*Register*/

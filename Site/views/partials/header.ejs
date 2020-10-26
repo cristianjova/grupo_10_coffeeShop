@@ -33,17 +33,17 @@
           <li><a href="/user/list">Usuarios</a></li>
         <% } %>
       </ul>
-      <ul class="navbar-nav right">
+      <ul class="navbar-nav right" id="segundoUl">
         <li><a href="/products/cart"><i class="fas fa-shopping-cart"></i> Carrito</a></li>
+        <li class="liDesp" id="segundoLi"><a href="/"><i class="fas fa-user"></i> <%= userLoggedIn.first_name %> </a>
+          <ul class="ulDesp" id="ulDesp">
+            <li><a href="#">Listado de usuarios</a></li>
+            <li><a href="#">Crear producto</a></li>
+            <li><a href="#">Enlace 2.3</a></li>
+          </ul>
+        </li>
+        <li><a href="/user/logout"><i class="fas fa-sign-out-alt"></i> Salir </a></li>
         <% if (locals.userLoggedIn  && locals.userLoggedIn.categoryId == 1) { %>
-          <li class="liDesp"><a href="/"><i class="fas fa-user"></i> <%= userLoggedIn.first_name %> </a>
-            <ul class="ulDesp">
-              <li><a href="#">Listado de usuarios</a></li>
-              <li><a href="#">Crear producto</a></li>
-              <li><a href="#">Enlace 2.3</a></li>
-            </ul>
-          </li>
-          <li><a href="/user/logout"><i class="fas fa-sign-out-alt"></i> Salir </a></li>
         <%} else if (locals.userLoggedIn  && locals.userLoggedIn.categoryId != 1) { %>
           <li><a href="/"><i class="fas fa-user"></i> <%= userLoggedIn.first_name %> </a></li>
           <li><a href="/user/logout"><i class="fas fa-sign-out-alt"></i> Salir </a></li>
