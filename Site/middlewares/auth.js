@@ -7,7 +7,6 @@ module.exports = async (req,res,next) =>{
     } else if (req.cookies.userToken){
         try {
             let userToken = await token.findOne({ where : { hash: req.cookies.userToken}});
-            
             if (userToken) {
                 let userBD = await user.findByPk(userToken.user_id);
                 if (userBD){

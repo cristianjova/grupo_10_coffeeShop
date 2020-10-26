@@ -6,9 +6,9 @@
     <body>
         <%- include('../partials/header.ejs') %>
 
-        <main>
+        <main class="container">
             <!--Productos destacados-->
-            <section class="homepage">
+            <section class="products-page">
                 
                 <h1 class="hometitle">Nuestros productos</h1>
                 <section>
@@ -28,18 +28,9 @@
                         </form>
                     </div>
                 </section>
-                <div class="containerHome">
+                <div class="container-products">
                     <% products.forEach(product => { %>
-                        <article class="homeContainer">
-                            <div class="homeProduct">
-                            <a href="/products/<%= product.id %>"><img src="/img/products/<%= product.image %>" alt="destacado <%= product.id %>"></a>
-                            </div>
-                            <div class="homeProductContainer">
-                            <p class="homeProductName"><%= product.name %></p>
-                            <p class="homeProductPrice"><%= product.price %></p>
-                            <button class="btn primary">Agregar al carrito</button>                            
-                            </div>
-                        </article>  
+                        <%- include('../products/partials/product', { product }) %> 
                     <% }); %>
                 </div>
 

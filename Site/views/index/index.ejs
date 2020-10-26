@@ -4,29 +4,18 @@
 
 <body > 
   <%-include('../partials/header')%>
-  <main class="homepage">
-    <!--Slider principal-->
-    <div class="imgHome">
-      <img src="/img/home2.png"width="100%">
-    </div>
-   
-
+  <!--Slider principal-->
+  <div class="imgHome">
+    <img src="/img/home2.png"width="100%">
+  </div>
+  <main class="homepage container">
     <!--Productos destacados-->
     <section class="homepage">
-      <h1 class="hometitle">Productos Destacados</h1>
+      <h1 class="hometitle">Últimos Productos</h1>
 
-      <div class="containerHome">
+      <div class="container-products">
         <% for (let i=0;i<6;i++){ %>
-        <article class="homeContainer">
-            <div class="homeProduct">
-            <a href="/products/<%= products[i].id %>"><img src="/img/products/<%= products[i].image %>" alt="destacado <%= products[i].id %>"></a>
-            </div>
-            <div class="homeProductContainer">
-            <p class="homeProductName"><%= products[i].name %></p>
-            <p class="homeProductPrice"><%= products[i].price %></p>
-            <button class="btn primary">Agregar al carrito</button>                            
-            </div>
-        </article>  
+          <%- include('../products/partials/product', { product:products[i]}) %> 
         <% } %>
     </div>
     </section>
