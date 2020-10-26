@@ -2,11 +2,21 @@
   <nav class="navbar">
     <div class="navbar-mobile">
       <div class="top-nav">
-        <a class="logo" href="/"><img src="/img/logo2.png"></a>
+        <a class="logo-mobile" href="/"><img src="/img/logo3.png"></a>
+        <a class="logo" href="/"><img src="/img/logo-desktop.png"></a>
         <form action="" class="search-bar-form">
           <input type="text" name="search" placeholder="Buscar productos">
          <button type="submit"><i class="fas fa-search"></i></button>
         </form>
+        <ul class="navbar-nav right">
+          <li><a href="/products/cart"><i class="fas fa-shopping-cart"></i> Carrito</a></li>
+          <% if (locals.userLoggedIn) { %>
+            <li><a href="/user/<%= userLoggedIn.id %>"><i class="fas fa-user"></i> <%= userLoggedIn.first_name %> </a></li>
+            <li><a href="/user/logout"><i class="fas fa-sign-out-alt"></i> Salir </a></li>
+          <% } else {%>
+            <li><a href="/user/login"><i class="fas fa-user"></i> Iniciar Sesión</a></li>
+          <% } %> 
+        </ul>
       </div>
       <div class="top-down">
         <button class="menu-btn" id="toggle-menu"><i class="fas fa-bars"></i></button>

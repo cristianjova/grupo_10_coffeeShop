@@ -72,18 +72,18 @@ module.exports = {
                 email: req.body.email
             }
         })
-        .then(async userOut => {
+        .then(async userFound => {
 
-            if(userOut && bcrypt.compareSync(req.body.password, userOut.password)) {
-                delete userOut.password;
-                req.session.user = userOut;
+            if(userFound && bcrypt.compareSync(req.body.password, userFound.password)) {
+                delete userFound.password;
+                req.session.user = userFound;
 
                 // Remember me
                 if (req.body.rememberMe) {
                     const tokenCrypto = crypto.randomBytes(64).toString('base64');
                     await token.create({
                         'hash': tokenCrypto,
-                        'user_id': userOut.id
+                        'user_id': userFound.id
                     });
                     res.cookie('userToken', tokenCrypto, {maxAge: 1000 * 60 * 60 * 24 * 30 * 1});
                 }
