@@ -10,28 +10,26 @@
             <!--Productos destacados-->
             <section class="products-page">
                 
-                <h1 class="hometitle">Nuestros productos</h1>
-                <section>
-                    <div class="column is-12">
-                        <form action="/products/search">
-                            <div class="field">
-                                <div class="control">
-                                    <input 
-                                        type="text" 
-                                        name="search" 
-                                        value="<%= locals.search ? locals.search : "" %>"
-                                        placeholder="Ingresa tu búsqueda&hellip;">
-                                    <button type="submit">Buscar</button>
-                                </div>
-                                <p class="feedback"></p>
-                            </div>
-                        </form>
-                    </div>
-                </section>
+                <h1 class="hometitle">
+                    <%= locals.search ? "Resultados para: " + locals.search : "Nuestros productos" %>
+                </h1>
+                <form action="">
+                    <label for="name">Ordenar por precio</label><br>
+                    <label for="bySize">Ascendente</label>
+                    <input type="radio" name="filterByPrice" value="asc" id="asc">
+                    <label for="bySize">Descente</label>
+                    <input type="radio" name="filterByPrice" value="desc" id="desc">
+                    <button type="submit">Confirmar</button>
+                </form>
                 <div class="container-products">
-                    <% products.forEach(product => { %>
-                        <%- include('../products/partials/product', { product }) %> 
-                    <% }); %>
+                    <% if (!products.length) { %>
+                        <h2>No hay productos</h2>
+                    <% } else {%>
+                        <% products.forEach(product => { %>
+                            <%- include('../products/partials/product', { product }) %> 
+                        <% }); %>
+                    <% } } {%>
+
                 </div>
 
             </section>

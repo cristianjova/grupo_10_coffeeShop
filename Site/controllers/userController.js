@@ -28,17 +28,21 @@ module.exports = {
             delete newUser.category;
             delete newUser.password_register;
             delete newUser.email_register;
+            newUser.category_id = 2;
+            newUser.adress = '';
+            newUser.phone_number = '';
             user.create(newUser,{ include: category })
                 .then(getUser=>{
-                    return res.render('users/detail', { getUser });
+                    // return res.render('users/detail', { getUser });
+                    return res.render('users/login', { msg: 'Usuario creado correctamente'});
                 })
                 .catch(error => {
                     console.log(error);
                     return res.render('/');
-                  })
+                })
 
             //res.render('');
-            res.redirect('login');
+            // res.redirect('login');
         } else {
             if(req.file) {
                 let imagePath = path.join(__dirname, '../public/img/users/' + req.file.filename);
@@ -50,7 +54,6 @@ module.exports = {
             return res.render('users/register', {
                 errorsReg: errors.mapped(),
                 user: req.body
-                
             })
         }
     },
