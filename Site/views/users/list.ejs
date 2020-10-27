@@ -26,24 +26,28 @@
                     </div>
                 </section>
             </div>
-            <section class="users" id="user_list">
-                <table class="usersTable">
-                    <thead>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Correo</th>
-                        <th>Imagen</th>
-                        <th>Detalle</th>
-                        <th>Edicion</th>
-                        <th>Borrar</th>
-                    </thead>
-                    <tbody>
-                        <% users.forEach(user => { %>
-                            <%- include('./partials/user', { user }) %>
-                        <% }); %>
-                    </tbody>
-                </table>
-            </section>
+            <% if (!users.length) { %>
+                <h2>No hay usuarios</h2>
+            <% } else {%>
+                <section class="users" id="user_list">
+                    <table class="usersTable">
+                        <thead>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Correo</th>
+                            <th>Imagen</th>
+                            <th>Detalle</th>
+                            <th>Edicion</th>
+                            <th>Borrar</th>
+                        </thead>
+                        <tbody>
+                            <% users.forEach(user => { %>
+                                <%- include('./partials/user', { user }) %>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                </section>
+            <% } %>
         </div>
         
         

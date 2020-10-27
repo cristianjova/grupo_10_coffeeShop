@@ -7,6 +7,9 @@
   <%-include('../partials/header')%>
   <main>
       <div class="formContainer">
+          <% if (locals.msg) { %>
+            <%-include('../partials/message', { msg })%>
+          <% } %>
           <form action="/user/login" method="POST" id="loginForm">
           <!--Campos del Login-->
               <!--Contenedor de login-->
