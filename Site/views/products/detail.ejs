@@ -18,11 +18,17 @@
             <p><b>Tamaño</b><br> <%= product.size.name %> gramos</p>
             <p><b>Precio</b><br> $<%= product.price %></p>
           </div>
-          <div class="product-buy">
+          <div class="product-buttons">
             <button class="btn primary">Añadir <i class="fas fa-shopping-cart"></i></button>
+            <% if (locals.userLoggedIn && locals.userLoggedIn.categoryId == 1) { %>
+              <a class="btn-edit" href="/products/<%= product.id %>/edit">Editar</a>
+              <form class="has-buttons" action="/products/<%= product.id %>?_method=DELETE" method="POST">
+                <button class="btn-delete" type="submit">Eliminar</button>
+              </form>
+            <% } %>
           </div>
           <div class="product-description">
-            <h1>Origen <%= product.name %></h1>
+            <h1><%= product.name %></h1>
             <h2>Notas de Cata</h2>
             <p><%= product.description %></p>
           </div>

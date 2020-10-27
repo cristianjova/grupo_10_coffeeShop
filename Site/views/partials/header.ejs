@@ -32,7 +32,7 @@
         <div class="mobile-icons">
           <a href="/products/cart"><i class="fas fa-shopping-cart"></i></a>
           <% if (locals.userLoggedIn) { %>
-            <a href="/user/profile"><i class="fas fa-user"></i></a>
+            <a href="/"><i class="fas fa-user"></i></a>
             <a href="/user/logout"><i class="fas fa-sign-out-alt"></i></a>
           <% } else { %>
             <a href="/user/login"><i class="fas fa-user"></i></a>
@@ -46,6 +46,11 @@
         <li><a href="/products">Productos</a></li>
         <li><a href="/aboutus">Nosotros</a></li>
         <li><a href="/contact">Contacto</a></li>
+        <% if (locals.userLoggedIn && locals.userLoggedIn.categoryId == 1) { %>
+          <li class="admin"><a href="/products/create">Crear Producto</a></li>
+          <li class="admin"><a href="/user/list">Usuarios</a></li>
+          <li class="admin"><a href="/dashboard">Dashboard</a></li>
+        <% } %>
       </ul>
     </div>
   </nav>

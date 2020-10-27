@@ -4,7 +4,7 @@ window.addEventListener('load', function() {
     let errors = {};
 
     let form = document.getElementById('loginForm');
-    let mail = document.getElementById('mail');
+    let email = document.getElementById('email');
     let password = document.getElementById('password');
 
     let validateEmail = function() {

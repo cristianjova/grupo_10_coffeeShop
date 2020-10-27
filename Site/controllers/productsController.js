@@ -36,7 +36,7 @@ module.exports = {
           order: [ [ 'price', `${filterPrice}` ]]
         })
         .then(products => {
-            return res.render('products/list', { products });
+            return res.render('products/list', { products, filterPrice });
         })
         .catch(error => {
             console.log(error);
