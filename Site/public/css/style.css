@@ -445,7 +445,11 @@ footer span a {
 
 /*Formulario de contacto*/
 /*----------------------------------------------------------------------------------------*/
-
+.form-contact {
+    max-width: 90%;
+    margin: 0 auto;
+    margin-bottom: 1.5rem;
+}
 
 
 /*Formulario registro*/
@@ -834,6 +838,12 @@ h2{
         width: 40%;
     }
     
+    /* Contact Page */
+    .form-contact {
+        max-width: 60%;
+        margin: 0 auto;
+        margin-bottom: 1.5rem;
+    }
 
     /* ProductDetail Page */
     .product-detail .product {

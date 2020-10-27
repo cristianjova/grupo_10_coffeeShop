@@ -5,40 +5,24 @@
 <body > 
   <%-include('../partials/header')%>
   <main>
-    <div class="listContainer">
-      <div class="buscadorForm">
+    <div class="contact-page">
+      <div class="form-contact">
           <h1>Contacto</h1>
-          <section>
-            <div class="row input-container">
-                <div class="col-xs-12">
-                  <div class="styled-input wide">
-                    <label for="">Nombre</label> 
-                    <input type="text" required />
-                  </div>
-                </div>
-                <div class="col-md-6 col-sm-12">
-                  <div class="styled-input">
-                    <label for="">Email</label> 
-                    <input type="text" required />
-                  </div>
-                </div>
-                <div class="col-md-6 col-sm-12">
-                  <div class="styled-input" style="float:right;">
-                    <label for="">Telefono</label> 
-                    <input type="text" required />
-                  </div>
-                </div>
-                <div class="col-xs-12">
-                  <div class="styled-input wide">
-                    <label for="">Message</label>
-                    <textarea required></textarea>
-                  </div>
-                </div>
-                <div class="col-xs-12">
-                  <div class="btn primary">Enviar</div>
-                </div>
+          <div class="field">
+            <label for="name">Nombre</label>
+            <input type="text" name="name">
           </div>
-          </section>
+          <div class="field">
+            <label for="email">Correo Electrónico</label>
+            <input type="email" name="email">
+          </div>
+          <div class="field">
+            <label for="message">Mensaje</label>
+            <textarea name="message" id="" cols="30" rows="10"></textarea>
+          </div>
+          <div class="field">
+            <button class="btn-outline-primary" style="width: 200px;" type="submit">Enviar</button>
+          </div>
       </div>
   </div>
   </main>
