@@ -19,7 +19,7 @@ module.exports = {
   },
   search: async (req,res) => {
     try{
-        let search = req.query.search;
+        let search = req.query.search.toLowerCase();
         let products = await product.findAll({
             where:{
               name: Sequelize.where(Sequelize.fn('LOWER', Sequelize.col('name')), 'LIKE', '%' + search + '%') , 
