@@ -13,7 +13,7 @@
                 <h1 class="hometitle">
                     <%= locals.search ? "Resultados para: " + locals.search : "Nuestros productos" %>
                 </h1>
-                <form action="">
+                <form action="/products/search" class="search-bar-form">
                     <label for="name">Ordenar por precio</label><br>
                     <label for="bySize">Ascendente</label>
                     <input type="radio" name="filterByPrice" value="asc" id="asc">

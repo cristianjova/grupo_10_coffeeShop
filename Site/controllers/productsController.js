@@ -8,17 +8,22 @@ const { product, size, toast, roast } = require('../database/models');
 
 module.exports = {
   index: (req,res) => {
-    product.findAll()
-      .then(products => {
-        return res.render('products/list', { products });
-      })
-      .catch(error => {
-        console.log(error);
-        return res.redirect('/')
-      })
+    
+      product.findAll()
+        .then(products => {
+          return res.render('products/list', { products });
+        })
+        .catch(error => {
+          console.log(error);
+          return res.redirect('/')
+        }) 
+    
   },
   search: async (req,res) => {
     try{
+      let filterPrice = req.query.filterByPrice;
+      console.log(filterPrice)
+      if(!filterPrice){
         let search = req.query.search.toLowerCase();
         let products = await product.findAll({
             where:{
@@ -26,6 +31,18 @@ module.exports = {
             }
         });
         return res.render('products/list', { search, products });
+      }else{
+        product.findAll({
+          order: [ [ 'price', `${filterPrice}` ]]
+        })
+        .then(products => {
+            return res.render('products/list', { products });
+        })
+        .catch(error => {
+            console.log(error);
+            return res.redirect('/')
+        })
+      }
     }catch(error){
         res.status(500).json({
             status:"error",
