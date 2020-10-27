@@ -6,7 +6,7 @@ const { product } = require('../database/models');
 module.exports = {
     index: (req,res)=>{
         product.findAll({
-            limit: 10,
+            limit: 8,
             order: [ [ 'id', 'DESC' ]]
         })
         .then(products => {

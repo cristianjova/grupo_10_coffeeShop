@@ -6,7 +6,6 @@ import Table from './components/Table';
 import Categories from './components/Categories';
 import axios from 'axios';
 
-const url = process.env.URL ? process.env.URL : 'http://ag350.dhalumnos.com/';
 
 class App extends Component {
   constructor(props) {
@@ -30,14 +29,14 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.apiCall(`http://ag350.dhalumnos.com/api/products`, (response) => {
+    this.apiCall(`http://localhost:3000/api/products`, (response) => {
       this.setState({
         products: response.data.products,
         categories: response.data.meta.categories,
         totalProducts: response.data.meta.count
       })
     });
-    this.apiCall(`http://ag350.dhalumnos.com/api/users`, (response) => {
+    this.apiCall(`http://localhost:3000/api/users`, (response) => {
       this.setState({
         users: response.data.users,
         totalUsers: response.data.meta.count,

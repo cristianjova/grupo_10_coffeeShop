@@ -5,6 +5,7 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const auth = require('./middlewares/auth');
+const userMidd = require('./middlewares/userRoute');
 
 
 // Iniciar app
@@ -44,12 +45,13 @@ app.use('/products', productsRoute);
 // Rutas API
 const apiProductsRoute = require('./routes/api/product');
 const apiUsersRoute = require('./routes/api/user');
+const { use } = require('./routes/index');
 
 app.use('/api/products', apiProductsRoute);
 app.use('/api/users', apiUsersRoute);
 
 //Dashboard route
-app.get('/dashboard', function(req, res) {
+app.get('/dashboard', userMidd, function(req, res) {
   res.sendFile(path.join(__dirname, 'client', 'index.html'));
 });
 
