@@ -6,7 +6,7 @@ import Table from './components/Table';
 import Categories from './components/Categories';
 import axios from 'axios';
 
-const url = process.env.URL ? process.env.URL : 'http://localhost:3000/';
+const url = process.env.URL ? process.env.URL : 'http://ag350.dhalumnos.com/';
 
 class App extends Component {
   constructor(props) {
@@ -30,14 +30,14 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.apiCall(`${url}api/products`, (response) => {
+    this.apiCall(`http://ag350.dhalumnos.com/api/products`, (response) => {
       this.setState({
         products: response.data.products,
         categories: response.data.meta.categories,
         totalProducts: response.data.meta.count
       })
     });
-    this.apiCall(`${url}api/users`, (response) => {
+    this.apiCall(`http://ag350.dhalumnos.com/api/users`, (response) => {
       this.setState({
         users: response.data.users,
         totalUsers: response.data.meta.count,
@@ -101,14 +101,14 @@ class App extends Component {
                 <li className="nav-item dropdown no-arrow mx-1">
                   <a className="nav-link dropdown-toggle" href="/" id="alertsDropdown">
                     <i className="fas fa-bell fa-fw"></i>
-                    <span className="badge badge-danger badge-counter">3+</span>
+                    <span className="badge badge-danger badge-counter">+1</span>
                   </a>
                 </li>
 
                 <li className="nav-item dropdown no-arrow mx-1">
                   <a className="nav-link dropdown-toggle" href="/" id="messagesDropdown">
                     <i className="fas fa-envelope fa-fw"></i>
-                    <span className="badge badge-danger badge-counter">7</span>
+                    <span className="badge badge-danger badge-counter">1</span>
                   </a>
                 </li>
 
@@ -116,8 +116,8 @@ class App extends Component {
 
                 <li className="nav-item dropdown no-arrow">
                   <a className="nav-link dropdown-toggle" href="/" id="userDropdown">
-                    <span className="mr-2 d-none d-lg-inline text-gray-600 small">Walter White</span>
-                    <img className="img-profile rounded-circle" src="assets/images/dummy-avatar.jpg" alt="Imagen de perfil" width="60" />
+                    <span className="mr-2 d-none d-lg-inline text-gray-600 small">User</span>
+                    <img className="img-profile rounded-circle" src="/images/dummy-avatar.jpg" alt="Imagen de perfil" width="60" />
                   </a>
                 </li>
 
@@ -128,7 +128,7 @@ class App extends Component {
             <div className="container-fluid">
 
               <div className="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 className="h3 mb-0 text-gray-800">App Dashboard</h1>
+                <h1 className="h3 mb-0 text-gray-800">Aplicacion de back office de Coffee Shop</h1>
               </div>
               <div className="row">
                 { metrics.map(metric =>
@@ -155,7 +155,7 @@ class App extends Component {
 
 
               <div className="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 className="h3 mb-0 text-gray-800">All the products</h1>
+                    <h1 className="h3 mb-0 text-gray-800">Todos los productos</h1>
                   </div>
 
               <div className="row">
@@ -177,7 +177,7 @@ class App extends Component {
           <footer className="sticky-footer bg-white">
             <div className="container my-auto">
               <div className="copyright text-center my-auto">
-                <span>Copyright &copy; Dashboard 2020</span>
+                <span>Copyright &copy; CoffeeShop 2020</span>
               </div>
             </div>
           </footer>

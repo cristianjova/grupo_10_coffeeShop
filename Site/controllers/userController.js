@@ -207,7 +207,6 @@ module.exports = {
         })
         .then(() => {
             delete updatedUser.password;
-            req.session.user = updatedUser;
             return res.redirect('/user/' + req.params.id);
         })
         .catch(error => {

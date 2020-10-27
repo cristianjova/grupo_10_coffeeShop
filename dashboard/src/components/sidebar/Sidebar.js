@@ -9,7 +9,7 @@ function Sidebar() {
       <div className="sidebar-brand-icon">
         <i className="fas fa-chart-line"></i>
       </div>
-      <div className="sidebar-brand-text mx-3">Admin</div>
+      <div className="sidebar-brand-text mx-3">Admin CoffeeShop</div>
     </a>
 
     <hr className="sidebar-divider my-0" />
@@ -22,25 +22,25 @@ function Sidebar() {
 
     <hr className="sidebar-divider" />
 
-    <div className="sidebar-heading">Actions</div>
+    <div className="sidebar-heading">Operaciones</div>
 
     <li className="nav-item">
       <a className="nav-link collapsed" href="/">
         <i className="fas fa-fw fa-folder"></i>
-        <span>Pages</span>
+        <span>Usuarios</span>
       </a>
     </li>
 
     <li className="nav-item">
       <a className="nav-link" href="/">
         <i className="fas fa-fw fa-chart-area"></i>
-        <span>Charts</span></a>
+        <span>Productos</span></a>
     </li>
 
     <li className="nav-item">
       <a className="nav-link" href="/">
         <i className="fas fa-fw fa-table"></i>
-        <span>Tables</span></a>
+        <span>Estadisticas</span></a>
     </li>
 
     <hr className="sidebar-divider d-none d-md-block" />
