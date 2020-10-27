@@ -395,7 +395,7 @@ footer span a {
 /*Login*/
 /*----------------------------------------------------------------------*/
 
-.formContainer{
+/* .formContainer{
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -404,10 +404,22 @@ footer span a {
     flex-wrap: wrap;
     margin: 2rem auto;
     width: 75%;
-}
-.formContainer button, .formContainer label, .formContainer input{
+} */
+/* .formContainer button, .formContainer label, .formContainer input{
     width: 100%;
+} */
+.formContainer {
+    margin: 2rem auto;
 }
+
+.formContainer form {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
  .loginImg{
      font-size: 5em;
 }
@@ -456,7 +468,6 @@ footer span a {
 /*----------------------------------------------------------------------*/
 .register{
     justify-content: left;
-    text-align: center;
     display: flex;
     flex-direction: column;
     margin: 2rem auto;
@@ -1054,7 +1065,7 @@ h2{
     /*Register*/
     /*----------------------------------------------------------------------*/
     .register{
-        width: 40%;
+        width: 50%;
     }
     /*About Us*/
     /*----------------------------------------------------------------------*/
@@ -1100,9 +1111,9 @@ h2{
     .formContainer{
         width: 33%;
     }
-    .formContainer .btn{
+    /* .formContainer .btn{
         width: 200px;
-    }
+    } */
 
     /* ProductDetail Page */
 

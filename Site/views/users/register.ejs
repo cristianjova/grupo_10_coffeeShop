@@ -7,44 +7,54 @@
     <main>
         <form action="register" method="POST" enctype="multipart/form-data" id="registerForm" novalidate>
             <div class=" register">
-                <h2>Formulario de registro</h2>
+                <h2 style="text-align: center;">Formulario de registro</h2>
 
-                <label for="first_name">Nombre</label>
-                <input  type="text" id="first_name" name="first_name" required>
-                <p class="feedback"></p>
-                <% if (locals.errorsReg && errorsReg.first_name) { %>
-                    <small style="color: red"><%= errorsReg.first_name.msg %> </small> <br>
-                <% } %>
+                <div class="field">
+                    <label for="first_name">Nombre</label>
+                    <input  type="text" id="first_name" name="first_name" required>
+                    <p class="feedback"></p>
+                    <% if (locals.errorsReg && errorsReg.first_name) { %>
+                        <small style="color: red"><%= errorsReg.first_name.msg %> </small> <br>
+                    <% } %>
+                </div>
 
-                <label for="last_name">Apellido</label>
-                <input  type="text" id="last_name" name="last_name" required>
-                <p class="feedback"></p>
-                <% if (locals.errorsReg && errorsReg.last_name) { %>
-                    <small style="color: red"><%= errorsReg.last_name.msg %> </small> <br>
-                <% } %>
+                <div class="field">
+                    <label for="last_name">Apellido</label>
+                    <input  type="text" id="last_name" name="last_name" required>
+                    <p class="feedback"></p>
+                    <% if (locals.errorsReg && errorsReg.last_name) { %>
+                        <small style="color: red"><%= errorsReg.last_name.msg %> </small> <br>
+                    <% } %>
+                </div>
+                
+                <div class="field">
+                    <label for="email_register">Correo Electrónico</label>
+                    <input  type="email" id="email_register" name="email_register" required>
+                    <p class="feedback"></p>
+                    <% if (locals.errorsReg && errorsReg.email_register) { %>
+                        <small style="color: red"><%= errorsReg.email_register.msg %> </small> <br>
+                    <% } %>
+                </div>
 
-                <label for="email_register">Correo Electrónico</label>
-                <input  type="email" id="email_register" name="email_register" required>
-                <p class="feedback"></p>
-                <% if (locals.errorsReg && errorsReg.email_register) { %>
-                    <small style="color: red"><%= errorsReg.email_register.msg %> </small> <br>
-                <% } %>
+                <div class="field">
+                    <label for="password_register">Contraseña</label>
+                    <input type="password" id="password_register" name="password_register" required>
+                    <p class="feedback"></p>
+                    <% if (locals.errorsReg && errorsReg.password_register) { %>
+                        <small style="color: red"><%= errorsReg.password_register.msg %> </small>
+                    <% } %>
+                </div>
                 
-                <label for="password_register">Contraseña</label>
-                <input type="password" id="password_register" name="password_register" required>
-                <p class="feedback"></p>
-                <% if (locals.errorsReg && errorsReg.password_register) { %>
-                    <small style="color: red"><%= errorsReg.password_register.msg %> </small>
-                <% } %>
+                <div class="field">
+                    <label for="image">Imagen</label>
+                    <input type="file" name="image" id="image">
+                    <p class="feedback"></p>
+                    <% if (locals.errorsReg && errorsReg.image) { %>
+                        <small style="color: red"><%= errorsReg.image.msg %> </small>
+                    <% } %>
+                </div>
                 
-                <label for="image">Imagen</label>
-                <input type="file" name="image" id="image">
-                <p class="feedback"></p>
-                <% if (locals.errorsReg && errorsReg.image) { %>
-                    <small style="color: red"><%= errorsReg.image.msg %> </small>
-                <% } %>
-                
-                <div>
+                <div style="display: flex;">
                     <button type="submit" class="btn primary">Registrarme</button>
                     <button type="reset" class="btn primary del">Borrar</button>                            
                 </div>
