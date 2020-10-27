@@ -78,7 +78,7 @@ label{
     margin: 0.2rem;
 }
 
-input, select, option{
+input{
     border-radius: 2px;
     border: 0px;
     margin: 0.2rem;
@@ -392,44 +392,6 @@ footer span a {
     text-transform: uppercase;
   }
 
-/* .homeProductContainer{
-    text-align: center;
-    padding: 12px;
-}
-.homeProduct{
-    margin-bottom: -50px;
-}
-.homeProductName{
-    font-size: medium;
-    font-weight: 800;
-    margin: 0;
-}
-.homeProductPrice{
-    font-style: italic;
-    font-size:medium;
-    font-weight: 600;
-    margin: 0;
-} */
-
-/* section .containerHome{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    margin: 0 auto;
-    justify-content: space-around;
-    padding: 1rem;
-}
-
-section .containerHome img{
-    width: 100%;
-} */
-
-
-/* @media(min-width:1024px){
-    section .containerHome article{
-        width: 33%;
-    }
-} */
 /*Login*/
 /*----------------------------------------------------------------------*/
 
@@ -443,7 +405,7 @@ section .containerHome img{
     margin: 2rem auto;
     width: 75%;
 }
-.formContainer button, label, input{
+.formContainer button, .formContainer label, .formContainer input{
     width: 100%;
 }
  .loginImg{
@@ -459,6 +421,13 @@ section .containerHome img{
 /*Listado*/
 /*----------------------------------------------------------------------*/
 
+.filterProducts div{
+    display: flex;
+    width: 150px;
+    justify-content: space-between;
+    align-items: center
+}
+
 .listContainer{
     align-items: center;
     justify-content: center;
@@ -469,7 +438,7 @@ section .containerHome img{
     margin: 2rem auto;
     width: 100%;
 }
-.listContainer button, label, input{
+.listContainer button, .listContainer label, .listContainer input{
     width: 100%;
 }
 
@@ -545,19 +514,57 @@ h2{
     width: 50%;
 }
 
-.product-detail .product .product-buy {
+.product-detail .product .product-buttons {
     margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
-.product-detail .product .product-buy .btn {
-    padding: 0.7rem;
+.has-buttons {
+    width: 100%;
+}
+
+.product-detail .product .product-buttons .btn {
+    padding: 0.5rem;
     margin: 0;
     border: none;
     text-transform: uppercase;
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 1rem;
     transition: all 0.5s ease-in-out;
     width: 100%;
+}
+
+.product-detail .product .product-buttons .btn-edit {
+    padding: 0.5rem;
+    margin: 0;
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.5s ease-in-out;
+    width: 100%;
+    display: block;
+    text-decoration: none;
+    background-color: var(--light);
+    text-align: center;
+    color: #fff;
+}
+
+.product-detail .product .product-buttons .btn-delete {
+    padding: 0.5rem;
+    margin: 0;
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.5s ease-in-out;
+    width: 100%;
+    background-color: red;
+    color: #fff;
 }
 
 .product-detail .product .product-description {
@@ -826,8 +833,8 @@ h2{
     .formContainer{
         width: 40%;
     }
-        
     
+
     /* ProductDetail Page */
     .product-detail .product {
         flex-direction: row;
@@ -847,6 +854,11 @@ h2{
 
     .product-detail .product .product-actions {
         width: 55%;
+    }
+
+    .product-detail .product .product-buttons {
+        flex-direction: row;
+        justify-content: space-between;
     }
 
     /* ProductCart Page */
@@ -914,6 +926,10 @@ h2{
 	.navbar .mobile-icons {
 		display: none;
 	}
+
+    li.admin {
+        display: none;
+    }
 
 	.navbar .collapse-links {
 		display: flex;
@@ -1122,7 +1138,7 @@ only screen and (max-width: 769px)  {
     .listContainer table{
         width: 150%;
     }
-    .listContainer button, label, input {
+    .listContainer button, .listContainer label, .listContainer input {
         width: 82%;
     }
 
