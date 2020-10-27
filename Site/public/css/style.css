@@ -596,18 +596,18 @@ h2{
 /* ProductCart Page */
 .product-cart .cart .cart-item {
     border-bottom: 1px solid var(--primary);
+    display: flex;
 }
 
 .product-cart .cart .cart-item .item-img {
-    width: 100%;
+    /* width: 100%;
     display: flex;
     align-items: center;
+    flex-direction: column; */
 }
 
 .product-cart .cart .cart-item .item-img img {
-    width: 70%;
-    margin-left: -3rem;
-    margin-bottom: -2rem;
+    width: 15%;
 }
 
 .product-cart .cart .cart-item .item-actions th {
