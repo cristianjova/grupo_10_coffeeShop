@@ -18,9 +18,9 @@ INSERT INTO `products` (`id`, `name`, `description`, `price`, `image`, `size_id`
 (17, 'Anas punctata', 'dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in', 3064.65, 'product_18.webp', 1, 1, 1, NULL, NULL);
 
 INSERT INTO `roasts` (`id`, `name`, `createdAt`, `updatedAt`) VALUES
-(1, 'brasil', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2, 'colombia', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3, 'francia', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(1, 'Brasil', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2, 'Colombia', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3, 'Francia', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 INSERT INTO `sequelizemeta` (`name`) VALUES
 ('20200921183323-create-product.js'),
@@ -34,9 +34,9 @@ INSERT INTO `sizes` (`id`, `name`, `createdAt`, `updatedAt`) VALUES
 (3, '1000', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 INSERT INTO `toasts` (`id`, `name`, `createdAt`, `updatedAt`) VALUES
-(1, 'suizo', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2, 'español', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3, 'italiano', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(1, 'Suizo', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2, 'Español', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3, 'Italiano', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `category_id`, `adress`, `phone_number`, `image`) VALUES
 (1, 'Ginnifer', 'Muffitt', 'gmuffitt0@cdbaby.com', 'pBIxzjMxm', 1, '8 Crest Line Drive', '690-743-8266', 'avatar.png'),

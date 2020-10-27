@@ -6,27 +6,7 @@ import Table from './components/Table';
 import Categories from './components/Categories';
 import axios from 'axios';
 
-const metrics = [
-  {
-    color: "primary",
-    title: "Products in Data Base",
-    value: 135,
-    iconClass: "fa-clipboard-list",
-  },
-  {
-    color: "success",
-    title: "Amount in products",
-    value: 546456,
-    iconClass: "fa-dollar-sign",
-  },
-  {
-    color: "warning",
-    title: "Total users",
-    value: 38,
-    iconClass: "fa-user-check",
-  },
-];
-
+const url = process.env.URL ? process.env.URL : 'http://localhost:3000/';
 
 class App extends Component {
   constructor(props) {
@@ -50,14 +30,14 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.apiCall('http://localhost:3000/api/products', (response) => {
+    this.apiCall(`${url}api/products`, (response) => {
       this.setState({
         products: response.data.products,
         categories: response.data.meta.categories,
         totalProducts: response.data.meta.count
       })
     });
-    this.apiCall('http://localhost:3000/api/users', (response) => {
+    this.apiCall(`${url}api/users`, (response) => {
       this.setState({
         users: response.data.users,
         totalUsers: response.data.meta.count,
