@@ -220,7 +220,7 @@ module.exports = {
 
         user.destroy({ where: { id: req.params.id } })
         .then(deletedUser => {
-            if (fs.existsSync(imagePath)) {
+            if(fs.existsSync(imagePath) && existingUser.image != 'avatar.webp'){
                 fs.unlinkSync(imagePath)
             }
 
